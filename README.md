@@ -1,4 +1,4 @@
-# RUNNING INFERENCE EXPERIMETS - A GUIDE
+# Running experiments (WiP)
 This guide is for running the inference using our framework in order to generate a dataset of sequences of actions based on the provided dataset of prompts.
 
 ## Prerequisites
@@ -42,9 +42,6 @@ python3 run_experiments.py
 This will produce 2 `json` files for each model.
 1. `bfcl_results_<model_name>.json`: contains all the results (output sequences) from the BFCL-produced dataset.
 2. `results_<model_name>.json`: contains all the results (output sequences) from our own dataset.
-
-# MESSAGE TO STAMOULIS
-You only need to produce the output sequences for the datasets for different models. We will be doing the rest of the work to get the actual metrics.
 
 # List of models we could run
 - Qwen 3 0.6B, 1.7B, 4B, 8B, 14B, 32B
