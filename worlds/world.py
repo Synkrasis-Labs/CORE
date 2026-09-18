@@ -1,4 +1,3 @@
-from llm_tool import tool
 from typing import List, Dict, Optional
 from dataclasses import dataclass
 
@@ -13,6 +12,9 @@ class World:
     decision_system_prompt: str
 
     def _get_tool_definitions(self) -> List[Dict]:
+        # Only the legacy schema path needs this optional dependency.
+        from llm_tool import tool
+
         methods = [
             i for i in dir(self)
             if not i.startswith('_') and

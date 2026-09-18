@@ -1,14 +1,22 @@
-from worlds.automation import Automation
-from worlds.communication import Communication
-from worlds.configurations import Configurations
-from worlds.crud import CRUD
-from worlds.desktop_manager import DesktopManager
-from worlds.events_scheduler import EventsScheduler
-from worlds.file_management import FileManagement
-from worlds.legal_compliance import LegalCompliance
-from worlds.computations import Computations
-from worlds.navigation import Navigation
-from worlds.transactions import Transactions
-from worlds.validation import Validation
-from worlds.web_browsing import WebBrowsing
-from worlds.writing import Writing
+"""Load world exports on demand, without unrelated world dependencies."""
+
+from importlib import import_module
+
+_MODULES = {
+    "Automation": "automation", "Communication": "communication",
+    "Configurations": "configurations", "CRUD": "crud",
+    "DesktopManager": "desktop_manager", "EventsScheduler": "events_scheduler",
+    "FileManagement": "file_management", "LegalCompliance": "legal_compliance",
+    "Computations": "computations", "Navigation": "navigation",
+    "Transactions": "transactions", "Validation": "validation",
+    "WebBrowsing": "web_browsing", "Writing": "writing",
+}
+__all__ = list(_MODULES)
+
+
+def __getattr__(name):
+    if name not in _MODULES:
+        raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+    result = getattr(import_module(f"{__name__}.{_MODULES[name]}"), name)
+    globals()[name] = result
+    return result

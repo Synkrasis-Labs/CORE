@@ -1,4 +1,10 @@
 # Running experiments (WiP)
+The Week 1 FarmAgent-derived runtime is available in `function_calling/`.
+See [the port guide](docs/FUNCTION_CALLING_PORT.md) for its interface and offline
+tests. A scripted run of CORE's real Computations tools is available with
+`python -m function_calling.computations_smoke`. It is not yet connected to the
+existing CORE batch experiment runner described below.
+
 This guide is for running the inference using our framework in order to generate a dataset of sequences of actions based on the provided dataset of prompts.
 
 ## Prerequisites

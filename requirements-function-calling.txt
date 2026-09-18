@@ -1,0 +1,2 @@
+# Optional transport for real model calls. Offline runtime/tests use only stdlib.
+openai>=1.0.0,<3
