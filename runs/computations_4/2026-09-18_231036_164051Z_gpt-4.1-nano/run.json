@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "world": "Computations",
+  "prompt_id": "computations_4",
+  "prompt": "Subtract 4 from 25 and divide the result by 3. Then, calculate the average of this quotient and the product of 4 and 5.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "calculations": []
+  },
+  "final_state": {
+    "calculations": [
+      "25 - 4 = 21",
+      "21 / 3 = 7.0",
+      "4 * 5 = 20",
+      "Average of [7, 20] = 13.5"
+    ]
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 5,
+    "tool_calls": 4,
+    "final_answer": "The average of the quotient 7.0 and the product 20 is 13.5.",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0,
+      "request_timeout_seconds": 30,
+      "max_output_tokens": 512,
+      "token_limit_parameter": "max_completion_tokens"
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 3.5929999999971187,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Subtract 4 from 25 and divide the result by 3. Then, calculate the average of this quotient and the product of 4 and 5.\n\nCurrent world state:\nDatabase: {'calculations': []}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789773036.1974003,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": 21,
+      "op_type": "TOOL",
+      "tool_name": "Computations__subtract_numbers",
+      "canonical_name": "subtract_numbers",
+      "tool_args": {
+        "a": 25,
+        "b": 4
+      },
+      "raw_arguments": "{\"a\":25,\"b\":4}",
+      "requested_args": {
+        "a": 25,
+        "b": 4
+      },
+      "tool_call_id": "call_nziOmXrgQsDHSDuJZ4v9rwVV",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789773036.8883932,
+      "time_before": 1789773036.8883932,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": 7.0,
+      "op_type": "TOOL",
+      "tool_name": "Computations__divide_numbers",
+      "canonical_name": "divide_numbers",
+      "tool_args": {
+        "a": 21,
+        "b": 3
+      },
+      "raw_arguments": "{\"a\":21,\"b\":3}",
+      "requested_args": {
+        "a": 21,
+        "b": 3
+      },
+      "tool_call_id": "call_1h2wk61rWghnNWlVD2q6Y2nt",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789773037.5176377,
+      "time_before": 1789773037.5176377,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": 20,
+      "op_type": "TOOL",
+      "tool_name": "Computations__multiply_numbers",
+      "canonical_name": "multiply_numbers",
+      "tool_args": {
+        "a": 4,
+        "b": 5
+      },
+      "raw_arguments": "{\"a\":4,\"b\":5}",
+      "requested_args": {
+        "a": 4,
+        "b": 5
+      },
+      "tool_call_id": "call_OQcmFBUT236cWKBdeZyHK3B1",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789773038.164975,
+      "time_before": 1789773038.164975,
+      "elapsed_seconds": 0.0
+    },
+    "step4": {
+      "name": "step4",
+      "content": 13.5,
+      "op_type": "TOOL",
+      "tool_name": "Computations__calculate_average",
+      "canonical_name": "calculate_average",
+      "tool_args": {
+        "numbers": [
+          7,
+          20
+        ]
+      },
+      "raw_arguments": "{\"numbers\":[7.0,20]}",
+      "requested_args": {
+        "numbers": [
+          7.0,
+          20
+        ]
+      },
+      "tool_call_id": "call_8AitqfbYxTFfZZyu5K5hpo3u",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789773038.979985,
+      "time_before": 1789773038.979985,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for performing computational and mathematical operations. The database of calculations is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Subtract 4 from 25 and divide the result by 3. Then, calculate the average of this quotient and the product of 4 and 5.\n\nCurrent world state:\nDatabase: {'calculations': []}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_nziOmXrgQsDHSDuJZ4v9rwVV",
+          "type": "function",
+          "function": {
+            "name": "Computations__subtract_numbers",
+            "arguments": "{\"a\":25,\"b\":4}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_nziOmXrgQsDHSDuJZ4v9rwVV",
+      "content": "21"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_nziOmXrgQsDHSDuJZ4v9rwVV: {\"calculations\": [\"25 - 4 = 21\"]}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_1h2wk61rWghnNWlVD2q6Y2nt",
+          "type": "function",
+          "function": {
+            "name": "Computations__divide_numbers",
+            "arguments": "{\"a\":21,\"b\":3}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_1h2wk61rWghnNWlVD2q6Y2nt",
+      "content": "7.0"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_1h2wk61rWghnNWlVD2q6Y2nt: {\"calculations\": [\"25 - 4 = 21\", \"21 / 3 = 7.0\"]}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_OQcmFBUT236cWKBdeZyHK3B1",
+          "type": "function",
+          "function": {
+            "name": "Computations__multiply_numbers",
+            "arguments": "{\"a\":4,\"b\":5}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_OQcmFBUT236cWKBdeZyHK3B1",
+      "content": "20"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_OQcmFBUT236cWKBdeZyHK3B1: {\"calculations\": [\"25 - 4 = 21\", \"21 / 3 = 7.0\", \"4 * 5 = 20\"]}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_8AitqfbYxTFfZZyu5K5hpo3u",
+          "type": "function",
+          "function": {
+            "name": "Computations__calculate_average",
+            "arguments": "{\"numbers\":[7.0,20]}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_8AitqfbYxTFfZZyu5K5hpo3u",
+      "content": "13.5"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_8AitqfbYxTFfZZyu5K5hpo3u: {\"calculations\": [\"25 - 4 = 21\", \"21 / 3 = 7.0\", \"4 * 5 = 20\", \"Average of [7, 20] = 13.5\"]}"
+    },
+    {
+      "role": "assistant",
+      "content": "The average of the quotient 7.0 and the product 20 is 13.5."
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "call_nziOmXrgQsDHSDuJZ4v9rwVV",
+      "state": {
+        "calculations": [
+          "25 - 4 = 21"
+        ]
+      },
+      "time": 1789773036.8883932
+    },
+    {
+      "tool_call_id": "call_1h2wk61rWghnNWlVD2q6Y2nt",
+      "state": {
+        "calculations": [
+          "25 - 4 = 21",
+          "21 / 3 = 7.0"
+        ]
+      },
+      "time": 1789773037.5176377
+    },
+    {
+      "tool_call_id": "call_OQcmFBUT236cWKBdeZyHK3B1",
+      "state": {
+        "calculations": [
+          "25 - 4 = 21",
+          "21 / 3 = 7.0",
+          "4 * 5 = 20"
+        ]
+      },
+      "time": 1789773038.164975
+    },
+    {
+      "tool_call_id": "call_8AitqfbYxTFfZZyu5K5hpo3u",
+      "state": {
+        "calculations": [
+          "25 - 4 = 21",
+          "21 / 3 = 7.0",
+          "4 * 5 = 20",
+          "Average of [7, 20] = 13.5"
+        ]
+      },
+      "time": 1789773038.979985
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.6869999999980791,
+      "tokens": {
+        "prompt_tokens": 453,
+        "completion_tokens": 22,
+        "total_tokens": 475,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_nziOmXrgQsDHSDuJZ4v9rwVV",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.6409999999996217,
+      "tokens": {
+        "prompt_tokens": 529,
+        "completion_tokens": 22,
+        "total_tokens": 551,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_1h2wk61rWghnNWlVD2q6Y2nt",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.6399999999994179,
+      "tokens": {
+        "prompt_tokens": 621,
+        "completion_tokens": 22,
+        "total_tokens": 643,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_OQcmFBUT236cWKBdeZyHK3B1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.8130000000019209,
+      "tokens": {
+        "prompt_tokens": 717,
+        "completion_tokens": 22,
+        "total_tokens": 739,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_8AitqfbYxTFfZZyu5K5hpo3u",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.8119999999980791,
+      "tokens": {
+        "prompt_tokens": 833,
+        "completion_tokens": 21,
+        "total_tokens": 854,
+        "cached_tokens": 0
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": 3153,
+    "completion_tokens": 109,
+    "total_tokens": 3262
+  },
+  "client_configuration": {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "temperature": 0,
+    "base_url": "https://api.openai.com/v1",
+    "request_timeout_seconds": 30,
+    "max_output_tokens": 512,
+    "token_limit_parameter": "max_completion_tokens",
+    "parallel_tool_calls": false
+  }
+}

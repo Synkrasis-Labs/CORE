@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "world": "Communication",
+  "prompt_id": "communication_3",
+  "prompt": "Send a normal-priority message from 'Charlie' to 'Dana' with the content 'Lunch at noon'. Then print all of Dana\u2019s normal-priority messages. Finally, delete Charlie's messages to Dana.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "messages": []
+  },
+  "final_state": {
+    "messages": []
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 4,
+    "tool_calls": 3,
+    "final_answer": "Reference probe complete",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "scripted",
+      "model": "reference_execution_probe",
+      "temperature": null,
+      "request_timeout_seconds": null,
+      "max_output_tokens": null,
+      "token_limit_parameter": null
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 0.0,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Send a normal-priority message from 'Charlie' to 'Dana' with the content 'Lunch at noon'. Then print all of Dana\u2019s normal-priority messages. Finally, delete Charlie's messages to Dana.\n\nCurrent world state:\nDatabase: {'messages': []}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772498.1779704,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": "Message sent from 'Charlie' to 'Dana' with priority 'normal'.",
+      "op_type": "TOOL",
+      "tool_name": "Communication__send_message",
+      "canonical_name": "send_message",
+      "tool_args": {
+        "sender": "Charlie",
+        "recipient": "Dana",
+        "content": "Lunch at noon",
+        "priority": "normal"
+      },
+      "raw_arguments": "{\"sender\": \"Charlie\", \"recipient\": \"Dana\", \"content\": \"Lunch at noon\", \"priority\": \"normal\"}",
+      "requested_args": {
+        "sender": "Charlie",
+        "recipient": "Dana",
+        "content": "Lunch at noon",
+        "priority": "normal"
+      },
+      "tool_call_id": "ref_1",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772498.1789844,
+      "time_before": 1789772498.1779704,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": [
+        {
+          "sender": "Charlie",
+          "recipient": "Dana",
+          "content": "Lunch at noon",
+          "priority": "normal",
+          "timestamp": "2026-09-18T23:01:38.178984"
+        }
+      ],
+      "op_type": "TOOL",
+      "tool_name": "Communication__print_messages",
+      "canonical_name": "print_messages",
+      "tool_args": {
+        "recipient": "Dana",
+        "priority": "normal"
+      },
+      "raw_arguments": "{\"recipient\": \"Dana\", \"priority\": \"normal\"}",
+      "requested_args": {
+        "recipient": "Dana",
+        "priority": "normal"
+      },
+      "tool_call_id": "ref_2",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772498.1789844,
+      "time_before": 1789772498.1789844,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": "Message from 'Charlie' to 'Dana' has been deleted.",
+      "op_type": "TOOL",
+      "tool_name": "Communication__delete_message",
+      "canonical_name": "delete_message",
+      "tool_args": {
+        "sender": "Charlie",
+        "recipient": "Dana"
+      },
+      "raw_arguments": "{\"sender\": \"Charlie\", \"recipient\": \"Dana\"}",
+      "requested_args": {
+        "sender": "Charlie",
+        "recipient": "Dana"
+      },
+      "tool_call_id": "ref_3",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772498.1789844,
+      "time_before": 1789772498.1789844,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for handling communication and messaging tasks. The database of messages is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Send a normal-priority message from 'Charlie' to 'Dana' with the content 'Lunch at noon'. Then print all of Dana\u2019s normal-priority messages. Finally, delete Charlie's messages to Dana.\n\nCurrent world state:\nDatabase: {'messages': []}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_1",
+          "type": "function",
+          "function": {
+            "name": "Communication__send_message",
+            "arguments": "{\"sender\": \"Charlie\", \"recipient\": \"Dana\", \"content\": \"Lunch at noon\", \"priority\": \"normal\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "content": "Message sent from 'Charlie' to 'Dana' with priority 'normal'."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_1: {\"messages\": [{\"sender\": \"Charlie\", \"recipient\": \"Dana\", \"content\": \"Lunch at noon\", \"priority\": \"normal\", \"timestamp\": \"2026-09-18T23:01:38.178984\"}]}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_2",
+          "type": "function",
+          "function": {
+            "name": "Communication__print_messages",
+            "arguments": "{\"recipient\": \"Dana\", \"priority\": \"normal\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "content": "[{\"sender\": \"Charlie\", \"recipient\": \"Dana\", \"content\": \"Lunch at noon\", \"priority\": \"normal\", \"timestamp\": \"2026-09-18T23:01:38.178984\"}]"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_2: {\"messages\": [{\"sender\": \"Charlie\", \"recipient\": \"Dana\", \"content\": \"Lunch at noon\", \"priority\": \"normal\", \"timestamp\": \"2026-09-18T23:01:38.178984\"}]}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_3",
+          "type": "function",
+          "function": {
+            "name": "Communication__delete_message",
+            "arguments": "{\"sender\": \"Charlie\", \"recipient\": \"Dana\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "content": "Message from 'Charlie' to 'Dana' has been deleted."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_3: {\"messages\": []}"
+    },
+    {
+      "role": "assistant",
+      "content": "Reference probe complete"
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "ref_1",
+      "state": {
+        "messages": [
+          {
+            "sender": "Charlie",
+            "recipient": "Dana",
+            "content": "Lunch at noon",
+            "priority": "normal",
+            "timestamp": "2026-09-18T23:01:38.178984"
+          }
+        ]
+      },
+      "time": 1789772498.1789844
+    },
+    {
+      "tool_call_id": "ref_2",
+      "state": {
+        "messages": [
+          {
+            "sender": "Charlie",
+            "recipient": "Dana",
+            "content": "Lunch at noon",
+            "priority": "normal",
+            "timestamp": "2026-09-18T23:01:38.178984"
+          }
+        ]
+      },
+      "time": 1789772498.1789844
+    },
+    {
+      "tool_call_id": "ref_3",
+      "state": {
+        "messages": []
+      },
+      "time": 1789772498.1789844
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  },
+  "client_configuration": {
+    "provider": "scripted"
+  }
+}

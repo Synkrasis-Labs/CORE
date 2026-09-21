@@ -1,0 +1,370 @@
+{
+  "schema_version": 1,
+  "world": "CRUD",
+  "prompt_id": "crud_5",
+  "prompt": "Create a new user named 'Eve' with an age of 22 and empty email. Then, update her email to 'eve@example.com'. Finally delete the user and verify the deletion by checking all the existing users.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {},
+  "final_state": {},
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 5,
+    "tool_calls": 4,
+    "final_answer": "Reference probe complete",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "scripted",
+      "model": "reference_execution_probe",
+      "temperature": null,
+      "request_timeout_seconds": null,
+      "max_output_tokens": null,
+      "token_limit_parameter": null
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 0.0,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Create a new user named 'Eve' with an age of 22 and empty email. Then, update her email to 'eve@example.com'. Finally delete the user and verify the deletion by checking all the existing users.\n\nCurrent world state:\nDatabase: {}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772718.49322,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": "Eve_id",
+      "op_type": "TOOL",
+      "tool_name": "CRUD__add_user",
+      "canonical_name": "add_user",
+      "tool_args": {
+        "name": "Eve",
+        "age": 22,
+        "email": null
+      },
+      "raw_arguments": "{\"name\": \"Eve\", \"age\": 22, \"email\": null}",
+      "requested_args": {
+        "name": "Eve",
+        "age": 22,
+        "email": null
+      },
+      "tool_call_id": "ref_1",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772718.49322,
+      "time_before": 1789772718.49322,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": true,
+      "op_type": "TOOL",
+      "tool_name": "CRUD__update_user_email",
+      "canonical_name": "update_user_email",
+      "tool_args": {
+        "user_id": "Eve_id",
+        "email": "eve@example.com"
+      },
+      "raw_arguments": "{\"user_id\": \"Eve_id\", \"email\": \"eve@example.com\"}",
+      "requested_args": {
+        "user_id": "Eve_id",
+        "email": "eve@example.com"
+      },
+      "tool_call_id": "ref_2",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772718.4942222,
+      "time_before": 1789772718.49322,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": true,
+      "op_type": "TOOL",
+      "tool_name": "CRUD__delete_user",
+      "canonical_name": "delete_user",
+      "tool_args": {
+        "user_id": "Eve_id"
+      },
+      "raw_arguments": "{\"user_id\": \"Eve_id\"}",
+      "requested_args": {
+        "user_id": "Eve_id"
+      },
+      "tool_call_id": "ref_3",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772718.4947407,
+      "time_before": 1789772718.4942222,
+      "elapsed_seconds": 0.0
+    },
+    "step4": {
+      "name": "step4",
+      "content": [],
+      "op_type": "TOOL",
+      "tool_name": "CRUD__list_users",
+      "canonical_name": "list_users",
+      "tool_args": {},
+      "raw_arguments": "{}",
+      "requested_args": {},
+      "tool_call_id": "ref_4",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772718.4947407,
+      "time_before": 1789772718.4947407,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that makes changes on a database. The database is a list of users. Always check the database and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Create a new user named 'Eve' with an age of 22 and empty email. Then, update her email to 'eve@example.com'. Finally delete the user and verify the deletion by checking all the existing users.\n\nCurrent world state:\nDatabase: {}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_1",
+          "type": "function",
+          "function": {
+            "name": "CRUD__add_user",
+            "arguments": "{\"name\": \"Eve\", \"age\": 22, \"email\": null}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "content": "Eve_id"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_1: {\"Eve_id\": {\"id\": \"Eve_id\", \"name\": \"Eve\", \"age\": 22, \"email\": null}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_2",
+          "type": "function",
+          "function": {
+            "name": "CRUD__update_user_email",
+            "arguments": "{\"user_id\": \"Eve_id\", \"email\": \"eve@example.com\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "content": "true"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_2: {\"Eve_id\": {\"id\": \"Eve_id\", \"name\": \"Eve\", \"age\": 22, \"email\": \"eve@example.com\"}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_3",
+          "type": "function",
+          "function": {
+            "name": "CRUD__delete_user",
+            "arguments": "{\"user_id\": \"Eve_id\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "content": "true"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_3: {}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_4",
+          "type": "function",
+          "function": {
+            "name": "CRUD__list_users",
+            "arguments": "{}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "content": "[]"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_4: {}"
+    },
+    {
+      "role": "assistant",
+      "content": "Reference probe complete"
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "ref_1",
+      "state": {
+        "Eve_id": {
+          "id": "Eve_id",
+          "name": "Eve",
+          "age": 22,
+          "email": null
+        }
+      },
+      "time": 1789772718.49322
+    },
+    {
+      "tool_call_id": "ref_2",
+      "state": {
+        "Eve_id": {
+          "id": "Eve_id",
+          "name": "Eve",
+          "age": 22,
+          "email": "eve@example.com"
+        }
+      },
+      "time": 1789772718.4942222
+    },
+    {
+      "tool_call_id": "ref_3",
+      "state": {},
+      "time": 1789772718.4947407
+    },
+    {
+      "tool_call_id": "ref_4",
+      "state": {},
+      "time": 1789772718.4947407
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  },
+  "client_configuration": {
+    "provider": "scripted"
+  }
+}

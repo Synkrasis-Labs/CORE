@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "world": "DesktopManager",
+  "prompt_id": "desktop_manager_5",
+  "prompt": "Open 'Terminal', run an 'execute_command' action, and then list all currently open applications.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "open_applications": [],
+    "app_history": [],
+    "action_log": {}
+  },
+  "final_state": {
+    "open_applications": [
+      "Terminal"
+    ],
+    "app_history": [
+      "Terminal"
+    ],
+    "action_log": {
+      "Terminal": [
+        "execute_command"
+      ]
+    }
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 4,
+    "tool_calls": 3,
+    "final_answer": "Reference probe complete",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "scripted",
+      "model": "reference_execution_probe",
+      "temperature": null,
+      "request_timeout_seconds": null,
+      "max_output_tokens": null,
+      "token_limit_parameter": null
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 0.0,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Open 'Terminal', run an 'execute_command' action, and then list all currently open applications.\n\nCurrent world state:\nState: {'open_applications': [], 'app_history': [], 'action_log': {}}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772802.9991279,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": "Opened application 'Terminal'.",
+      "op_type": "TOOL",
+      "tool_name": "DesktopManager__open_application",
+      "canonical_name": "open_application",
+      "tool_args": {
+        "app_name": "Terminal"
+      },
+      "raw_arguments": "{\"app_name\": \"Terminal\"}",
+      "requested_args": {
+        "app_name": "Terminal"
+      },
+      "tool_call_id": "ref_1",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772802.9991279,
+      "time_before": 1789772802.9991279,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": "Performed action 'execute_command' in application 'Terminal'.",
+      "op_type": "TOOL",
+      "tool_name": "DesktopManager__perform_action",
+      "canonical_name": "perform_action",
+      "tool_args": {
+        "app_name": "Terminal",
+        "action": "execute_command"
+      },
+      "raw_arguments": "{\"app_name\": \"Terminal\", \"action\": \"execute_command\"}",
+      "requested_args": {
+        "app_name": "Terminal",
+        "action": "execute_command"
+      },
+      "tool_call_id": "ref_2",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772802.9991279,
+      "time_before": 1789772802.9991279,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": [
+        "Terminal"
+      ],
+      "op_type": "TOOL",
+      "tool_name": "DesktopManager__print_open_applications",
+      "canonical_name": "print_open_applications",
+      "tool_args": {},
+      "raw_arguments": "{}",
+      "requested_args": {},
+      "tool_call_id": "ref_3",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772802.9991279,
+      "time_before": 1789772802.9991279,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for managing desktop applications and performing actions within them. The state is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Open 'Terminal', run an 'execute_command' action, and then list all currently open applications.\n\nCurrent world state:\nState: {'open_applications': [], 'app_history': [], 'action_log': {}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_1",
+          "type": "function",
+          "function": {
+            "name": "DesktopManager__open_application",
+            "arguments": "{\"app_name\": \"Terminal\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "content": "Opened application 'Terminal'."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_1: {\"open_applications\": [\"Terminal\"], \"app_history\": [\"Terminal\"], \"action_log\": {\"Terminal\": []}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_2",
+          "type": "function",
+          "function": {
+            "name": "DesktopManager__perform_action",
+            "arguments": "{\"app_name\": \"Terminal\", \"action\": \"execute_command\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "content": "Performed action 'execute_command' in application 'Terminal'."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_2: {\"open_applications\": [\"Terminal\"], \"app_history\": [\"Terminal\"], \"action_log\": {\"Terminal\": [\"execute_command\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_3",
+          "type": "function",
+          "function": {
+            "name": "DesktopManager__print_open_applications",
+            "arguments": "{}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "content": "[\"Terminal\"]"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_3: {\"open_applications\": [\"Terminal\"], \"app_history\": [\"Terminal\"], \"action_log\": {\"Terminal\": [\"execute_command\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": "Reference probe complete"
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "ref_1",
+      "state": {
+        "open_applications": [
+          "Terminal"
+        ],
+        "app_history": [
+          "Terminal"
+        ],
+        "action_log": {
+          "Terminal": []
+        }
+      },
+      "time": 1789772802.9991279
+    },
+    {
+      "tool_call_id": "ref_2",
+      "state": {
+        "open_applications": [
+          "Terminal"
+        ],
+        "app_history": [
+          "Terminal"
+        ],
+        "action_log": {
+          "Terminal": [
+            "execute_command"
+          ]
+        }
+      },
+      "time": 1789772802.9991279
+    },
+    {
+      "tool_call_id": "ref_3",
+      "state": {
+        "open_applications": [
+          "Terminal"
+        ],
+        "app_history": [
+          "Terminal"
+        ],
+        "action_log": {
+          "Terminal": [
+            "execute_command"
+          ]
+        }
+      },
+      "time": 1789772802.9991279
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  },
+  "client_configuration": {
+    "provider": "scripted"
+  }
+}

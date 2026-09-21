@@ -1,5 +1,4 @@
 from dfas.dfa import Node, Transition, FunctionCall, FunctionArgument
-from build_json_dataset import serialize_function_call
 from core import evaluate, Transition as CoreTransition
 
 import sys

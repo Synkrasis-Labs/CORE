@@ -84,6 +84,10 @@ def _annotation_to_json_schema(annotation: Any) -> dict[str, Any]:
             return {"type": "array", "items": {}}
         raise TypeError(f"Unsupported tool annotation: {annotation}")
 
+    if origin is tuple and args and len(set(args)) == 1:
+        return {"type": "array", "items": _annotation_to_json_schema(args[0]),
+                "minItems": len(args), "maxItems": len(args)}
+
     if origin is list:
         item_type = args[0] if args else Any
         return {"type": "array", "items": _annotation_to_json_schema(item_type)}

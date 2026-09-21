@@ -1,0 +1,1082 @@
+{
+  "schema_version": 1,
+  "world": "Writing",
+  "prompt_id": "writing_5",
+  "prompt": "Construct a sentence where 'the blue cat jumps above a small X'. Replace 'X' with the available synonym word for 'large plant' in your 'nouns' list.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "sentence": "",
+    "word_pools": {
+      "nouns": [
+        "dog",
+        "cat",
+        "car",
+        "house",
+        "tree",
+        "bird"
+      ],
+      "verbs": [
+        "runs",
+        "jumps",
+        "drives",
+        "flies",
+        "sleeps"
+      ],
+      "adjectives": [
+        "fast",
+        "blue",
+        "big",
+        "small",
+        "happy"
+      ],
+      "articles": [
+        "a",
+        "the"
+      ],
+      "prepositions": [
+        "on",
+        "under",
+        "beside",
+        "near",
+        "above"
+      ]
+    }
+  },
+  "final_state": {
+    "sentence": "",
+    "word_pools": {
+      "nouns": [
+        "dog",
+        "cat",
+        "car",
+        "house",
+        "tree",
+        "bird"
+      ],
+      "verbs": [
+        "runs",
+        "jumps",
+        "drives",
+        "flies",
+        "sleeps"
+      ],
+      "adjectives": [
+        "fast",
+        "blue",
+        "big",
+        "small",
+        "happy"
+      ],
+      "articles": [
+        "a",
+        "the"
+      ],
+      "prepositions": [
+        "on",
+        "under",
+        "beside",
+        "near",
+        "above"
+      ]
+    }
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 10,
+    "tool_calls": 9,
+    "final_answer": "Reference probe complete",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "scripted",
+      "model": "reference_execution_probe",
+      "temperature": null,
+      "request_timeout_seconds": null,
+      "max_output_tokens": null,
+      "token_limit_parameter": null
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 0.014999999999417923,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Construct a sentence where 'the blue cat jumps above a small X'. Replace 'X' with the available synonym word for 'large plant' in your 'nouns' list.\n\nCurrent world state:\nSentence State: {'sentence': '', 'word_pools': {'nouns': ['dog', 'cat', 'car', 'house', 'tree', 'bird'], 'verbs': ['runs', 'jumps', 'drives', 'flies', 'sleeps'], 'adjectives': ['fast', 'blue', 'big', 'small', 'happy'], 'articles': ['a', 'the'], 'prepositions': ['on', 'under', 'beside', 'near', 'above']}}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772720.498104,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": "Added article: 'the'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_article",
+      "canonical_name": "add_article",
+      "tool_args": {
+        "article": "the"
+      },
+      "raw_arguments": "{\"article\": \"the\"}",
+      "requested_args": {
+        "article": "the"
+      },
+      "tool_call_id": "ref_1",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.498104,
+      "time_before": 1789772720.498104,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": "Added adjective: 'blue'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_adjective",
+      "canonical_name": "add_adjective",
+      "tool_args": {
+        "adjective": "blue"
+      },
+      "raw_arguments": "{\"adjective\": \"blue\"}",
+      "requested_args": {
+        "adjective": "blue"
+      },
+      "tool_call_id": "ref_2",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.4991274,
+      "time_before": 1789772720.4991274,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": "Added noun: 'cat'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_noun",
+      "canonical_name": "add_noun",
+      "tool_args": {
+        "noun": "cat"
+      },
+      "raw_arguments": "{\"noun\": \"cat\"}",
+      "requested_args": {
+        "noun": "cat"
+      },
+      "tool_call_id": "ref_3",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.4991274,
+      "time_before": 1789772720.4991274,
+      "elapsed_seconds": 0.0
+    },
+    "step4": {
+      "name": "step4",
+      "content": "Added verb: 'jumps'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_verb",
+      "canonical_name": "add_verb",
+      "tool_args": {
+        "verb": "jumps"
+      },
+      "raw_arguments": "{\"verb\": \"jumps\"}",
+      "requested_args": {
+        "verb": "jumps"
+      },
+      "tool_call_id": "ref_4",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.5001264,
+      "time_before": 1789772720.5001264,
+      "elapsed_seconds": 0.0
+    },
+    "step5": {
+      "name": "step5",
+      "content": "Added preposition: 'above'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_preposition",
+      "canonical_name": "add_preposition",
+      "tool_args": {
+        "preposition": "above"
+      },
+      "raw_arguments": "{\"preposition\": \"above\"}",
+      "requested_args": {
+        "preposition": "above"
+      },
+      "tool_call_id": "ref_5",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.5001264,
+      "time_before": 1789772720.5001264,
+      "elapsed_seconds": 0.0
+    },
+    "step6": {
+      "name": "step6",
+      "content": "Added article: 'a'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_article",
+      "canonical_name": "add_article",
+      "tool_args": {
+        "article": "a"
+      },
+      "raw_arguments": "{\"article\": \"a\"}",
+      "requested_args": {
+        "article": "a"
+      },
+      "tool_call_id": "ref_6",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.5011268,
+      "time_before": 1789772720.5011268,
+      "elapsed_seconds": 0.0
+    },
+    "step7": {
+      "name": "step7",
+      "content": "Added adjective: 'small'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_adjective",
+      "canonical_name": "add_adjective",
+      "tool_args": {
+        "adjective": "small"
+      },
+      "raw_arguments": "{\"adjective\": \"small\"}",
+      "requested_args": {
+        "adjective": "small"
+      },
+      "tool_call_id": "ref_7",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.5021293,
+      "time_before": 1789772720.5021293,
+      "elapsed_seconds": 0.0
+    },
+    "step8": {
+      "name": "step8",
+      "content": "Added noun: 'tree'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_noun",
+      "canonical_name": "add_noun",
+      "tool_args": {
+        "noun": "tree"
+      },
+      "raw_arguments": "{\"noun\": \"tree\"}",
+      "requested_args": {
+        "noun": "tree"
+      },
+      "tool_call_id": "ref_8",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.5033164,
+      "time_before": 1789772720.5021293,
+      "elapsed_seconds": 0.0
+    },
+    "step9": {
+      "name": "step9",
+      "content": "Completed sentence: 'the blue cat jumps above a small tree.'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__complete_sentence",
+      "canonical_name": "complete_sentence",
+      "tool_args": {},
+      "raw_arguments": "{}",
+      "requested_args": {},
+      "tool_call_id": "ref_9",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.5033164,
+      "time_before": 1789772720.5033164,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant responsible for constructing grammatically correct sentences.\nYou interact with a database that stores the in-progress sentence.\nAlways use the designated writing expected_sequence to build or modify the sentence based on the user\u2019s request.\nNever write text directly \u2014 always call the appropriate function to add specific parts of speech."
+    },
+    {
+      "role": "user",
+      "content": "Construct a sentence where 'the blue cat jumps above a small X'. Replace 'X' with the available synonym word for 'large plant' in your 'nouns' list.\n\nCurrent world state:\nSentence State: {'sentence': '', 'word_pools': {'nouns': ['dog', 'cat', 'car', 'house', 'tree', 'bird'], 'verbs': ['runs', 'jumps', 'drives', 'flies', 'sleeps'], 'adjectives': ['fast', 'blue', 'big', 'small', 'happy'], 'articles': ['a', 'the'], 'prepositions': ['on', 'under', 'beside', 'near', 'above']}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_1",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_article",
+            "arguments": "{\"article\": \"the\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "content": "Added article: 'the'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_1: {\"sentence\": \"the \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_2",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_adjective",
+            "arguments": "{\"adjective\": \"blue\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "content": "Added adjective: 'blue'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_2: {\"sentence\": \"the blue \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_3",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_noun",
+            "arguments": "{\"noun\": \"cat\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "content": "Added noun: 'cat'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_3: {\"sentence\": \"the blue cat \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_4",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_verb",
+            "arguments": "{\"verb\": \"jumps\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "content": "Added verb: 'jumps'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_4: {\"sentence\": \"the blue cat jumps \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_5",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_preposition",
+            "arguments": "{\"preposition\": \"above\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_5",
+      "content": "Added preposition: 'above'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_5: {\"sentence\": \"the blue cat jumps above \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_6",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_article",
+            "arguments": "{\"article\": \"a\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_6",
+      "content": "Added article: 'a'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_6: {\"sentence\": \"the blue cat jumps above a \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_7",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_adjective",
+            "arguments": "{\"adjective\": \"small\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_7",
+      "content": "Added adjective: 'small'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_7: {\"sentence\": \"the blue cat jumps above a small \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_8",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_noun",
+            "arguments": "{\"noun\": \"tree\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_8",
+      "content": "Added noun: 'tree'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_8: {\"sentence\": \"the blue cat jumps above a small tree \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_9",
+          "type": "function",
+          "function": {
+            "name": "Writing__complete_sentence",
+            "arguments": "{}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_9",
+      "content": "Completed sentence: 'the blue cat jumps above a small tree.'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_9: {\"sentence\": \"\", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": "Reference probe complete"
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "ref_1",
+      "state": {
+        "sentence": "the ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.498104
+    },
+    {
+      "tool_call_id": "ref_2",
+      "state": {
+        "sentence": "the blue ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.4991274
+    },
+    {
+      "tool_call_id": "ref_3",
+      "state": {
+        "sentence": "the blue cat ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.5001264
+    },
+    {
+      "tool_call_id": "ref_4",
+      "state": {
+        "sentence": "the blue cat jumps ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.5001264
+    },
+    {
+      "tool_call_id": "ref_5",
+      "state": {
+        "sentence": "the blue cat jumps above ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.5011268
+    },
+    {
+      "tool_call_id": "ref_6",
+      "state": {
+        "sentence": "the blue cat jumps above a ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.5011268
+    },
+    {
+      "tool_call_id": "ref_7",
+      "state": {
+        "sentence": "the blue cat jumps above a small ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.5021293
+    },
+    {
+      "tool_call_id": "ref_8",
+      "state": {
+        "sentence": "the blue cat jumps above a small tree ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.5033164
+    },
+    {
+      "tool_call_id": "ref_9",
+      "state": {
+        "sentence": "",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.5033164
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.014999999999417923,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_5",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_6",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_7",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_8",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_9",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  },
+  "client_configuration": {
+    "provider": "scripted"
+  }
+}

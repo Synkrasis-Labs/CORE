@@ -1,0 +1,980 @@
+{
+  "schema_version": 1,
+  "world": "Writing",
+  "prompt_id": "writing_2",
+  "prompt": "Write a sentence about a small dog sleeping under a tree. Use present simple tense for the verb",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "sentence": "",
+    "word_pools": {
+      "nouns": [
+        "dog",
+        "cat",
+        "car",
+        "house",
+        "tree",
+        "bird"
+      ],
+      "verbs": [
+        "runs",
+        "jumps",
+        "drives",
+        "flies",
+        "sleeps"
+      ],
+      "adjectives": [
+        "fast",
+        "blue",
+        "big",
+        "small",
+        "happy"
+      ],
+      "articles": [
+        "a",
+        "the"
+      ],
+      "prepositions": [
+        "on",
+        "under",
+        "beside",
+        "near",
+        "above"
+      ]
+    }
+  },
+  "final_state": {
+    "sentence": "",
+    "word_pools": {
+      "nouns": [
+        "dog",
+        "cat",
+        "car",
+        "house",
+        "tree",
+        "bird"
+      ],
+      "verbs": [
+        "runs",
+        "jumps",
+        "drives",
+        "flies",
+        "sleeps"
+      ],
+      "adjectives": [
+        "fast",
+        "blue",
+        "big",
+        "small",
+        "happy"
+      ],
+      "articles": [
+        "a",
+        "the"
+      ],
+      "prepositions": [
+        "on",
+        "under",
+        "beside",
+        "near",
+        "above"
+      ]
+    }
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 9,
+    "tool_calls": 8,
+    "final_answer": "Reference probe complete",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "scripted",
+      "model": "reference_execution_probe",
+      "temperature": null,
+      "request_timeout_seconds": null,
+      "max_output_tokens": null,
+      "token_limit_parameter": null
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 0.0,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Write a sentence about a small dog sleeping under a tree. Use present simple tense for the verb\n\nCurrent world state:\nSentence State: {'sentence': '', 'word_pools': {'nouns': ['dog', 'cat', 'car', 'house', 'tree', 'bird'], 'verbs': ['runs', 'jumps', 'drives', 'flies', 'sleeps'], 'adjectives': ['fast', 'blue', 'big', 'small', 'happy'], 'articles': ['a', 'the'], 'prepositions': ['on', 'under', 'beside', 'near', 'above']}}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772720.344072,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": "Added article: 'a'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_article",
+      "canonical_name": "add_article",
+      "tool_args": {
+        "article": "a"
+      },
+      "raw_arguments": "{\"article\": \"a\"}",
+      "requested_args": {
+        "article": "a"
+      },
+      "tool_call_id": "ref_1",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.3450737,
+      "time_before": 1789772720.3450737,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": "Added adjective: 'small'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_adjective",
+      "canonical_name": "add_adjective",
+      "tool_args": {
+        "adjective": "small"
+      },
+      "raw_arguments": "{\"adjective\": \"small\"}",
+      "requested_args": {
+        "adjective": "small"
+      },
+      "tool_call_id": "ref_2",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.3450737,
+      "time_before": 1789772720.3450737,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": "Added noun: 'dog'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_noun",
+      "canonical_name": "add_noun",
+      "tool_args": {
+        "noun": "dog"
+      },
+      "raw_arguments": "{\"noun\": \"dog\"}",
+      "requested_args": {
+        "noun": "dog"
+      },
+      "tool_call_id": "ref_3",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.3460717,
+      "time_before": 1789772720.3450737,
+      "elapsed_seconds": 0.0
+    },
+    "step4": {
+      "name": "step4",
+      "content": "Added verb: 'sleeps'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_verb",
+      "canonical_name": "add_verb",
+      "tool_args": {
+        "verb": "sleeps"
+      },
+      "raw_arguments": "{\"verb\": \"sleeps\"}",
+      "requested_args": {
+        "verb": "sleeps"
+      },
+      "tool_call_id": "ref_4",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.3460717,
+      "time_before": 1789772720.3460717,
+      "elapsed_seconds": 0.0
+    },
+    "step5": {
+      "name": "step5",
+      "content": "Added preposition: 'under'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_preposition",
+      "canonical_name": "add_preposition",
+      "tool_args": {
+        "preposition": "under"
+      },
+      "raw_arguments": "{\"preposition\": \"under\"}",
+      "requested_args": {
+        "preposition": "under"
+      },
+      "tool_call_id": "ref_5",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.3470752,
+      "time_before": 1789772720.3470752,
+      "elapsed_seconds": 0.0
+    },
+    "step6": {
+      "name": "step6",
+      "content": "Added article: 'a'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_article",
+      "canonical_name": "add_article",
+      "tool_args": {
+        "article": "a"
+      },
+      "raw_arguments": "{\"article\": \"a\"}",
+      "requested_args": {
+        "article": "a"
+      },
+      "tool_call_id": "ref_6",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.3470752,
+      "time_before": 1789772720.3470752,
+      "elapsed_seconds": 0.0
+    },
+    "step7": {
+      "name": "step7",
+      "content": "Added noun: 'tree'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__add_noun",
+      "canonical_name": "add_noun",
+      "tool_args": {
+        "noun": "tree"
+      },
+      "raw_arguments": "{\"noun\": \"tree\"}",
+      "requested_args": {
+        "noun": "tree"
+      },
+      "tool_call_id": "ref_7",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.3480735,
+      "time_before": 1789772720.3480735,
+      "elapsed_seconds": 0.0
+    },
+    "step8": {
+      "name": "step8",
+      "content": "Completed sentence: 'a small dog sleeps under a tree.'",
+      "op_type": "TOOL",
+      "tool_name": "Writing__complete_sentence",
+      "canonical_name": "complete_sentence",
+      "tool_args": {},
+      "raw_arguments": "{}",
+      "requested_args": {},
+      "tool_call_id": "ref_8",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.349078,
+      "time_before": 1789772720.349078,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant responsible for constructing grammatically correct sentences.\nYou interact with a database that stores the in-progress sentence.\nAlways use the designated writing expected_sequence to build or modify the sentence based on the user\u2019s request.\nNever write text directly \u2014 always call the appropriate function to add specific parts of speech."
+    },
+    {
+      "role": "user",
+      "content": "Write a sentence about a small dog sleeping under a tree. Use present simple tense for the verb\n\nCurrent world state:\nSentence State: {'sentence': '', 'word_pools': {'nouns': ['dog', 'cat', 'car', 'house', 'tree', 'bird'], 'verbs': ['runs', 'jumps', 'drives', 'flies', 'sleeps'], 'adjectives': ['fast', 'blue', 'big', 'small', 'happy'], 'articles': ['a', 'the'], 'prepositions': ['on', 'under', 'beside', 'near', 'above']}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_1",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_article",
+            "arguments": "{\"article\": \"a\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "content": "Added article: 'a'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_1: {\"sentence\": \"a \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_2",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_adjective",
+            "arguments": "{\"adjective\": \"small\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "content": "Added adjective: 'small'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_2: {\"sentence\": \"a small \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_3",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_noun",
+            "arguments": "{\"noun\": \"dog\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "content": "Added noun: 'dog'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_3: {\"sentence\": \"a small dog \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_4",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_verb",
+            "arguments": "{\"verb\": \"sleeps\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "content": "Added verb: 'sleeps'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_4: {\"sentence\": \"a small dog sleeps \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_5",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_preposition",
+            "arguments": "{\"preposition\": \"under\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_5",
+      "content": "Added preposition: 'under'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_5: {\"sentence\": \"a small dog sleeps under \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_6",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_article",
+            "arguments": "{\"article\": \"a\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_6",
+      "content": "Added article: 'a'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_6: {\"sentence\": \"a small dog sleeps under a \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_7",
+          "type": "function",
+          "function": {
+            "name": "Writing__add_noun",
+            "arguments": "{\"noun\": \"tree\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_7",
+      "content": "Added noun: 'tree'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_7: {\"sentence\": \"a small dog sleeps under a tree \", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_8",
+          "type": "function",
+          "function": {
+            "name": "Writing__complete_sentence",
+            "arguments": "{}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_8",
+      "content": "Completed sentence: 'a small dog sleeps under a tree.'"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_8: {\"sentence\": \"\", \"word_pools\": {\"nouns\": [\"dog\", \"cat\", \"car\", \"house\", \"tree\", \"bird\"], \"verbs\": [\"runs\", \"jumps\", \"drives\", \"flies\", \"sleeps\"], \"adjectives\": [\"fast\", \"blue\", \"big\", \"small\", \"happy\"], \"articles\": [\"a\", \"the\"], \"prepositions\": [\"on\", \"under\", \"beside\", \"near\", \"above\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": "Reference probe complete"
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "ref_1",
+      "state": {
+        "sentence": "a ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.3450737
+    },
+    {
+      "tool_call_id": "ref_2",
+      "state": {
+        "sentence": "a small ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.3450737
+    },
+    {
+      "tool_call_id": "ref_3",
+      "state": {
+        "sentence": "a small dog ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.3460717
+    },
+    {
+      "tool_call_id": "ref_4",
+      "state": {
+        "sentence": "a small dog sleeps ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.3460717
+    },
+    {
+      "tool_call_id": "ref_5",
+      "state": {
+        "sentence": "a small dog sleeps under ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.3470752
+    },
+    {
+      "tool_call_id": "ref_6",
+      "state": {
+        "sentence": "a small dog sleeps under a ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.3470752
+    },
+    {
+      "tool_call_id": "ref_7",
+      "state": {
+        "sentence": "a small dog sleeps under a tree ",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.3480735
+    },
+    {
+      "tool_call_id": "ref_8",
+      "state": {
+        "sentence": "",
+        "word_pools": {
+          "nouns": [
+            "dog",
+            "cat",
+            "car",
+            "house",
+            "tree",
+            "bird"
+          ],
+          "verbs": [
+            "runs",
+            "jumps",
+            "drives",
+            "flies",
+            "sleeps"
+          ],
+          "adjectives": [
+            "fast",
+            "blue",
+            "big",
+            "small",
+            "happy"
+          ],
+          "articles": [
+            "a",
+            "the"
+          ],
+          "prepositions": [
+            "on",
+            "under",
+            "beside",
+            "near",
+            "above"
+          ]
+        }
+      },
+      "time": 1789772720.349078
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_5",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_6",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_7",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_8",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  },
+  "client_configuration": {
+    "provider": "scripted"
+  }
+}

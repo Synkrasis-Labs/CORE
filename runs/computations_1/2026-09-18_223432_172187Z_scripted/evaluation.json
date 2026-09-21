@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\computations_1\\2026-09-18_223432_172187Z_scripted\\run.json",
+  "prompt_id": "computations_1",
+  "evaluation": {
+    "status": "scored",
+    "metric": "legacy_core_path_correctness",
+    "score": 1.0,
+    "sequence": [
+      "A",
+      "C"
+    ],
+    "actions": [
+      {
+        "step": "step1",
+        "name": "add_numbers",
+        "arguments": {
+          "a": 15,
+          "b": 7
+        },
+        "status": "ok",
+        "symbol": "A"
+      },
+      {
+        "step": "step2",
+        "name": "multiply_numbers",
+        "arguments": {
+          "a": 22,
+          "b": 3
+        },
+        "status": "ok",
+        "symbol": "C"
+      }
+    ],
+    "issues": [],
+    "policy": "all recorded tool steps must have executed successfully and map to symbols",
+    "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+    "limitations": [
+      "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+      "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+    ]
+  }
+}

@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "world": "Computations",
+  "prompt_id": "computations_5",
+  "prompt": "Multiply 6 by 7. Then, add 8 to the product. Then, divide the result by 4 raised to the second power.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "calculations": []
+  },
+  "final_state": {
+    "calculations": [
+      "6 * 7 = 42",
+      "42 + 8 = 50",
+      "4 ^ 2 = 16",
+      "50 / 16 = 3.125"
+    ]
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 5,
+    "tool_calls": 4,
+    "final_answer": "The final result of the calculation is approximately 3.125.",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0,
+      "request_timeout_seconds": 30,
+      "max_output_tokens": 512,
+      "token_limit_parameter": "max_completion_tokens"
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 3.561999999998079,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Multiply 6 by 7. Then, add 8 to the product. Then, divide the result by 4 raised to the second power.\n\nCurrent world state:\nDatabase: {'calculations': []}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789773039.844958,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": 42,
+      "op_type": "TOOL",
+      "tool_name": "Computations__multiply_numbers",
+      "canonical_name": "multiply_numbers",
+      "tool_args": {
+        "a": 6,
+        "b": 7
+      },
+      "raw_arguments": "{\"a\":6,\"b\":7}",
+      "requested_args": {
+        "a": 6,
+        "b": 7
+      },
+      "tool_call_id": "call_OfYXr8gHnEluqChJLzdBBxB8",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789773040.7216036,
+      "time_before": 1789773040.7216036,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": 50,
+      "op_type": "TOOL",
+      "tool_name": "Computations__add_numbers",
+      "canonical_name": "add_numbers",
+      "tool_args": {
+        "a": 42,
+        "b": 8
+      },
+      "raw_arguments": "{\"a\":42,\"b\":8}",
+      "requested_args": {
+        "a": 42,
+        "b": 8
+      },
+      "tool_call_id": "call_N7sDf7Roif6hXNOoh3TMUnJn",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789773041.431121,
+      "time_before": 1789773041.431121,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": 16,
+      "op_type": "TOOL",
+      "tool_name": "Computations__power",
+      "canonical_name": "power",
+      "tool_args": {
+        "base": 4,
+        "exponent": 2
+      },
+      "raw_arguments": "{\"base\":4,\"exponent\":2}",
+      "requested_args": {
+        "base": 4,
+        "exponent": 2
+      },
+      "tool_call_id": "call_tZGcEVBL7RTfQd4ywlVop6H3",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789773042.072939,
+      "time_before": 1789773042.072939,
+      "elapsed_seconds": 0.0
+    },
+    "step4": {
+      "name": "step4",
+      "content": 3.125,
+      "op_type": "TOOL",
+      "tool_name": "Computations__divide_numbers",
+      "canonical_name": "divide_numbers",
+      "tool_args": {
+        "a": 50,
+        "b": 16
+      },
+      "raw_arguments": "{\"a\":50,\"b\":16}",
+      "requested_args": {
+        "a": 50,
+        "b": 16
+      },
+      "tool_call_id": "call_6O89EaRfuQHVdvDu1aFCq1Yc",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789773042.7966597,
+      "time_before": 1789773042.7966597,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for performing computational and mathematical operations. The database of calculations is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Multiply 6 by 7. Then, add 8 to the product. Then, divide the result by 4 raised to the second power.\n\nCurrent world state:\nDatabase: {'calculations': []}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_OfYXr8gHnEluqChJLzdBBxB8",
+          "type": "function",
+          "function": {
+            "name": "Computations__multiply_numbers",
+            "arguments": "{\"a\":6,\"b\":7}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_OfYXr8gHnEluqChJLzdBBxB8",
+      "content": "42"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_OfYXr8gHnEluqChJLzdBBxB8: {\"calculations\": [\"6 * 7 = 42\"]}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_N7sDf7Roif6hXNOoh3TMUnJn",
+          "type": "function",
+          "function": {
+            "name": "Computations__add_numbers",
+            "arguments": "{\"a\":42,\"b\":8}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_N7sDf7Roif6hXNOoh3TMUnJn",
+      "content": "50"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_N7sDf7Roif6hXNOoh3TMUnJn: {\"calculations\": [\"6 * 7 = 42\", \"42 + 8 = 50\"]}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_tZGcEVBL7RTfQd4ywlVop6H3",
+          "type": "function",
+          "function": {
+            "name": "Computations__power",
+            "arguments": "{\"base\":4,\"exponent\":2}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_tZGcEVBL7RTfQd4ywlVop6H3",
+      "content": "16"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_tZGcEVBL7RTfQd4ywlVop6H3: {\"calculations\": [\"6 * 7 = 42\", \"42 + 8 = 50\", \"4 ^ 2 = 16\"]}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_6O89EaRfuQHVdvDu1aFCq1Yc",
+          "type": "function",
+          "function": {
+            "name": "Computations__divide_numbers",
+            "arguments": "{\"a\":50,\"b\":16}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_6O89EaRfuQHVdvDu1aFCq1Yc",
+      "content": "3.125"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_6O89EaRfuQHVdvDu1aFCq1Yc: {\"calculations\": [\"6 * 7 = 42\", \"42 + 8 = 50\", \"4 ^ 2 = 16\", \"50 / 16 = 3.125\"]}"
+    },
+    {
+      "role": "assistant",
+      "content": "The final result of the calculation is approximately 3.125."
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "call_OfYXr8gHnEluqChJLzdBBxB8",
+      "state": {
+        "calculations": [
+          "6 * 7 = 42"
+        ]
+      },
+      "time": 1789773040.7216036
+    },
+    {
+      "tool_call_id": "call_N7sDf7Roif6hXNOoh3TMUnJn",
+      "state": {
+        "calculations": [
+          "6 * 7 = 42",
+          "42 + 8 = 50"
+        ]
+      },
+      "time": 1789773041.431121
+    },
+    {
+      "tool_call_id": "call_tZGcEVBL7RTfQd4ywlVop6H3",
+      "state": {
+        "calculations": [
+          "6 * 7 = 42",
+          "42 + 8 = 50",
+          "4 ^ 2 = 16"
+        ]
+      },
+      "time": 1789773042.072939
+    },
+    {
+      "tool_call_id": "call_6O89EaRfuQHVdvDu1aFCq1Yc",
+      "state": {
+        "calculations": [
+          "6 * 7 = 42",
+          "42 + 8 = 50",
+          "4 ^ 2 = 16",
+          "50 / 16 = 3.125"
+        ]
+      },
+      "time": 1789773042.7966597
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.875,
+      "tokens": {
+        "prompt_tokens": 451,
+        "completion_tokens": 22,
+        "total_tokens": 473,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_OfYXr8gHnEluqChJLzdBBxB8",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.7030000000013388,
+      "tokens": {
+        "prompt_tokens": 528,
+        "completion_tokens": 22,
+        "total_tokens": 550,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_N7sDf7Roif6hXNOoh3TMUnJn",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.6409999999996217,
+      "tokens": {
+        "prompt_tokens": 613,
+        "completion_tokens": 22,
+        "total_tokens": 635,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_tZGcEVBL7RTfQd4ywlVop6H3",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.7340000000003783,
+      "tokens": {
+        "prompt_tokens": 708,
+        "completion_tokens": 22,
+        "total_tokens": 730,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_6O89EaRfuQHVdvDu1aFCq1Yc",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.6089999999967404,
+      "tokens": {
+        "prompt_tokens": 817,
+        "completion_tokens": 14,
+        "total_tokens": 831,
+        "cached_tokens": 0
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": 3117,
+    "completion_tokens": 102,
+    "total_tokens": 3219
+  },
+  "client_configuration": {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "temperature": 0,
+    "base_url": "https://api.openai.com/v1",
+    "request_timeout_seconds": 30,
+    "max_output_tokens": 512,
+    "token_limit_parameter": "max_completion_tokens",
+    "parallel_tool_calls": false
+  }
+}

@@ -1,4 +1,9 @@
-# Step 4: FarmAgent-derived runtime in CORE
+# FarmAgent-derived runtime in CORE
+
+Current status: [session handoff](../SESSION_HANDOFF.md) and
+[coverage report](PAPER_WORLD_COVERAGE.md). The sections below retain milestone
+history; earlier test counts and scope restrictions describe those milestones.
+The latest adapter supports registered worlds and 12 calls; 51 offline tests pass.
 
 Implemented in `function_calling/` on `manos/farmagent-function-calling`.
 This package is independent of legacy `agents.py`, Hugging Face/GPU dependencies,
@@ -137,7 +142,7 @@ source. No dependencies were installed and no paid or network model calls ran.
 Run from CORE:
 
 ```text
-py -B -m function_calling.computations_smoke --output runs/computations_scripted.json
+py -B -m function_calling.computations_smoke --output runs/archive/2026-09-19/computations_scripted.json
 py -B -m unittest discover -s tests -p "test_*.py" -v
 ```
 
@@ -173,12 +178,150 @@ Validation on 17 September 2026:
   checks for actual method reuse, isolation, model-visible inputs, unknown task
   handling, and dependency isolation.
 
-The local artifact `runs/computations_scripted.json` contains the task, initial
+The local artifact `runs/archive/2026-09-19/computations_scripted.json` contains the task, initial
 and final state, report, workflow, conversation, observations, and check results.
-`runs/` is ignored by Git. The artifact has `evaluation: null`: these are
-integration checks, not CORE metric scores. No live model run has happened.
+`runs/` is now included for team review. The artifact has `evaluation: null`: these are
+integration checks, not CORE metric scores.
 
-For the live check, use the same `run_computations()` adapter with a configured
-real client instead of `ComputationsScript`. Needed inputs are the provider/model,
-an API key configured locally, and a base URL if the provider needs one. A local
-model endpoint can be used instead if it supports the client's tool-call protocol.
+## Live Computations check
+
+`function_calling/computations_live.py` uses the same adapter with OpenAI instead
+of scripted responses. Put `OPENAI_API_KEY=...` in the ignored `CORE/.env` file.
+Install `requirements-function-calling.txt` in a virtual environment. From CORE:
+
+```powershell
+python -m function_calling.computations_live
+```
+
+This session's environment is in the parent folder: use
+`..\.venv\Scripts\python.exe` instead of `python` to reproduce locally.
+Default model: `gpt-4.1-nano`; override with `--model`. Limits: six requests,
+six tool calls, 256 output tokens per request, 30-second request timeout,
+90-second cooperative run timeout, no SDK retries. Parallel tool calling is
+disabled following OpenAI's recommendation for GPT-4.1 nano.
+The endpoint is explicitly OpenAI; the key is excluded from saved output.
+
+The runner creates `runs/computations_1/<UTC-timestamp>_<model>/run.json`;
+each run gets a new folder automatically. `--output` remains an optional override.
+Eight assertions check execution and state. The final answer is saved for manual
+review, because a real model may explain its answer instead of returning only
+`66`. These checks are not CORE metric scores or a model comparison.
+
+Live validation on 18 September 2026 succeeded with `gpt-4.1-nano`:
+
+- Three model requests and two tool executions: `add_numbers(15, 7)` returned
+  22, then `multiply_numbers(22, 3)` returned 66.
+- All eight execution/state checks passed, with no errors. The final answer
+  explained the calculation and correctly reported 66 (manually reviewed).
+- Usage: 1,552 input tokens and 68 output tokens; runtime 6.5 seconds.
+- Full conversation, workflow, state, checks, and usage are saved locally in
+  `runs/archive/2026-09-19/computations_live_3.json`. All 28 offline tests also pass.
+
+The first two attempts were rejected for insufficient API credits before model
+execution; their artifacts are preserved. The successful run validates this task
+end to end, not broader model performance or improvement over original CORE.
+Step 5 is complete.
+
+## Structured evaluation (step 6)
+
+`function_calling/evaluation.py` joins schema-v1 Computations artifacts to the
+dataset by prompt ID and validates world/prompt identity. It maps registered tool
+names and executed arguments through the original `fc2symbol`, then calls the
+unchanged `core.evaluate`. It rebuilds DFA nodes and initializes/restores the
+legacy global caches per evaluation. Removed one unused dataset-builder import
+from `evaluate.py` so this route does not load the legacy model dependencies.
+
+From CORE, no API calls:
+
+```powershell
+..\.venv\Scripts\python.exe -B -m function_calling.evaluation runs/archive/2026-09-19/computations_live_3.json --output runs/evaluation_review.json
+```
+
+The output contains `evaluation` and a `source_run` reference; existing files are not overwritten.
+Successful live trace: A,C, path score **1.0**, saved in
+`runs/archive/2026-09-19/computations_live_3_scored.json`. All **34 offline tests pass**. Six new tests
+cover known paths, negative paths, cache isolation, input preservation, identity,
+error handling, and executed arguments. No additional paid runs were performed.
+
+Scope: Computations traces with at most six tool steps. Every step must execute
+successfully and map to a symbol. Failed/skipped/unknown/unmapped calls and empty
+traces return `unscored` with reasons; they are not dropped or given new penalties.
+Run status and final-state success remain separate from the path score.
+
+Known legacy behavior, preserved rather than fixed in this port:
+
+- The incomplete sequence A scores 0, although direct normalized edit distance
+  against A,C gives 0.5. The legacy search misses a longer accepting path.
+- `fc2symbol` exclusion matching can accept a candidate after only part of its
+  argument checks match. The adapter retains its mapping semantics.
+
+This is compatibility with the existing path scorer, not validation of all paper
+metrics. Step 6 is complete for Computations. Next: more-world runtime checks;
+resolve evaluator defects separately before broader score comparisons.
+
+## Two additional worlds (step 7)
+
+`stateful_worlds.py` adapts existing CRUD and Configurations classes using explicit
+tool allowlists and deep-copy resets; their methods, prompts, and datasets are
+unchanged. Tasks with nonempty setup actions are rejected before model invocation.
+The model sees instructions, the dataset task, state, and tool results, not oracle
+sequences or DFA metadata. No new scenarios were created.
+
+From CORE:
+
+```powershell
+..\.venv\Scripts\python.exe -B -m function_calling.stateful_check
+..\.venv\Scripts\python.exe -B -m function_calling.stateful_check --live
+```
+
+The second command is paid: one nano run per task, each capped at six requests,
+six tools, and 256 output tokens per request. Artifacts use the standard run folders.
+
+Both scripted and live checks passed for existing tasks:
+
+- `crud_4`: add Charlie, delete using the returned user ID, list users to confirm
+  deletion. Live artifact: `runs/crud_4/2026-09-18_223958_420268Z_gpt-4.1-nano/run.json`.
+- `configurations_4`: set timeout to 30 minutes/security, update to 15 minutes/process,
+  print the updated setting. Live artifact:
+  `runs/configurations_4/2026-09-18_224007_272112Z_gpt-4.1-nano/run.json`.
+
+Each live run used four model requests and three tools, passed seven assertions,
+and returned a final answer consistent with the state. No metrics were computed.
+The full offline suite passes **41 tests**. Failure/recovery checks use real world
+methods, including missing users/settings and an exception on invalid age input.
+CRUD `False` and Configurations "not found" responses remain ordinary tool
+responses; runtime status `ok` alone does not establish domain success.
+
+Step 7 is complete for these two additional examples. Step 8 is runner integration;
+setup-dependent tasks need safe setup support before broader execution is enabled.
+
+## Shared runner checkpoint
+
+The opt-in `function_calling.experiments` entry point now covers available paper
+worlds, with task/world selection and separate inventory/offline/live modes.
+See [shared runner usage](SHARED_RUNNER.md) and
+[paper-world sweep results](PAPER_WORLD_COVERAGE.md). Original entry points remain
+unchanged. Setup/scenario issues are deferred to revamp per Manos; the default
+will not switch until coverage is reviewed. Configurations is excluded from the
+shared runner despite its earlier use as an execution check.
+
+Correction to the earlier step-6 milestone: only legacy input compatibility was
+connected. Reproducing the paper's five metrics remains unfinished.
+## Saved-run evaluation checkpoint (19 September 2026)
+
+`function_calling.evaluation` now accepts registered CORE worlds and shared-runner
+batch summaries. It reuses the original action mapping and path scorer unchanged.
+The 51-task live sweep produced 30 scored traces and 21 unscored traces with explicit
+reasons. These counts do not measure task success or reproduce all paper metrics.
+51 offline tests pass. No API requests were made; source runs were not modified.
+
+From CORE, evaluate a batch (refuses to overwrite existing output):
+
+```powershell
+..\.venv\Scripts\python.exe -B -m function_calling.evaluation runs/batches/2026-09-18_230912_247245Z_live/summary.json --batch
+```
+
+Results are in `evaluation.json` beside the batch summary, with each source run,
+mapped actions, score, or reasons for leaving it unscored. The adapter supports up
+to the shared runner's 12-call limit. It does not drop unmapped or failed calls to
+produce partial-trace scores. Existing evaluator limitations remain unresolved.

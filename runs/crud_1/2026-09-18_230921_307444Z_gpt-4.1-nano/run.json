@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "world": "CRUD",
+  "prompt_id": "crud_1",
+  "prompt": "Create a new user named 'Alice' with an age of 25. List the details of this user and confirm the age field is correct.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {},
+  "final_state": {
+    "Alice_id": {
+      "id": "Alice_id",
+      "name": "Alice",
+      "age": 25,
+      "email": null
+    }
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 3,
+    "tool_calls": 2,
+    "final_answer": "The user Alice has been successfully created with an age of 25, and the age field has been verified as correct.",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0,
+      "request_timeout_seconds": 30,
+      "max_output_tokens": 512,
+      "token_limit_parameter": "max_completion_tokens"
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 3.952999999997701,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Create a new user named 'Alice' with an age of 25. List the details of this user and confirm the age field is correct.\n\nCurrent world state:\nDatabase: {}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772961.3277733,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": "Alice_id",
+      "op_type": "TOOL",
+      "tool_name": "CRUD__add_user",
+      "canonical_name": "add_user",
+      "tool_args": {
+        "name": "Alice",
+        "age": 25
+      },
+      "raw_arguments": "{\"name\":\"Alice\",\"age\":25}",
+      "requested_args": {
+        "name": "Alice",
+        "age": 25
+      },
+      "tool_call_id": "call_JoG9F1DaLy1RY9Kaog3UBYwF",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772962.1725588,
+      "time_before": 1789772962.1725588,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": true,
+      "op_type": "TOOL",
+      "tool_name": "CRUD__verify_user_field",
+      "canonical_name": "verify_user_field",
+      "tool_args": {
+        "user_id": "Alice_id",
+        "field": "age",
+        "expected_value": "25"
+      },
+      "raw_arguments": "{\"user_id\":\"Alice_id\",\"field\":\"age\",\"expected_value\":\"25\"}",
+      "requested_args": {
+        "user_id": "Alice_id",
+        "field": "age",
+        "expected_value": "25"
+      },
+      "tool_call_id": "call_ne3uJdjm7xHm9NxYRfjHGZ7y",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772963.6602974,
+      "time_before": 1789772963.6592937,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that makes changes on a database. The database is a list of users. Always check the database and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Create a new user named 'Alice' with an age of 25. List the details of this user and confirm the age field is correct.\n\nCurrent world state:\nDatabase: {}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_JoG9F1DaLy1RY9Kaog3UBYwF",
+          "type": "function",
+          "function": {
+            "name": "CRUD__add_user",
+            "arguments": "{\"name\":\"Alice\",\"age\":25}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_JoG9F1DaLy1RY9Kaog3UBYwF",
+      "content": "Alice_id"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_JoG9F1DaLy1RY9Kaog3UBYwF: {\"Alice_id\": {\"id\": \"Alice_id\", \"name\": \"Alice\", \"age\": 25, \"email\": null}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_ne3uJdjm7xHm9NxYRfjHGZ7y",
+          "type": "function",
+          "function": {
+            "name": "CRUD__verify_user_field",
+            "arguments": "{\"user_id\":\"Alice_id\",\"field\":\"age\",\"expected_value\":\"25\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_ne3uJdjm7xHm9NxYRfjHGZ7y",
+      "content": "true"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_ne3uJdjm7xHm9NxYRfjHGZ7y: {\"Alice_id\": {\"id\": \"Alice_id\", \"name\": \"Alice\", \"age\": 25, \"email\": null}}"
+    },
+    {
+      "role": "assistant",
+      "content": "The user Alice has been successfully created with an age of 25, and the age field has been verified as correct."
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "call_JoG9F1DaLy1RY9Kaog3UBYwF",
+      "state": {
+        "Alice_id": {
+          "id": "Alice_id",
+          "name": "Alice",
+          "age": 25,
+          "email": null
+        }
+      },
+      "time": 1789772962.1725588
+    },
+    {
+      "tool_call_id": "call_ne3uJdjm7xHm9NxYRfjHGZ7y",
+      "state": {
+        "Alice_id": {
+          "id": "Alice_id",
+          "name": "Alice",
+          "age": 25,
+          "email": null
+        }
+      },
+      "time": 1789772963.6602974
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.8440000000009604,
+      "tokens": {
+        "prompt_tokens": 448,
+        "completion_tokens": 21,
+        "total_tokens": 469,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_JoG9F1DaLy1RY9Kaog3UBYwF",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 1.4839999999967404,
+      "tokens": {
+        "prompt_tokens": 539,
+        "completion_tokens": 29,
+        "total_tokens": 568,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_ne3uJdjm7xHm9NxYRfjHGZ7y",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 1.625,
+      "tokens": {
+        "prompt_tokens": 637,
+        "completion_tokens": 25,
+        "total_tokens": 662,
+        "cached_tokens": 0
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": 1624,
+    "completion_tokens": 75,
+    "total_tokens": 1699
+  },
+  "client_configuration": {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "temperature": 0,
+    "base_url": "https://api.openai.com/v1",
+    "request_timeout_seconds": 30,
+    "max_output_tokens": 512,
+    "token_limit_parameter": "max_completion_tokens",
+    "parallel_tool_calls": false
+  }
+}

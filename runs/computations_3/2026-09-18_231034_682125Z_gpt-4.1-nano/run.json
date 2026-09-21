@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "world": "Computations",
+  "prompt_id": "computations_3",
+  "prompt": "Calculate the average of the numbers 10, 20, and 30.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "calculations": []
+  },
+  "final_state": {
+    "calculations": [
+      "Average of [10, 20, 30] = 20.0"
+    ]
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 2,
+    "tool_calls": 1,
+    "final_answer": "The average of the numbers 10, 20, and 30 is 20.0.",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0,
+      "request_timeout_seconds": 30,
+      "max_output_tokens": 512,
+      "token_limit_parameter": "max_completion_tokens"
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 1.4219999999986612,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Calculate the average of the numbers 10, 20, and 30.\n\nCurrent world state:\nDatabase: {'calculations': []}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789773034.697715,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": 20.0,
+      "op_type": "TOOL",
+      "tool_name": "Computations__calculate_average",
+      "canonical_name": "calculate_average",
+      "tool_args": {
+        "numbers": [
+          10,
+          20,
+          30
+        ]
+      },
+      "raw_arguments": "{\"numbers\":[10,20,30]}",
+      "requested_args": {
+        "numbers": [
+          10,
+          20,
+          30
+        ]
+      },
+      "tool_call_id": "call_BRzkxI6u4nNIBntz7z1htjRg",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789773035.4236078,
+      "time_before": 1789773035.4236078,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for performing computational and mathematical operations. The database of calculations is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Calculate the average of the numbers 10, 20, and 30.\n\nCurrent world state:\nDatabase: {'calculations': []}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_BRzkxI6u4nNIBntz7z1htjRg",
+          "type": "function",
+          "function": {
+            "name": "Computations__calculate_average",
+            "arguments": "{\"numbers\":[10,20,30]}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_BRzkxI6u4nNIBntz7z1htjRg",
+      "content": "20.0"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_BRzkxI6u4nNIBntz7z1htjRg: {\"calculations\": [\"Average of [10, 20, 30] = 20.0\"]}"
+    },
+    {
+      "role": "assistant",
+      "content": "The average of the numbers 10, 20, and 30 is 20.0."
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "call_BRzkxI6u4nNIBntz7z1htjRg",
+      "state": {
+        "calculations": [
+          "Average of [10, 20, 30] = 20.0"
+        ]
+      },
+      "time": 1789773035.4236078
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.7340000000003783,
+      "tokens": {
+        "prompt_tokens": 437,
+        "completion_tokens": 22,
+        "total_tokens": 459,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_BRzkxI6u4nNIBntz7z1htjRg",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.6879999999982829,
+      "tokens": {
+        "prompt_tokens": 526,
+        "completion_tokens": 21,
+        "total_tokens": 547,
+        "cached_tokens": 0
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": 963,
+    "completion_tokens": 43,
+    "total_tokens": 1006
+  },
+  "client_configuration": {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "temperature": 0,
+    "base_url": "https://api.openai.com/v1",
+    "request_timeout_seconds": 30,
+    "max_output_tokens": 512,
+    "token_limit_parameter": "max_completion_tokens",
+    "parallel_tool_calls": false
+  }
+}

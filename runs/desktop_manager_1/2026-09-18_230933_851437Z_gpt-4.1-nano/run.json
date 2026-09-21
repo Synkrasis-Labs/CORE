@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "world": "DesktopManager",
+  "prompt_id": "desktop_manager_1",
+  "prompt": "Open 'Text Editor' and list open applications.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "open_applications": [],
+    "app_history": [],
+    "action_log": {}
+  },
+  "final_state": {
+    "open_applications": [
+      "Text Editor"
+    ],
+    "app_history": [
+      "Text Editor"
+    ],
+    "action_log": {
+      "Text Editor": []
+    }
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 3,
+    "tool_calls": 2,
+    "final_answer": "The 'Text Editor' application is currently open, and it is the only application open at the moment.",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0,
+      "request_timeout_seconds": 30,
+      "max_output_tokens": 512,
+      "token_limit_parameter": "max_completion_tokens"
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 2.1090000000003783,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Open 'Text Editor' and list open applications.\n\nCurrent world state:\nState: {'open_applications': [], 'app_history': [], 'action_log': {}}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772973.862435,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": "Opened application 'Text Editor'.",
+      "op_type": "TOOL",
+      "tool_name": "DesktopManager__open_application",
+      "canonical_name": "open_application",
+      "tool_args": {
+        "app_name": "Text Editor"
+      },
+      "raw_arguments": "{\"app_name\":\"Text Editor\"}",
+      "requested_args": {
+        "app_name": "Text Editor"
+      },
+      "tool_call_id": "call_wJvvSXmbP1AmKeZBWawCR3aU",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772974.6420581,
+      "time_before": 1789772974.6420581,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": [
+        "Text Editor"
+      ],
+      "op_type": "TOOL",
+      "tool_name": "DesktopManager__print_open_applications",
+      "canonical_name": "print_open_applications",
+      "tool_args": {},
+      "raw_arguments": "{}",
+      "requested_args": {},
+      "tool_call_id": "call_Q4LIL8AYYCHqIoU5jR7HkSEa",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772975.275999,
+      "time_before": 1789772975.275999,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for managing desktop applications and performing actions within them. The state is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Open 'Text Editor' and list open applications.\n\nCurrent world state:\nState: {'open_applications': [], 'app_history': [], 'action_log': {}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_wJvvSXmbP1AmKeZBWawCR3aU",
+          "type": "function",
+          "function": {
+            "name": "DesktopManager__open_application",
+            "arguments": "{\"app_name\":\"Text Editor\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_wJvvSXmbP1AmKeZBWawCR3aU",
+      "content": "Opened application 'Text Editor'."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_wJvvSXmbP1AmKeZBWawCR3aU: {\"open_applications\": [\"Text Editor\"], \"app_history\": [\"Text Editor\"], \"action_log\": {\"Text Editor\": []}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_Q4LIL8AYYCHqIoU5jR7HkSEa",
+          "type": "function",
+          "function": {
+            "name": "DesktopManager__print_open_applications",
+            "arguments": "{}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_Q4LIL8AYYCHqIoU5jR7HkSEa",
+      "content": "[\"Text Editor\"]"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_Q4LIL8AYYCHqIoU5jR7HkSEa: {\"open_applications\": [\"Text Editor\"], \"app_history\": [\"Text Editor\"], \"action_log\": {\"Text Editor\": []}}"
+    },
+    {
+      "role": "assistant",
+      "content": "The 'Text Editor' application is currently open, and it is the only application open at the moment."
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "call_wJvvSXmbP1AmKeZBWawCR3aU",
+      "state": {
+        "open_applications": [
+          "Text Editor"
+        ],
+        "app_history": [
+          "Text Editor"
+        ],
+        "action_log": {
+          "Text Editor": []
+        }
+      },
+      "time": 1789772974.6420581
+    },
+    {
+      "tool_call_id": "call_Q4LIL8AYYCHqIoU5jR7HkSEa",
+      "state": {
+        "open_applications": [
+          "Text Editor"
+        ],
+        "app_history": [
+          "Text Editor"
+        ],
+        "action_log": {
+          "Text Editor": []
+        }
+      },
+      "time": 1789772975.275999
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.7809999999990396,
+      "tokens": {
+        "prompt_tokens": 365,
+        "completion_tokens": 20,
+        "total_tokens": 385,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_wJvvSXmbP1AmKeZBWawCR3aU",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.625,
+      "tokens": {
+        "prompt_tokens": 457,
+        "completion_tokens": 16,
+        "total_tokens": 473,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_Q4LIL8AYYCHqIoU5jR7HkSEa",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.7030000000013388,
+      "tokens": {
+        "prompt_tokens": 548,
+        "completion_tokens": 22,
+        "total_tokens": 570,
+        "cached_tokens": 0
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": 1370,
+    "completion_tokens": 58,
+    "total_tokens": 1428
+  },
+  "client_configuration": {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "temperature": 0,
+    "base_url": "https://api.openai.com/v1",
+    "request_timeout_seconds": 30,
+    "max_output_tokens": 512,
+    "token_limit_parameter": "max_completion_tokens",
+    "parallel_tool_calls": false
+  }
+}

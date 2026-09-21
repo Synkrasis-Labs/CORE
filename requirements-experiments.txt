@@ -1,0 +1,3 @@
+# Shared runner also loads Navigation's existing decorators.
+-r requirements-function-calling.txt
+llm-tool==1.0.7

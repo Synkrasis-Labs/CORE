@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "world": "DesktopManager",
+  "prompt_id": "desktop_manager_2",
+  "prompt": "Open 'Browser', perform a 'Search' action, then print actions performed in the Browser.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "open_applications": [],
+    "app_history": [],
+    "action_log": {}
+  },
+  "final_state": {
+    "open_applications": [
+      "Browser"
+    ],
+    "app_history": [
+      "Browser"
+    ],
+    "action_log": {
+      "Browser": [
+        "Search"
+      ]
+    }
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 4,
+    "tool_calls": 3,
+    "final_answer": "The actions performed in the Browser are: Search.",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0,
+      "request_timeout_seconds": 30,
+      "max_output_tokens": 512,
+      "token_limit_parameter": "max_completion_tokens"
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 2.922000000002299,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Open 'Browser', perform a 'Search' action, then print actions performed in the Browser.\n\nCurrent world state:\nState: {'open_applications': [], 'app_history': [], 'action_log': {}}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772976.0326724,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": "Opened application 'Browser'.",
+      "op_type": "TOOL",
+      "tool_name": "DesktopManager__open_application",
+      "canonical_name": "open_application",
+      "tool_args": {
+        "app_name": "Browser"
+      },
+      "raw_arguments": "{\"app_name\":\"Browser\"}",
+      "requested_args": {
+        "app_name": "Browser"
+      },
+      "tool_call_id": "call_7QAEYceiTuSWwZq66cGmrwoO",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772976.9166138,
+      "time_before": 1789772976.9166138,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": "Performed action 'Search' in application 'Browser'.",
+      "op_type": "TOOL",
+      "tool_name": "DesktopManager__perform_action",
+      "canonical_name": "perform_action",
+      "tool_args": {
+        "app_name": "Browser",
+        "action": "Search"
+      },
+      "raw_arguments": "{\"app_name\":\"Browser\",\"action\":\"Search\"}",
+      "requested_args": {
+        "app_name": "Browser",
+        "action": "Search"
+      },
+      "tool_call_id": "call_nYvUUgtezvNKdqYdl5PLIdhB",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772977.6797132,
+      "time_before": 1789772977.6797132,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": [
+        "Search"
+      ],
+      "op_type": "TOOL",
+      "tool_name": "DesktopManager__print_application_actions",
+      "canonical_name": "print_application_actions",
+      "tool_args": {
+        "app_name": "Browser"
+      },
+      "raw_arguments": "{\"app_name\":\"Browser\"}",
+      "requested_args": {
+        "app_name": "Browser"
+      },
+      "tool_call_id": "call_AQUofMgZwbfQ4dN1DZ9XucDi",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772978.3550086,
+      "time_before": 1789772978.3550086,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for managing desktop applications and performing actions within them. The state is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Open 'Browser', perform a 'Search' action, then print actions performed in the Browser.\n\nCurrent world state:\nState: {'open_applications': [], 'app_history': [], 'action_log': {}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_7QAEYceiTuSWwZq66cGmrwoO",
+          "type": "function",
+          "function": {
+            "name": "DesktopManager__open_application",
+            "arguments": "{\"app_name\":\"Browser\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_7QAEYceiTuSWwZq66cGmrwoO",
+      "content": "Opened application 'Browser'."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_7QAEYceiTuSWwZq66cGmrwoO: {\"open_applications\": [\"Browser\"], \"app_history\": [\"Browser\"], \"action_log\": {\"Browser\": []}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_nYvUUgtezvNKdqYdl5PLIdhB",
+          "type": "function",
+          "function": {
+            "name": "DesktopManager__perform_action",
+            "arguments": "{\"app_name\":\"Browser\",\"action\":\"Search\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_nYvUUgtezvNKdqYdl5PLIdhB",
+      "content": "Performed action 'Search' in application 'Browser'."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_nYvUUgtezvNKdqYdl5PLIdhB: {\"open_applications\": [\"Browser\"], \"app_history\": [\"Browser\"], \"action_log\": {\"Browser\": [\"Search\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_AQUofMgZwbfQ4dN1DZ9XucDi",
+          "type": "function",
+          "function": {
+            "name": "DesktopManager__print_application_actions",
+            "arguments": "{\"app_name\":\"Browser\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_AQUofMgZwbfQ4dN1DZ9XucDi",
+      "content": "[\"Search\"]"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_AQUofMgZwbfQ4dN1DZ9XucDi: {\"open_applications\": [\"Browser\"], \"app_history\": [\"Browser\"], \"action_log\": {\"Browser\": [\"Search\"]}}"
+    },
+    {
+      "role": "assistant",
+      "content": "The actions performed in the Browser are: Search."
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "call_7QAEYceiTuSWwZq66cGmrwoO",
+      "state": {
+        "open_applications": [
+          "Browser"
+        ],
+        "app_history": [
+          "Browser"
+        ],
+        "action_log": {
+          "Browser": []
+        }
+      },
+      "time": 1789772976.9166138
+    },
+    {
+      "tool_call_id": "call_nYvUUgtezvNKdqYdl5PLIdhB",
+      "state": {
+        "open_applications": [
+          "Browser"
+        ],
+        "app_history": [
+          "Browser"
+        ],
+        "action_log": {
+          "Browser": [
+            "Search"
+          ]
+        }
+      },
+      "time": 1789772977.6807125
+    },
+    {
+      "tool_call_id": "call_AQUofMgZwbfQ4dN1DZ9XucDi",
+      "state": {
+        "open_applications": [
+          "Browser"
+        ],
+        "app_history": [
+          "Browser"
+        ],
+        "action_log": {
+          "Browser": [
+            "Search"
+          ]
+        }
+      },
+      "time": 1789772978.3550086
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.875,
+      "tokens": {
+        "prompt_tokens": 374,
+        "completion_tokens": 19,
+        "total_tokens": 393,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_7QAEYceiTuSWwZq66cGmrwoO",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.7660000000032596,
+      "tokens": {
+        "prompt_tokens": 462,
+        "completion_tokens": 23,
+        "total_tokens": 485,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_nYvUUgtezvNKdqYdl5PLIdhB",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.6719999999986612,
+      "tokens": {
+        "prompt_tokens": 560,
+        "completion_tokens": 20,
+        "total_tokens": 580,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_AQUofMgZwbfQ4dN1DZ9XucDi",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.6090000000003783,
+      "tokens": {
+        "prompt_tokens": 649,
+        "completion_tokens": 11,
+        "total_tokens": 660,
+        "cached_tokens": 0
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": 2045,
+    "completion_tokens": 73,
+    "total_tokens": 2118
+  },
+  "client_configuration": {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "temperature": 0,
+    "base_url": "https://api.openai.com/v1",
+    "request_timeout_seconds": 30,
+    "max_output_tokens": 512,
+    "token_limit_parameter": "max_completion_tokens",
+    "parallel_tool_calls": false
+  }
+}

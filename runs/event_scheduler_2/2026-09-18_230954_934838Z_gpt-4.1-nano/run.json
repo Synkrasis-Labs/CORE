@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "world": "EventsScheduler",
+  "prompt_id": "event_scheduler_2",
+  "prompt": "Schedule 'Team Sync' at '2025-02-10T09:00:00', then list all scheduled events.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {},
+  "final_state": {
+    "Team Sync": "2025-02-10T09:00:00"
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 3,
+    "tool_calls": 2,
+    "final_answer": "The event \"Team Sync\" is scheduled for February 10, 2025, at 09:00 AM.",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0,
+      "request_timeout_seconds": 30,
+      "max_output_tokens": 512,
+      "token_limit_parameter": "max_completion_tokens"
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 1.9690000000009604,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Schedule 'Team Sync' at '2025-02-10T09:00:00', then list all scheduled events.\n\nCurrent world state:\nState: {}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772995.0262249,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": "Event 'Team Sync' scheduled at 2025-02-10T09:00:00.",
+      "op_type": "TOOL",
+      "tool_name": "EventsScheduler__schedule_event",
+      "canonical_name": "schedule_event",
+      "tool_args": {
+        "event_name": "Team Sync",
+        "event_time": "2025-02-10T09:00:00"
+      },
+      "raw_arguments": "{\"event_name\":\"Team Sync\",\"event_time\":\"2025-02-10T09:00:00\"}",
+      "requested_args": {
+        "event_name": "Team Sync",
+        "event_time": "2025-02-10T09:00:00"
+      },
+      "tool_call_id": "call_k3gAcbhgWd2ygGPWO1v3eunL",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772995.7381883,
+      "time_before": 1789772995.7381883,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": {
+        "Team Sync": "2025-02-10T09:00:00"
+      },
+      "op_type": "TOOL",
+      "tool_name": "EventsScheduler__list_events",
+      "canonical_name": "list_events",
+      "tool_args": {},
+      "raw_arguments": "{}",
+      "requested_args": {},
+      "tool_call_id": "call_uh8FgKI2tEHSK4FqfPUOagbe",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772996.3401885,
+      "time_before": 1789772996.3401885,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for for managing event scheduling and time-related tasks. The state is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Schedule 'Team Sync' at '2025-02-10T09:00:00', then list all scheduled events.\n\nCurrent world state:\nState: {}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_k3gAcbhgWd2ygGPWO1v3eunL",
+          "type": "function",
+          "function": {
+            "name": "EventsScheduler__schedule_event",
+            "arguments": "{\"event_name\":\"Team Sync\",\"event_time\":\"2025-02-10T09:00:00\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_k3gAcbhgWd2ygGPWO1v3eunL",
+      "content": "Event 'Team Sync' scheduled at 2025-02-10T09:00:00."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_k3gAcbhgWd2ygGPWO1v3eunL: {\"Team Sync\": \"2025-02-10T09:00:00\"}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_uh8FgKI2tEHSK4FqfPUOagbe",
+          "type": "function",
+          "function": {
+            "name": "EventsScheduler__list_events",
+            "arguments": "{}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_uh8FgKI2tEHSK4FqfPUOagbe",
+      "content": "{\"Team Sync\": \"2025-02-10T09:00:00\"}"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_uh8FgKI2tEHSK4FqfPUOagbe: {\"Team Sync\": \"2025-02-10T09:00:00\"}"
+    },
+    {
+      "role": "assistant",
+      "content": "The event \"Team Sync\" is scheduled for February 10, 2025, at 09:00 AM."
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "call_k3gAcbhgWd2ygGPWO1v3eunL",
+      "state": {
+        "Team Sync": "2025-02-10T09:00:00"
+      },
+      "time": 1789772995.7381883
+    },
+    {
+      "tool_call_id": "call_uh8FgKI2tEHSK4FqfPUOagbe",
+      "state": {
+        "Team Sync": "2025-02-10T09:00:00"
+      },
+      "time": 1789772996.3407102
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.7190000000009604,
+      "tokens": {
+        "prompt_tokens": 476,
+        "completion_tokens": 35,
+        "total_tokens": 511,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_k3gAcbhgWd2ygGPWO1v3eunL",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.5930000000007567,
+      "tokens": {
+        "prompt_tokens": 590,
+        "completion_tokens": 13,
+        "total_tokens": 603,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_uh8FgKI2tEHSK4FqfPUOagbe",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.6569999999992433,
+      "tokens": {
+        "prompt_tokens": 680,
+        "completion_tokens": 25,
+        "total_tokens": 705,
+        "cached_tokens": 0
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": 1746,
+    "completion_tokens": 73,
+    "total_tokens": 1819
+  },
+  "client_configuration": {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "temperature": 0,
+    "base_url": "https://api.openai.com/v1",
+    "request_timeout_seconds": 30,
+    "max_output_tokens": 512,
+    "token_limit_parameter": "max_completion_tokens",
+    "parallel_tool_calls": false
+  }
+}

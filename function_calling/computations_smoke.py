@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 from .core_computations import run_computations
+from .run_files import new_run_path
 
 
 class ComputationsScript:
@@ -61,8 +62,11 @@ def check_artifact(artifact):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output", type=Path, default=Path("runs/computations_scripted.json"))
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+    args.output = args.output or new_run_path("computations_1", "scripted")
+    if args.output.exists():
+        parser.error("Output exists; choose a new filename")
     artifact = run_computations(ComputationsScript())
     checks = check_artifact(artifact)
     artifact["scripted_check"] = {"passed": all(checks.values()), "checks": checks,

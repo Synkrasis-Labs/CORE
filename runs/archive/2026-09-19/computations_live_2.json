@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "world": "Computations",
+  "prompt_id": "computations_1",
+  "prompt": "Add 15 and 7, then multiply the result by 3.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "calculations": []
+  },
+  "final_state": {
+    "calculations": []
+  },
+  "evaluation": null,
+  "report": {
+    "schema_version": 1,
+    "status": "failed",
+    "stop_reason": "runtime_error",
+    "llm_calls": 1,
+    "tool_calls": 0,
+    "final_answer": null,
+    "error": {
+      "type": "RateLimitError",
+      "message": "Error code: 429 - {'error': {'message': 'You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.', 'type': 'insufficient_quota', 'param': None, 'code': 'credit_balance_exhausted'}}"
+    },
+    "limits": {
+      "max_iterations": 6,
+      "max_tool_calls": 6,
+      "timeout_seconds": 90
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0,
+      "request_timeout_seconds": 30,
+      "max_output_tokens": 256,
+      "token_limit_parameter": "max_completion_tokens"
+    },
+    "tool_policy": "sequential_all_requested",
+    "last_assistant_message": null,
+    "wall_time_seconds": 1.797000000020489,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Add 15 and 7, then multiply the result by 3.\n\nCurrent world state:\nDatabase: {'calculations': []}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789733525.0883918,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for performing computational and mathematical operations. The database of calculations is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Add 15 and 7, then multiply the result by 3.\n\nCurrent world state:\nDatabase: {'calculations': []}"
+    }
+  ],
+  "state_observations": [],
+  "runtime_metrics": [],
+  "client_configuration": {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "temperature": 0,
+    "base_url": "https://api.openai.com/v1",
+    "request_timeout_seconds": 30,
+    "max_output_tokens": 256,
+    "token_limit_parameter": "max_completion_tokens",
+    "parallel_tool_calls": false
+  },
+  "live_check": {
+    "passed": false,
+    "checks": {
+      "completed": false,
+      "call_sequence": false,
+      "call_arguments": false,
+      "actual_results": false,
+      "no_tool_errors": true,
+      "fresh_initial_state": true,
+      "correct_final_state": false,
+      "state_feedback": false
+    },
+    "note": "Checks the expected tool path and state; review final answer separately. Not CORE scores."
+  },
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  }
+}

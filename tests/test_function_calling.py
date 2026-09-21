@@ -312,12 +312,13 @@ class SchemaAndArtifactTests(unittest.TestCase):
         client = SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=create)))
         llm = OpenAILLM("example-model", temperature=None, client=client,
                         request_timeout_seconds=7, max_output_tokens=100,
-                        token_limit_parameter="max_tokens")
+                        token_limit_parameter="max_tokens", parallel_tool_calls=False)
         agent = Agent("test", llm, tools={"add": Counter().add})
         agent.run("test")
         self.assertEqual(captured["timeout"], 7)
         self.assertEqual(captured["max_tokens"], 100)
         self.assertEqual(captured["model"], "example-model")
+        self.assertIs(captured["parallel_tool_calls"], False)
         self.assertNotIn("temperature", captured)
         self.assertEqual(captured["tools"][0]["function"]["name"], "add")
 

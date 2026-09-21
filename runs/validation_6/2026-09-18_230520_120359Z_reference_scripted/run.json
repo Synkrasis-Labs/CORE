@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "world": "Validation",
+  "prompt_id": "validation_6",
+  "prompt": "Validate 'Alice_Wonder' as a username, hash 'SuperSecure123', generate an OTP of length 8, and check if '99999999' matches it.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {},
+  "final_state": {},
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 5,
+    "tool_calls": 4,
+    "final_answer": "Reference probe complete",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "scripted",
+      "model": "reference_execution_probe",
+      "temperature": null,
+      "request_timeout_seconds": null,
+      "max_output_tokens": null,
+      "token_limit_parameter": null
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 0.0,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Validate 'Alice_Wonder' as a username, hash 'SuperSecure123', generate an OTP of length 8, and check if '99999999' matches it.\n\nCurrent world state:\nValidation Context (unused database): {}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772720.2254362,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": true,
+      "op_type": "TOOL",
+      "tool_name": "Validation__validate_username",
+      "canonical_name": "validate_username",
+      "tool_args": {
+        "username": "Alice_Wonder"
+      },
+      "raw_arguments": "{\"username\": \"Alice_Wonder\"}",
+      "requested_args": {
+        "username": "Alice_Wonder"
+      },
+      "tool_call_id": "ref_1",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.2264335,
+      "time_before": 1789772720.2254362,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": "fe23f6f771be949bd7f01a44bda523cb499e6f06d4c24783be8e632a887df390",
+      "op_type": "TOOL",
+      "tool_name": "Validation__hash_password",
+      "canonical_name": "hash_password",
+      "tool_args": {
+        "password": "SuperSecure123"
+      },
+      "raw_arguments": "{\"password\": \"SuperSecure123\"}",
+      "requested_args": {
+        "password": "SuperSecure123"
+      },
+      "tool_call_id": "ref_2",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.2264335,
+      "time_before": 1789772720.2264335,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": "12345678",
+      "op_type": "TOOL",
+      "tool_name": "Validation__generate_otp",
+      "canonical_name": "generate_otp",
+      "tool_args": {
+        "length": 8
+      },
+      "raw_arguments": "{\"length\": 8}",
+      "requested_args": {
+        "length": 8
+      },
+      "tool_call_id": "ref_3",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.2274408,
+      "time_before": 1789772720.2264335,
+      "elapsed_seconds": 0.0
+    },
+    "step4": {
+      "name": "step4",
+      "content": false,
+      "op_type": "TOOL",
+      "tool_name": "Validation__verify_otp",
+      "canonical_name": "verify_otp",
+      "tool_args": {
+        "input_otp": "99999999",
+        "correct_otp": "12345678"
+      },
+      "raw_arguments": "{\"input_otp\": \"99999999\", \"correct_otp\": \"12345678\"}",
+      "requested_args": {
+        "input_otp": "99999999",
+        "correct_otp": "12345678"
+      },
+      "tool_call_id": "ref_4",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772720.2274408,
+      "time_before": 1789772720.2274408,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant responsible for validating user inputs and enforcing security rules.\nYou have access to a database, but your primary task is to apply validation logic using the provided functions.\nAlways rely on function calls to make decisions \u2014 never make assumptions without validation."
+    },
+    {
+      "role": "user",
+      "content": "Validate 'Alice_Wonder' as a username, hash 'SuperSecure123', generate an OTP of length 8, and check if '99999999' matches it.\n\nCurrent world state:\nValidation Context (unused database): {}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_1",
+          "type": "function",
+          "function": {
+            "name": "Validation__validate_username",
+            "arguments": "{\"username\": \"Alice_Wonder\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "content": "true"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_1: {}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_2",
+          "type": "function",
+          "function": {
+            "name": "Validation__hash_password",
+            "arguments": "{\"password\": \"SuperSecure123\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "content": "fe23f6f771be949bd7f01a44bda523cb499e6f06d4c24783be8e632a887df390"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_2: {}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_3",
+          "type": "function",
+          "function": {
+            "name": "Validation__generate_otp",
+            "arguments": "{\"length\": 8}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "content": "12345678"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_3: {}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_4",
+          "type": "function",
+          "function": {
+            "name": "Validation__verify_otp",
+            "arguments": "{\"input_otp\": \"99999999\", \"correct_otp\": \"12345678\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "content": "false"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_4: {}"
+    },
+    {
+      "role": "assistant",
+      "content": "Reference probe complete"
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "ref_1",
+      "state": {},
+      "time": 1789772720.2264335
+    },
+    {
+      "tool_call_id": "ref_2",
+      "state": {},
+      "time": 1789772720.2264335
+    },
+    {
+      "tool_call_id": "ref_3",
+      "state": {},
+      "time": 1789772720.2274408
+    },
+    {
+      "tool_call_id": "ref_4",
+      "state": {},
+      "time": 1789772720.2274408
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  },
+  "client_configuration": {
+    "provider": "scripted"
+  }
+}

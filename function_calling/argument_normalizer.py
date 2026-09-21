@@ -180,6 +180,8 @@ def validate_value(value, schema, path):
     if kind is not None and not matches.get(kind, False):
         raise ValueError(f"{path}: expected {kind}, got {type(value).__name__}")
     if kind == "array":
+        if len(value) < schema.get("minItems", 0) or len(value) > schema.get("maxItems", float("inf")):
+            raise ValueError(f"{path}: invalid array length")
         for i, item in enumerate(value):
             validate_value(item, schema.get("items", {}), f"{path}[{i}]")
     if kind == "object":

@@ -15,7 +15,8 @@ class OpenAILLM(BaseLLM):
 
     def __init__(self, model, temperature=0.1, *, api_key=None, base_url=None,
                  request_timeout_seconds=60.0, max_output_tokens=2048,
-                 token_limit_parameter="max_completion_tokens", client=None):
+                 token_limit_parameter="max_completion_tokens", client=None,
+                 parallel_tool_calls=None):
         super().__init__(model, temperature)
         if token_limit_parameter not in ("max_tokens", "max_completion_tokens"):
             raise ValueError("Unsupported token limit parameter")
@@ -27,6 +28,7 @@ class OpenAILLM(BaseLLM):
         self.max_output_tokens = max_output_tokens
         self.token_limit_parameter = token_limit_parameter
         self.base_url = base_url or os.getenv("OPENAI_BASE_URL")
+        self.parallel_tool_calls = parallel_tool_calls
         if client is None:
             try:
                 from openai import OpenAI
@@ -42,6 +44,8 @@ class OpenAILLM(BaseLLM):
                    self.token_limit_parameter: self.max_output_tokens}
         if tools:
             options["tools"] = tools
+            if self.parallel_tool_calls is not None:
+                options["parallel_tool_calls"] = self.parallel_tool_calls
         if self.temperature is not None:
             options["temperature"] = self.temperature
         return self.api_client.chat.completions.create(**options)
@@ -50,4 +54,5 @@ class OpenAILLM(BaseLLM):
         return {**super().client_info(), "base_url": self.base_url,
                 "request_timeout_seconds": self.request_timeout_seconds,
                 "max_output_tokens": self.max_output_tokens,
-                "token_limit_parameter": self.token_limit_parameter}
+                "token_limit_parameter": self.token_limit_parameter,
+                "parallel_tool_calls": self.parallel_tool_calls}

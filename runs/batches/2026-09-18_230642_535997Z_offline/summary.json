@@ -1,0 +1,2422 @@
+{
+  "mode": "offline",
+  "inventory": [
+    {
+      "world": "automation",
+      "prompt_id": "automation_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 8,
+      "tool_names": [
+        "Automation__activate_alarm",
+        "Automation__deactivate_alarm",
+        "Automation__lock_door",
+        "Automation__print_system_status",
+        "Automation__set_thermostat",
+        "Automation__turn_off_lights",
+        "Automation__turn_on_lights",
+        "Automation__unlock_door"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "automation",
+      "prompt_id": "automation_2",
+      "status": "deferred",
+      "reasons": [
+        "Setup-dependent task deferred to scenario revamp"
+      ],
+      "tool_count": 8,
+      "tool_names": [
+        "Automation__activate_alarm",
+        "Automation__deactivate_alarm",
+        "Automation__lock_door",
+        "Automation__print_system_status",
+        "Automation__set_thermostat",
+        "Automation__turn_off_lights",
+        "Automation__turn_on_lights",
+        "Automation__unlock_door"
+      ],
+      "setup": [
+        "unlock_door()"
+      ],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "automation",
+      "prompt_id": "automation_3",
+      "status": "deferred",
+      "reasons": [
+        "Setup-dependent task deferred to scenario revamp"
+      ],
+      "tool_count": 8,
+      "tool_names": [
+        "Automation__activate_alarm",
+        "Automation__deactivate_alarm",
+        "Automation__lock_door",
+        "Automation__print_system_status",
+        "Automation__set_thermostat",
+        "Automation__turn_off_lights",
+        "Automation__turn_on_lights",
+        "Automation__unlock_door"
+      ],
+      "setup": [
+        "turn_on_lights()"
+      ],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "automation",
+      "prompt_id": "automation_4",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 8,
+      "tool_names": [
+        "Automation__activate_alarm",
+        "Automation__deactivate_alarm",
+        "Automation__lock_door",
+        "Automation__print_system_status",
+        "Automation__set_thermostat",
+        "Automation__turn_off_lights",
+        "Automation__turn_on_lights",
+        "Automation__unlock_door"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "automation",
+      "prompt_id": "automation_5",
+      "status": "deferred",
+      "reasons": [
+        "Setup-dependent task deferred to scenario revamp"
+      ],
+      "tool_count": 8,
+      "tool_names": [
+        "Automation__activate_alarm",
+        "Automation__deactivate_alarm",
+        "Automation__lock_door",
+        "Automation__print_system_status",
+        "Automation__set_thermostat",
+        "Automation__turn_off_lights",
+        "Automation__turn_on_lights",
+        "Automation__unlock_door"
+      ],
+      "setup": [
+        "unlock_door()",
+        "turn_on_lights()"
+      ],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "communication",
+      "prompt_id": "communication_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 5,
+      "tool_names": [
+        "Communication__delete_message",
+        "Communication__forward_message",
+        "Communication__print_messages",
+        "Communication__schedule_message",
+        "Communication__send_message"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "communication",
+      "prompt_id": "communication_2",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 5,
+      "tool_names": [
+        "Communication__delete_message",
+        "Communication__forward_message",
+        "Communication__print_messages",
+        "Communication__schedule_message",
+        "Communication__send_message"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "communication",
+      "prompt_id": "communication_3",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 5,
+      "tool_names": [
+        "Communication__delete_message",
+        "Communication__forward_message",
+        "Communication__print_messages",
+        "Communication__schedule_message",
+        "Communication__send_message"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "configurations",
+      "prompt_id": "configurations_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 4,
+      "tool_names": [
+        "Configurations__delete_config",
+        "Configurations__print_config",
+        "Configurations__set_config",
+        "Configurations__update_config"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "configurations",
+      "prompt_id": "configurations_2",
+      "status": "deferred",
+      "reasons": [
+        "Setup-dependent task deferred to scenario revamp"
+      ],
+      "tool_count": 4,
+      "tool_names": [
+        "Configurations__delete_config",
+        "Configurations__print_config",
+        "Configurations__set_config",
+        "Configurations__update_config"
+      ],
+      "setup": [
+        [
+          "set_config('theme', 'dark mode', 'UI', '2025-02-12T10:00:00.')"
+        ]
+      ],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "configurations",
+      "prompt_id": "configurations_3",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 4,
+      "tool_names": [
+        "Configurations__delete_config",
+        "Configurations__print_config",
+        "Configurations__set_config",
+        "Configurations__update_config"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "configurations",
+      "prompt_id": "configurations_4",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 4,
+      "tool_names": [
+        "Configurations__delete_config",
+        "Configurations__print_config",
+        "Configurations__set_config",
+        "Configurations__update_config"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "configurations",
+      "prompt_id": "configurations_5",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 4,
+      "tool_names": [
+        "Configurations__delete_config",
+        "Configurations__print_config",
+        "Configurations__set_config",
+        "Configurations__update_config"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "configurations",
+      "prompt_id": "configurations_6",
+      "status": "deferred",
+      "reasons": [
+        "Setup-dependent task deferred to scenario revamp"
+      ],
+      "tool_count": 4,
+      "tool_names": [
+        "Configurations__delete_config",
+        "Configurations__print_config",
+        "Configurations__set_config",
+        "Configurations__update_config"
+      ],
+      "setup": [
+        "set_config('log-level', 'debug', 'system')",
+        "set_config('max-connections', '100', 'network')",
+        "set_config('timeout', '30 minutes', 'security')"
+      ],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "configurations",
+      "prompt_id": "configurations_7",
+      "status": "deferred",
+      "reasons": [
+        "Setup-dependent task deferred to scenario revamp"
+      ],
+      "tool_count": 4,
+      "tool_names": [
+        "Configurations__delete_config",
+        "Configurations__print_config",
+        "Configurations__set_config",
+        "Configurations__update_config"
+      ],
+      "setup": [
+        "set_config('timeout', '30 minutes', 'security')"
+      ],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "crud",
+      "prompt_id": "crud_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "CRUD__add_user",
+        "CRUD__delete_user",
+        "CRUD__generate_timestamp",
+        "CRUD__list_users",
+        "CRUD__update_user_email",
+        "CRUD__verify_user_field"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "crud",
+      "prompt_id": "crud_2",
+      "status": "deferred",
+      "reasons": [
+        "Setup-dependent task deferred to scenario revamp"
+      ],
+      "tool_count": 6,
+      "tool_names": [
+        "CRUD__add_user",
+        "CRUD__delete_user",
+        "CRUD__generate_timestamp",
+        "CRUD__list_users",
+        "CRUD__update_user_email",
+        "CRUD__verify_user_field"
+      ],
+      "setup": [
+        "add_user(name=\"Alice\", age=25)"
+      ],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "crud",
+      "prompt_id": "crud_3",
+      "status": "deferred",
+      "reasons": [
+        "Setup-dependent task deferred to scenario revamp"
+      ],
+      "tool_count": 6,
+      "tool_names": [
+        "CRUD__add_user",
+        "CRUD__delete_user",
+        "CRUD__generate_timestamp",
+        "CRUD__list_users",
+        "CRUD__update_user_email",
+        "CRUD__verify_user_field"
+      ],
+      "setup": [
+        "add_user(name=\"John\", age=30, email=None)",
+        "add_user(name=\"Jane\", age=25, email=None)"
+      ],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "crud",
+      "prompt_id": "crud_4",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "CRUD__add_user",
+        "CRUD__delete_user",
+        "CRUD__generate_timestamp",
+        "CRUD__list_users",
+        "CRUD__update_user_email",
+        "CRUD__verify_user_field"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "crud",
+      "prompt_id": "crud_5",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "CRUD__add_user",
+        "CRUD__delete_user",
+        "CRUD__generate_timestamp",
+        "CRUD__list_users",
+        "CRUD__update_user_email",
+        "CRUD__verify_user_field"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "desktop_manager",
+      "prompt_id": "desktop_manager_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "DesktopManager__close_application",
+        "DesktopManager__open_application",
+        "DesktopManager__perform_action",
+        "DesktopManager__print_application_actions",
+        "DesktopManager__print_application_history",
+        "DesktopManager__print_open_applications"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "desktop_manager",
+      "prompt_id": "desktop_manager_2",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "DesktopManager__close_application",
+        "DesktopManager__open_application",
+        "DesktopManager__perform_action",
+        "DesktopManager__print_application_actions",
+        "DesktopManager__print_application_history",
+        "DesktopManager__print_open_applications"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "desktop_manager",
+      "prompt_id": "desktop_manager_3",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "DesktopManager__close_application",
+        "DesktopManager__open_application",
+        "DesktopManager__perform_action",
+        "DesktopManager__print_application_actions",
+        "DesktopManager__print_application_history",
+        "DesktopManager__print_open_applications"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "desktop_manager",
+      "prompt_id": "desktop_manager_4",
+      "status": "deferred",
+      "reasons": [
+        "Setup-dependent task deferred to scenario revamp"
+      ],
+      "tool_count": 6,
+      "tool_names": [
+        "DesktopManager__close_application",
+        "DesktopManager__open_application",
+        "DesktopManager__perform_action",
+        "DesktopManager__print_application_actions",
+        "DesktopManager__print_application_history",
+        "DesktopManager__print_open_applications"
+      ],
+      "setup": [
+        "open_application('Music Player')"
+      ],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "desktop_manager",
+      "prompt_id": "desktop_manager_5",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "DesktopManager__close_application",
+        "DesktopManager__open_application",
+        "DesktopManager__perform_action",
+        "DesktopManager__print_application_actions",
+        "DesktopManager__print_application_history",
+        "DesktopManager__print_open_applications"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "desktop_manager",
+      "prompt_id": "desktop_manager_6",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "DesktopManager__close_application",
+        "DesktopManager__open_application",
+        "DesktopManager__perform_action",
+        "DesktopManager__print_application_actions",
+        "DesktopManager__print_application_history",
+        "DesktopManager__print_open_applications"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "events_scheduler",
+      "prompt_id": "event_scheduler_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 7,
+      "tool_names": [
+        "EventsScheduler__cancel_event",
+        "EventsScheduler__get_event_time",
+        "EventsScheduler__list_events",
+        "EventsScheduler__reschedule_event",
+        "EventsScheduler__schedule_event",
+        "EventsScheduler__schedule_recurring_event",
+        "EventsScheduler__time_until_event"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "events_scheduler",
+      "prompt_id": "event_scheduler_2",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 7,
+      "tool_names": [
+        "EventsScheduler__cancel_event",
+        "EventsScheduler__get_event_time",
+        "EventsScheduler__list_events",
+        "EventsScheduler__reschedule_event",
+        "EventsScheduler__schedule_event",
+        "EventsScheduler__schedule_recurring_event",
+        "EventsScheduler__time_until_event"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "events_scheduler",
+      "prompt_id": "event_scheduler_3",
+      "status": "deferred",
+      "reasons": [
+        "Setup-dependent task deferred to scenario revamp"
+      ],
+      "tool_count": 7,
+      "tool_names": [
+        "EventsScheduler__cancel_event",
+        "EventsScheduler__get_event_time",
+        "EventsScheduler__list_events",
+        "EventsScheduler__reschedule_event",
+        "EventsScheduler__schedule_event",
+        "EventsScheduler__schedule_recurring_event",
+        "EventsScheduler__time_until_event"
+      ],
+      "setup": [
+        "schedule_event('Team Sync', '2025-02-10T09:00:00')"
+      ],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "events_scheduler",
+      "prompt_id": "event_scheduler_4",
+      "status": "deferred",
+      "reasons": [
+        "Setup-dependent task deferred to scenario revamp"
+      ],
+      "tool_count": 7,
+      "tool_names": [
+        "EventsScheduler__cancel_event",
+        "EventsScheduler__get_event_time",
+        "EventsScheduler__list_events",
+        "EventsScheduler__reschedule_event",
+        "EventsScheduler__schedule_event",
+        "EventsScheduler__schedule_recurring_event",
+        "EventsScheduler__time_until_event"
+      ],
+      "setup": [
+        "schedule_event('Team Sync', '2025-02-10T09:00:00')"
+      ],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "events_scheduler",
+      "prompt_id": "event_scheduler_5",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 7,
+      "tool_names": [
+        "EventsScheduler__cancel_event",
+        "EventsScheduler__get_event_time",
+        "EventsScheduler__list_events",
+        "EventsScheduler__reschedule_event",
+        "EventsScheduler__schedule_event",
+        "EventsScheduler__schedule_recurring_event",
+        "EventsScheduler__time_until_event"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "events_scheduler",
+      "prompt_id": "event_scheduler_6",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 7,
+      "tool_names": [
+        "EventsScheduler__cancel_event",
+        "EventsScheduler__get_event_time",
+        "EventsScheduler__list_events",
+        "EventsScheduler__reschedule_event",
+        "EventsScheduler__schedule_event",
+        "EventsScheduler__schedule_recurring_event",
+        "EventsScheduler__time_until_event"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "file_management",
+      "prompt_id": "file_management_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 14,
+      "tool_names": [
+        "FileManagement__append_to_file",
+        "FileManagement__clear_file",
+        "FileManagement__copy_file",
+        "FileManagement__count_words",
+        "FileManagement__create_file",
+        "FileManagement__delete_file",
+        "FileManagement__file_exists",
+        "FileManagement__get_file_size",
+        "FileManagement__list_files",
+        "FileManagement__move_file",
+        "FileManagement__read_file",
+        "FileManagement__rename_file",
+        "FileManagement__search_in_file",
+        "FileManagement__write_file"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "file_management",
+      "prompt_id": "file_management_2",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 14,
+      "tool_names": [
+        "FileManagement__append_to_file",
+        "FileManagement__clear_file",
+        "FileManagement__copy_file",
+        "FileManagement__count_words",
+        "FileManagement__create_file",
+        "FileManagement__delete_file",
+        "FileManagement__file_exists",
+        "FileManagement__get_file_size",
+        "FileManagement__list_files",
+        "FileManagement__move_file",
+        "FileManagement__read_file",
+        "FileManagement__rename_file",
+        "FileManagement__search_in_file",
+        "FileManagement__write_file"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "file_management",
+      "prompt_id": "file_management_3",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 14,
+      "tool_names": [
+        "FileManagement__append_to_file",
+        "FileManagement__clear_file",
+        "FileManagement__copy_file",
+        "FileManagement__count_words",
+        "FileManagement__create_file",
+        "FileManagement__delete_file",
+        "FileManagement__file_exists",
+        "FileManagement__get_file_size",
+        "FileManagement__list_files",
+        "FileManagement__move_file",
+        "FileManagement__read_file",
+        "FileManagement__rename_file",
+        "FileManagement__search_in_file",
+        "FileManagement__write_file"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "file_management",
+      "prompt_id": "file_management_4",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 14,
+      "tool_names": [
+        "FileManagement__append_to_file",
+        "FileManagement__clear_file",
+        "FileManagement__copy_file",
+        "FileManagement__count_words",
+        "FileManagement__create_file",
+        "FileManagement__delete_file",
+        "FileManagement__file_exists",
+        "FileManagement__get_file_size",
+        "FileManagement__list_files",
+        "FileManagement__move_file",
+        "FileManagement__read_file",
+        "FileManagement__rename_file",
+        "FileManagement__search_in_file",
+        "FileManagement__write_file"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "file_management",
+      "prompt_id": "file_management_5",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 14,
+      "tool_names": [
+        "FileManagement__append_to_file",
+        "FileManagement__clear_file",
+        "FileManagement__copy_file",
+        "FileManagement__count_words",
+        "FileManagement__create_file",
+        "FileManagement__delete_file",
+        "FileManagement__file_exists",
+        "FileManagement__get_file_size",
+        "FileManagement__list_files",
+        "FileManagement__move_file",
+        "FileManagement__read_file",
+        "FileManagement__rename_file",
+        "FileManagement__search_in_file",
+        "FileManagement__write_file"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "file_management",
+      "prompt_id": "file_management_6",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 14,
+      "tool_names": [
+        "FileManagement__append_to_file",
+        "FileManagement__clear_file",
+        "FileManagement__copy_file",
+        "FileManagement__count_words",
+        "FileManagement__create_file",
+        "FileManagement__delete_file",
+        "FileManagement__file_exists",
+        "FileManagement__get_file_size",
+        "FileManagement__list_files",
+        "FileManagement__move_file",
+        "FileManagement__read_file",
+        "FileManagement__rename_file",
+        "FileManagement__search_in_file",
+        "FileManagement__write_file"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "legal_compliance",
+      "prompt_id": "legal_compliance_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "LegalCompliance__approve_policy",
+        "LegalCompliance__check_compliance",
+        "LegalCompliance__enforce_compliance",
+        "LegalCompliance__flag_violation",
+        "LegalCompliance__generate_audit_report",
+        "LegalCompliance__request_consent"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "legal_compliance",
+      "prompt_id": "legal_compliance_2",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "LegalCompliance__approve_policy",
+        "LegalCompliance__check_compliance",
+        "LegalCompliance__enforce_compliance",
+        "LegalCompliance__flag_violation",
+        "LegalCompliance__generate_audit_report",
+        "LegalCompliance__request_consent"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "legal_compliance",
+      "prompt_id": "legal_compliance_3",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "LegalCompliance__approve_policy",
+        "LegalCompliance__check_compliance",
+        "LegalCompliance__enforce_compliance",
+        "LegalCompliance__flag_violation",
+        "LegalCompliance__generate_audit_report",
+        "LegalCompliance__request_consent"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "legal_compliance",
+      "prompt_id": "legal_compliance_4",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "LegalCompliance__approve_policy",
+        "LegalCompliance__check_compliance",
+        "LegalCompliance__enforce_compliance",
+        "LegalCompliance__flag_violation",
+        "LegalCompliance__generate_audit_report",
+        "LegalCompliance__request_consent"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "legal_compliance",
+      "prompt_id": "legal_compliance_5",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "LegalCompliance__approve_policy",
+        "LegalCompliance__check_compliance",
+        "LegalCompliance__enforce_compliance",
+        "LegalCompliance__flag_violation",
+        "LegalCompliance__generate_audit_report",
+        "LegalCompliance__request_consent"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "computations",
+      "prompt_id": "computations_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Computations__add_numbers",
+        "Computations__calculate_average",
+        "Computations__divide_numbers",
+        "Computations__multiply_numbers",
+        "Computations__power",
+        "Computations__subtract_numbers"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "computations",
+      "prompt_id": "computations_2",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Computations__add_numbers",
+        "Computations__calculate_average",
+        "Computations__divide_numbers",
+        "Computations__multiply_numbers",
+        "Computations__power",
+        "Computations__subtract_numbers"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "computations",
+      "prompt_id": "computations_3",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Computations__add_numbers",
+        "Computations__calculate_average",
+        "Computations__divide_numbers",
+        "Computations__multiply_numbers",
+        "Computations__power",
+        "Computations__subtract_numbers"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "computations",
+      "prompt_id": "computations_4",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Computations__add_numbers",
+        "Computations__calculate_average",
+        "Computations__divide_numbers",
+        "Computations__multiply_numbers",
+        "Computations__power",
+        "Computations__subtract_numbers"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "computations",
+      "prompt_id": "computations_5",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Computations__add_numbers",
+        "Computations__calculate_average",
+        "Computations__divide_numbers",
+        "Computations__multiply_numbers",
+        "Computations__power",
+        "Computations__subtract_numbers"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "navigation",
+      "prompt_id": "navigation_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 7,
+      "tool_names": [
+        "Navigation__get_player_position",
+        "Navigation__is_within_bounds",
+        "Navigation__move_down",
+        "Navigation__move_left",
+        "Navigation__move_right",
+        "Navigation__move_up",
+        "Navigation__reset_position"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "navigation",
+      "prompt_id": "navigation_2",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 7,
+      "tool_names": [
+        "Navigation__get_player_position",
+        "Navigation__is_within_bounds",
+        "Navigation__move_down",
+        "Navigation__move_left",
+        "Navigation__move_right",
+        "Navigation__move_up",
+        "Navigation__reset_position"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "navigation",
+      "prompt_id": "navigation_3",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 7,
+      "tool_names": [
+        "Navigation__get_player_position",
+        "Navigation__is_within_bounds",
+        "Navigation__move_down",
+        "Navigation__move_left",
+        "Navigation__move_right",
+        "Navigation__move_up",
+        "Navigation__reset_position"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "navigation",
+      "prompt_id": "navigation_4",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 7,
+      "tool_names": [
+        "Navigation__get_player_position",
+        "Navigation__is_within_bounds",
+        "Navigation__move_down",
+        "Navigation__move_left",
+        "Navigation__move_right",
+        "Navigation__move_up",
+        "Navigation__reset_position"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "navigation",
+      "prompt_id": "navigation_5",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 7,
+      "tool_names": [
+        "Navigation__get_player_position",
+        "Navigation__is_within_bounds",
+        "Navigation__move_down",
+        "Navigation__move_left",
+        "Navigation__move_right",
+        "Navigation__move_up",
+        "Navigation__reset_position"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "navigation",
+      "prompt_id": "navigation_6",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 7,
+      "tool_names": [
+        "Navigation__get_player_position",
+        "Navigation__is_within_bounds",
+        "Navigation__move_down",
+        "Navigation__move_left",
+        "Navigation__move_right",
+        "Navigation__move_up",
+        "Navigation__reset_position"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_1",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_2",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_3",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_4",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_5",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_6",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_7",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_8",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_9",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_10",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_11",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transaction_12",
+      "status": "deferred",
+      "reasons": [
+        "Missing, duplicate, or mismatched dataset record"
+      ],
+      "tool_count": 10,
+      "tool_names": [
+        "Transactions__apply_interest",
+        "Transactions__charge_fee",
+        "Transactions__check_balance",
+        "Transactions__close_account",
+        "Transactions__create_account",
+        "Transactions__deposit",
+        "Transactions__get_transaction_history",
+        "Transactions__refund",
+        "Transactions__transfer",
+        "Transactions__withdraw"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "validation",
+      "prompt_id": "validation_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Validation__check_password_hash",
+        "Validation__generate_otp",
+        "Validation__hash_password",
+        "Validation__validate_email",
+        "Validation__validate_username",
+        "Validation__verify_otp"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "validation",
+      "prompt_id": "validation_2",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Validation__check_password_hash",
+        "Validation__generate_otp",
+        "Validation__hash_password",
+        "Validation__validate_email",
+        "Validation__validate_username",
+        "Validation__verify_otp"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "validation",
+      "prompt_id": "validation_3",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Validation__check_password_hash",
+        "Validation__generate_otp",
+        "Validation__hash_password",
+        "Validation__validate_email",
+        "Validation__validate_username",
+        "Validation__verify_otp"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "validation",
+      "prompt_id": "validation_4",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Validation__check_password_hash",
+        "Validation__generate_otp",
+        "Validation__hash_password",
+        "Validation__validate_email",
+        "Validation__validate_username",
+        "Validation__verify_otp"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "validation",
+      "prompt_id": "validation_5",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Validation__check_password_hash",
+        "Validation__generate_otp",
+        "Validation__hash_password",
+        "Validation__validate_email",
+        "Validation__validate_username",
+        "Validation__verify_otp"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "validation",
+      "prompt_id": "validation_6",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Validation__check_password_hash",
+        "Validation__generate_otp",
+        "Validation__hash_password",
+        "Validation__validate_email",
+        "Validation__validate_username",
+        "Validation__verify_otp"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "web_browsing",
+      "prompt_id": "web_browsing_1",
+      "status": "deferred",
+      "reasons": [
+        "Local HTML fixtures absent; defer filesystem-backed world to scenario revamp"
+      ],
+      "tool_count": 6,
+      "tool_names": [
+        "WebBrowsing__find_text_in_page",
+        "WebBrowsing__get_current_url",
+        "WebBrowsing__get_page_source",
+        "WebBrowsing__go_back",
+        "WebBrowsing__move_to_url",
+        "WebBrowsing__view_browsing_history"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "web_browsing",
+      "prompt_id": "web_browsing_2",
+      "status": "deferred",
+      "reasons": [
+        "Local HTML fixtures absent; defer filesystem-backed world to scenario revamp"
+      ],
+      "tool_count": 6,
+      "tool_names": [
+        "WebBrowsing__find_text_in_page",
+        "WebBrowsing__get_current_url",
+        "WebBrowsing__get_page_source",
+        "WebBrowsing__go_back",
+        "WebBrowsing__move_to_url",
+        "WebBrowsing__view_browsing_history"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "web_browsing",
+      "prompt_id": "web_browsing_3",
+      "status": "deferred",
+      "reasons": [
+        "Local HTML fixtures absent; defer filesystem-backed world to scenario revamp"
+      ],
+      "tool_count": 6,
+      "tool_names": [
+        "WebBrowsing__find_text_in_page",
+        "WebBrowsing__get_current_url",
+        "WebBrowsing__get_page_source",
+        "WebBrowsing__go_back",
+        "WebBrowsing__move_to_url",
+        "WebBrowsing__view_browsing_history"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "web_browsing",
+      "prompt_id": "web_browsing_4",
+      "status": "deferred",
+      "reasons": [
+        "Local HTML fixtures absent; defer filesystem-backed world to scenario revamp"
+      ],
+      "tool_count": 6,
+      "tool_names": [
+        "WebBrowsing__find_text_in_page",
+        "WebBrowsing__get_current_url",
+        "WebBrowsing__get_page_source",
+        "WebBrowsing__go_back",
+        "WebBrowsing__move_to_url",
+        "WebBrowsing__view_browsing_history"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "web_browsing",
+      "prompt_id": "web_browsing_5",
+      "status": "deferred",
+      "reasons": [
+        "Local HTML fixtures absent; defer filesystem-backed world to scenario revamp"
+      ],
+      "tool_count": 6,
+      "tool_names": [
+        "WebBrowsing__find_text_in_page",
+        "WebBrowsing__get_current_url",
+        "WebBrowsing__get_page_source",
+        "WebBrowsing__go_back",
+        "WebBrowsing__move_to_url",
+        "WebBrowsing__view_browsing_history"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "web_browsing",
+      "prompt_id": "web_browsing_6",
+      "status": "deferred",
+      "reasons": [
+        "Local HTML fixtures absent; defer filesystem-backed world to scenario revamp"
+      ],
+      "tool_count": 6,
+      "tool_names": [
+        "WebBrowsing__find_text_in_page",
+        "WebBrowsing__get_current_url",
+        "WebBrowsing__get_page_source",
+        "WebBrowsing__go_back",
+        "WebBrowsing__move_to_url",
+        "WebBrowsing__view_browsing_history"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "writing",
+      "prompt_id": "writing_1",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Writing__add_adjective",
+        "Writing__add_article",
+        "Writing__add_noun",
+        "Writing__add_preposition",
+        "Writing__add_verb",
+        "Writing__complete_sentence"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "writing",
+      "prompt_id": "writing_2",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Writing__add_adjective",
+        "Writing__add_article",
+        "Writing__add_noun",
+        "Writing__add_preposition",
+        "Writing__add_verb",
+        "Writing__complete_sentence"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "writing",
+      "prompt_id": "writing_3",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Writing__add_adjective",
+        "Writing__add_article",
+        "Writing__add_noun",
+        "Writing__add_preposition",
+        "Writing__add_verb",
+        "Writing__complete_sentence"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "writing",
+      "prompt_id": "writing_4",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Writing__add_adjective",
+        "Writing__add_article",
+        "Writing__add_noun",
+        "Writing__add_preposition",
+        "Writing__add_verb",
+        "Writing__complete_sentence"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "writing",
+      "prompt_id": "writing_5",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Writing__add_adjective",
+        "Writing__add_article",
+        "Writing__add_noun",
+        "Writing__add_preposition",
+        "Writing__add_verb",
+        "Writing__complete_sentence"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "writing",
+      "prompt_id": "writing_6",
+      "status": "ready",
+      "reasons": [],
+      "tool_count": 6,
+      "tool_names": [
+        "Writing__add_adjective",
+        "Writing__add_article",
+        "Writing__add_noun",
+        "Writing__add_preposition",
+        "Writing__add_verb",
+        "Writing__complete_sentence"
+      ],
+      "setup": [],
+      "dataset_prompt_differs": false
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_1",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_10",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_11",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_12",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_2",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_3",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_4",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_5",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_6",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_7",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_8",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    },
+    {
+      "world": "transactions",
+      "prompt_id": "transactions_9",
+      "status": "dataset_only",
+      "reasons": [
+        "No matching runnable world task"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "prompt_id": "automation_1",
+      "artifact": "runs\\automation_1\\2026-09-18_230642_550011Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "automation_4",
+      "artifact": "runs\\automation_4\\2026-09-18_230642_586188Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "communication_1",
+      "artifact": "runs\\communication_1\\2026-09-18_230642_619190Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 1,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "communication_2",
+      "artifact": "runs\\communication_2\\2026-09-18_230642_641191Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 1,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "communication_3",
+      "artifact": "runs\\communication_3\\2026-09-18_230642_667741Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 3,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "configurations_1",
+      "artifact": "runs\\configurations_1\\2026-09-18_230642_699741Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 1,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "configurations_3",
+      "artifact": "runs\\configurations_3\\2026-09-18_230642_722740Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "configurations_4",
+      "artifact": "runs\\configurations_4\\2026-09-18_230642_757753Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 3,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "configurations_5",
+      "artifact": "runs\\configurations_5\\2026-09-18_230642_792272Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 4,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "crud_1",
+      "artifact": "runs\\crud_1\\2026-09-18_230642_847079Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 3,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "crud_4",
+      "artifact": "runs\\crud_4\\2026-09-18_230642_871599Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 3,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "crud_5",
+      "artifact": "runs\\crud_5\\2026-09-18_230642_897601Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 4,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "desktop_manager_1",
+      "artifact": "runs\\desktop_manager_1\\2026-09-18_230642_920599Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "desktop_manager_2",
+      "artifact": "runs\\desktop_manager_2\\2026-09-18_230642_941600Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 3,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "desktop_manager_3",
+      "artifact": "runs\\desktop_manager_3\\2026-09-18_230642_964125Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 4,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "desktop_manager_5",
+      "artifact": "runs\\desktop_manager_5\\2026-09-18_230642_991126Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 3,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "desktop_manager_6",
+      "artifact": "runs\\desktop_manager_6\\2026-09-18_230643_018124Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 4,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "event_scheduler_1",
+      "artifact": "runs\\event_scheduler_1\\2026-09-18_230643_045127Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "event_scheduler_2",
+      "artifact": "runs\\event_scheduler_2\\2026-09-18_230643_128852Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "event_scheduler_5",
+      "artifact": "runs\\event_scheduler_5\\2026-09-18_230643_162140Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "event_scheduler_6",
+      "artifact": "runs\\event_scheduler_6\\2026-09-18_230643_190302Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 3,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "file_management_1",
+      "artifact": "runs\\file_management_1\\2026-09-18_230643_218560Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "file_management_2",
+      "artifact": "runs\\file_management_2\\2026-09-18_230643_246563Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "file_management_3",
+      "artifact": "runs\\file_management_3\\2026-09-18_230643_276366Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "file_management_4",
+      "artifact": "runs\\file_management_4\\2026-09-18_230643_324363Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "file_management_5",
+      "artifact": "runs\\file_management_5\\2026-09-18_230643_360985Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "file_management_6",
+      "artifact": "runs\\file_management_6\\2026-09-18_230643_397523Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "legal_compliance_1",
+      "artifact": "runs\\legal_compliance_1\\2026-09-18_230643_433645Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "legal_compliance_2",
+      "artifact": "runs\\legal_compliance_2\\2026-09-18_230643_471057Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "legal_compliance_3",
+      "artifact": "runs\\legal_compliance_3\\2026-09-18_230643_508289Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "legal_compliance_4",
+      "artifact": "runs\\legal_compliance_4\\2026-09-18_230643_559876Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "legal_compliance_5",
+      "artifact": "runs\\legal_compliance_5\\2026-09-18_230643_626577Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 4,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "computations_1",
+      "artifact": "runs\\computations_1\\2026-09-18_230643_672371Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "computations_2",
+      "artifact": "runs\\computations_2\\2026-09-18_230643_709140Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "computations_3",
+      "artifact": "runs\\computations_3\\2026-09-18_230643_747481Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 1,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "computations_4",
+      "artifact": "runs\\computations_4\\2026-09-18_230643_782251Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 4,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "computations_5",
+      "status": "blocked",
+      "reason": "ValueError: Unsupported reference call"
+    },
+    {
+      "prompt_id": "navigation_1",
+      "artifact": "runs\\navigation_1\\2026-09-18_230643_844810Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 1,
+      "tool_calls": 1,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "navigation_2",
+      "artifact": "runs\\navigation_2\\2026-09-18_230643_871300Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 1,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "navigation_3",
+      "artifact": "runs\\navigation_3\\2026-09-18_230643_906351Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 2,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "navigation_4",
+      "artifact": "runs\\navigation_4\\2026-09-18_230643_944347Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 4,
+      "tool_calls": 4,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "navigation_5",
+      "artifact": "runs\\navigation_5\\2026-09-18_230643_976911Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 2,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "navigation_6",
+      "artifact": "runs\\navigation_6\\2026-09-18_230644_004191Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 1,
+      "tool_calls": 3,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "validation_1",
+      "artifact": "runs\\validation_1\\2026-09-18_230644_029194Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 1,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "validation_2",
+      "status": "blocked",
+      "reason": "SyntaxError: positional argument follows keyword argument (<unknown>, line 1)"
+    },
+    {
+      "prompt_id": "validation_3",
+      "artifact": "runs\\validation_3\\2026-09-18_230644_088189Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "validation_4",
+      "artifact": "runs\\validation_4\\2026-09-18_230644_116277Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 2,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "validation_5",
+      "artifact": "runs\\validation_5\\2026-09-18_230644_144687Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 3,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "validation_6",
+      "artifact": "runs\\validation_6\\2026-09-18_230644_174238Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 4,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "writing_1",
+      "artifact": "runs\\writing_1\\2026-09-18_230644_209236Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 5,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "writing_2",
+      "artifact": "runs\\writing_2\\2026-09-18_230644_249256Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 8,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "writing_3",
+      "artifact": "runs\\writing_3\\2026-09-18_230644_285827Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 8,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "writing_4",
+      "artifact": "runs\\writing_4\\2026-09-18_230644_327468Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 5,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "writing_5",
+      "artifact": "runs\\writing_5\\2026-09-18_230644_365770Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 9,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    },
+    {
+      "prompt_id": "writing_6",
+      "artifact": "runs\\writing_6\\2026-09-18_230644_420042Z_reference_scripted\\run.json",
+      "status": "completed",
+      "stop_reason": "final_response",
+      "tool_errors": 0,
+      "tool_calls": 8,
+      "usage": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null
+      }
+    }
+  ],
+  "note": "Execution coverage, not task-success or paper metric scores.",
+  "counts": {
+    "completed": 53,
+    "blocked": 2
+  }
+}

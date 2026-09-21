@@ -1,4 +1,21 @@
 # Running experiments (WiP)
+
+Start with the [session handoff](SESSION_HANDOFF.md) for Week 1 status and next
+steps, and [coverage report](docs/PAPER_WORLD_COVERAGE.md) for results. Run artifacts are included under `runs/`.
+
+The opt-in [shared runner](docs/SHARED_RUNNER.md) now inventories paper worlds and
+runs selected tasks with the FarmAgent-derived runtime:
+
+```powershell
+python -m function_calling.experiments
+python -m function_calling.experiments --mode offline
+python -m function_calling.experiments --mode live --world computations
+```
+
+Only `--mode live` makes paid API requests. Install `requirements-experiments.txt`
+for this path. The original experiment runner below remains unchanged. Setup and
+scenario gaps are reported, and runtime completion is not a paper metric score.
+
 The Week 1 FarmAgent-derived runtime is available in `function_calling/`.
 See [the port guide](docs/FUNCTION_CALLING_PORT.md) for its interface and offline
 tests. A scripted run of CORE's real Computations tools is available with

@@ -1,0 +1,416 @@
+{
+  "schema_version": 1,
+  "world": "Navigation",
+  "prompt_id": "navigation_4",
+  "prompt": "Move the player in a square pattern (2 steps right, 2 steps down, 2 steps left, 2 steps up).",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "player_position": [
+      0,
+      0
+    ]
+  },
+  "final_state": {
+    "player_position": [
+      0,
+      0
+    ]
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 5,
+    "tool_calls": 4,
+    "final_answer": "Reference probe complete",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "scripted",
+      "model": "reference_execution_probe",
+      "temperature": null,
+      "request_timeout_seconds": null,
+      "max_output_tokens": null,
+      "token_limit_parameter": null
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 0.0,
+    "tool_errors": 4
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Move the player in a square pattern (2 steps right, 2 steps down, 2 steps left, 2 steps up).\n\nCurrent world state:\nPlayer Position on 5x5 Grid: {'player_position': (0, 0)}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772803.9543598,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": {
+        "error": {
+          "type": "KeyError",
+          "message": "'grid_size'"
+        }
+      },
+      "op_type": "TOOL",
+      "tool_name": "Navigation__move_right",
+      "canonical_name": "move_right",
+      "tool_args": {
+        "steps": 2
+      },
+      "raw_arguments": "{\"steps\": 2}",
+      "requested_args": {
+        "steps": 2
+      },
+      "tool_call_id": "ref_1",
+      "status": "error",
+      "error": {
+        "type": "KeyError",
+        "message": "'grid_size'"
+      },
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772803.9543598,
+      "time_before": 1789772803.9543598,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": {
+        "error": {
+          "type": "KeyError",
+          "message": "'grid_size'"
+        }
+      },
+      "op_type": "TOOL",
+      "tool_name": "Navigation__move_down",
+      "canonical_name": "move_down",
+      "tool_args": {
+        "steps": 2
+      },
+      "raw_arguments": "{\"steps\": 2}",
+      "requested_args": {
+        "steps": 2
+      },
+      "tool_call_id": "ref_2",
+      "status": "error",
+      "error": {
+        "type": "KeyError",
+        "message": "'grid_size'"
+      },
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772803.9543598,
+      "time_before": 1789772803.9543598,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": {
+        "error": {
+          "type": "KeyError",
+          "message": "'grid_size'"
+        }
+      },
+      "op_type": "TOOL",
+      "tool_name": "Navigation__move_left",
+      "canonical_name": "move_left",
+      "tool_args": {
+        "steps": 2
+      },
+      "raw_arguments": "{\"steps\": 2}",
+      "requested_args": {
+        "steps": 2
+      },
+      "tool_call_id": "ref_3",
+      "status": "error",
+      "error": {
+        "type": "KeyError",
+        "message": "'grid_size'"
+      },
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772803.9543598,
+      "time_before": 1789772803.9543598,
+      "elapsed_seconds": 0.0
+    },
+    "step4": {
+      "name": "step4",
+      "content": {
+        "error": {
+          "type": "KeyError",
+          "message": "'grid_size'"
+        }
+      },
+      "op_type": "TOOL",
+      "tool_name": "Navigation__move_up",
+      "canonical_name": "move_up",
+      "tool_args": {
+        "steps": 2
+      },
+      "raw_arguments": "{\"steps\": 2}",
+      "requested_args": {
+        "steps": 2
+      },
+      "tool_call_id": "ref_4",
+      "status": "error",
+      "error": {
+        "type": "KeyError",
+        "message": "'grid_size'"
+      },
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772803.95536,
+      "time_before": 1789772803.95536,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an AI agent responsible for handling spatial navigation in a 5x5 grid-based environment.\nYour objective is to correctly execute movement functions to navigate the grid efficiently while ensuring logical consistency."
+    },
+    {
+      "role": "user",
+      "content": "Move the player in a square pattern (2 steps right, 2 steps down, 2 steps left, 2 steps up).\n\nCurrent world state:\nPlayer Position on 5x5 Grid: {'player_position': (0, 0)}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_1",
+          "type": "function",
+          "function": {
+            "name": "Navigation__move_right",
+            "arguments": "{\"steps\": 2}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "content": "{\"error\": {\"type\": \"KeyError\", \"message\": \"'grid_size'\"}}"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_1: {\"player_position\": [0, 0]}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_2",
+          "type": "function",
+          "function": {
+            "name": "Navigation__move_down",
+            "arguments": "{\"steps\": 2}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "content": "{\"error\": {\"type\": \"KeyError\", \"message\": \"'grid_size'\"}}"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_2: {\"player_position\": [0, 0]}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_3",
+          "type": "function",
+          "function": {
+            "name": "Navigation__move_left",
+            "arguments": "{\"steps\": 2}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "content": "{\"error\": {\"type\": \"KeyError\", \"message\": \"'grid_size'\"}}"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_3: {\"player_position\": [0, 0]}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_4",
+          "type": "function",
+          "function": {
+            "name": "Navigation__move_up",
+            "arguments": "{\"steps\": 2}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "content": "{\"error\": {\"type\": \"KeyError\", \"message\": \"'grid_size'\"}}"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_4: {\"player_position\": [0, 0]}"
+    },
+    {
+      "role": "assistant",
+      "content": "Reference probe complete"
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "ref_1",
+      "state": {
+        "player_position": [
+          0,
+          0
+        ]
+      },
+      "time": 1789772803.9543598
+    },
+    {
+      "tool_call_id": "ref_2",
+      "state": {
+        "player_position": [
+          0,
+          0
+        ]
+      },
+      "time": 1789772803.9543598
+    },
+    {
+      "tool_call_id": "ref_3",
+      "state": {
+        "player_position": [
+          0,
+          0
+        ]
+      },
+      "time": 1789772803.95536
+    },
+    {
+      "tool_call_id": "ref_4",
+      "state": {
+        "player_position": [
+          0,
+          0
+        ]
+      },
+      "time": 1789772803.95536
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  },
+  "client_configuration": {
+    "provider": "scripted"
+  }
+}

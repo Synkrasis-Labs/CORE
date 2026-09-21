@@ -1,0 +1,3137 @@
+{
+  "schema_version": 1,
+  "source_summary": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\batches\\2026-09-18_230912_247245Z_live\\summary.json",
+  "note": "Legacy path scores, not task-success counts or all paper metrics.",
+  "counts": {
+    "unscored": 21,
+    "scored": 30
+  },
+  "runs": [
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\automation_1\\2026-09-18_230708_933197Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "automation_1",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "G"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "turn_on_lights",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step2",
+            "name": "set_thermostat",
+            "arguments": {
+              "temperature": 24
+            },
+            "status": "ok",
+            "symbol": "G"
+          }
+        ],
+        "issues": [
+          "step1: legacy alphabet could not map turn_on_lights (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\automation_4\\2026-09-18_230715_720588Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "automation_4",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "print_system_status",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step2",
+            "name": "turn_on_lights",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step1: legacy alphabet could not map print_system_status (zero-argument call)",
+          "step2: legacy alphabet could not map turn_on_lights (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\communication_1\\2026-09-18_230718_250139Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "communication_1",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "A"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "send_message",
+            "arguments": {
+              "sender": "Alice",
+              "recipient": "Bob",
+              "content": "Urgent meeting at 3 PM",
+              "priority": "high"
+            },
+            "status": "ok",
+            "symbol": "A"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\communication_2\\2026-09-18_230914_248298Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "communication_2",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "B"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "print_messages",
+            "arguments": {
+              "recipient": "Bob",
+              "priority": "high"
+            },
+            "status": "ok",
+            "symbol": "B"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\communication_3\\2026-09-18_230917_893696Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "communication_3",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "A",
+          "B",
+          "C"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "send_message",
+            "arguments": {
+              "sender": "Charlie",
+              "recipient": "Dana",
+              "content": "Lunch at noon",
+              "priority": "normal"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "print_messages",
+            "arguments": {
+              "recipient": "Dana",
+              "priority": "normal"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step3",
+            "name": "delete_message",
+            "arguments": {
+              "sender": "Charlie",
+              "recipient": "Dana"
+            },
+            "status": "ok",
+            "symbol": "C"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\crud_1\\2026-09-18_230921_307444Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "crud_1",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 0.5,
+        "sequence": [
+          "A",
+          "E'"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "add_user",
+            "arguments": {
+              "name": "Alice",
+              "age": 25
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "verify_user_field",
+            "arguments": {
+              "user_id": "Alice_id",
+              "field": "age",
+              "expected_value": "25"
+            },
+            "status": "ok",
+            "symbol": "E'"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\crud_4\\2026-09-18_230925_323420Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "crud_4",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "A",
+          "C"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "add_user",
+            "arguments": {
+              "name": "Charlie",
+              "age": 40,
+              "email": "charlie@email.com"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "delete_user",
+            "arguments": {
+              "user_id": "Charlie_id"
+            },
+            "status": "ok",
+            "symbol": "C"
+          },
+          {
+            "step": "step3",
+            "name": "list_users",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step3: legacy alphabet could not map list_users (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\crud_5\\2026-09-18_230928_676863Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "crud_5",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "B",
+          "C"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "list_users",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step2",
+            "name": "add_user",
+            "arguments": {
+              "name": "Eve",
+              "age": 22,
+              "email": ""
+            },
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step3",
+            "name": "update_user_email",
+            "arguments": {
+              "user_id": "Eve_id",
+              "email": "eve@example.com"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step4",
+            "name": "delete_user",
+            "arguments": {
+              "user_id": "Eve_id"
+            },
+            "status": "ok",
+            "symbol": "C"
+          },
+          {
+            "step": "step5",
+            "name": "list_users",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step1: legacy alphabet could not map list_users (zero-argument call)",
+          "step2: legacy alphabet could not map add_user (argument match)",
+          "step5: legacy alphabet could not map list_users (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\desktop_manager_1\\2026-09-18_230933_851437Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "desktop_manager_1",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "A"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "open_application",
+            "arguments": {
+              "app_name": "Text Editor"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "print_open_applications",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step2: legacy alphabet could not map print_open_applications (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\desktop_manager_2\\2026-09-18_230936_023253Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "desktop_manager_2",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "A",
+          "E",
+          "F"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "open_application",
+            "arguments": {
+              "app_name": "Browser"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "perform_action",
+            "arguments": {
+              "app_name": "Browser",
+              "action": "Search"
+            },
+            "status": "ok",
+            "symbol": "E"
+          },
+          {
+            "step": "step3",
+            "name": "print_application_actions",
+            "arguments": {
+              "app_name": "Browser"
+            },
+            "status": "ok",
+            "symbol": "F"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\desktop_manager_3\\2026-09-18_230938_999754Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "desktop_manager_3",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "A",
+          "F",
+          "E",
+          "B"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "open_application",
+            "arguments": {
+              "app_name": "Music Player"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "print_application_actions",
+            "arguments": {
+              "app_name": "Music Player"
+            },
+            "status": "ok",
+            "symbol": "F"
+          },
+          {
+            "step": "step3",
+            "name": "perform_action",
+            "arguments": {
+              "app_name": "Music Player",
+              "action": "play_song"
+            },
+            "status": "ok",
+            "symbol": "E"
+          },
+          {
+            "step": "step4",
+            "name": "close_application",
+            "arguments": {
+              "app_name": "Music Player"
+            },
+            "status": "ok",
+            "symbol": "B"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\desktop_manager_5\\2026-09-18_230945_168024Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "desktop_manager_5",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "A",
+          "E"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "open_application",
+            "arguments": {
+              "app_name": "Terminal"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "perform_action",
+            "arguments": {
+              "app_name": "Terminal",
+              "action": "execute_command"
+            },
+            "status": "ok",
+            "symbol": "E"
+          },
+          {
+            "step": "step3",
+            "name": "print_open_applications",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step4",
+            "name": "print_application_history",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step5",
+            "name": "close_application",
+            "arguments": {
+              "app_name": "Terminal"
+            },
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step3: legacy alphabet could not map print_open_applications (zero-argument call)",
+          "step4: legacy alphabet could not map print_application_history (zero-argument call)",
+          "step5: legacy alphabet could not map close_application (argument match)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\desktop_manager_6\\2026-09-18_230949_248488Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "desktop_manager_6",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 0.6,
+        "sequence": [
+          "A",
+          "E''",
+          "E''",
+          "F"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "open_application",
+            "arguments": {
+              "app_name": "Spreadsheet"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "perform_action",
+            "arguments": {
+              "app_name": "Spreadsheet",
+              "action": "enter_data_in_cell_A1"
+            },
+            "status": "ok",
+            "symbol": "E''"
+          },
+          {
+            "step": "step3",
+            "name": "perform_action",
+            "arguments": {
+              "app_name": "Spreadsheet",
+              "action": "enter_data_in_cell_A2"
+            },
+            "status": "ok",
+            "symbol": "E''"
+          },
+          {
+            "step": "step4",
+            "name": "print_application_actions",
+            "arguments": {
+              "app_name": "Spreadsheet"
+            },
+            "status": "ok",
+            "symbol": "F"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\event_scheduler_1\\2026-09-18_230952_810592Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "event_scheduler_1",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "A",
+          "E"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "schedule_event",
+            "arguments": {
+              "event_name": "Team Sync",
+              "event_time": "2025-02-10T09:00:00"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "get_event_time",
+            "arguments": {
+              "event_name": "Team Sync"
+            },
+            "status": "ok",
+            "symbol": "E"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\event_scheduler_2\\2026-09-18_230954_934838Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "event_scheduler_2",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "A"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "schedule_event",
+            "arguments": {
+              "event_name": "Team Sync",
+              "event_time": "2025-02-10T09:00:00"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "list_events",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step2: legacy alphabet could not map list_events (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\event_scheduler_5\\2026-09-18_230957_027146Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "event_scheduler_5",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 0.33333333333333337,
+        "sequence": [
+          "G'",
+          "E'"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "schedule_recurring_event",
+            "arguments": {
+              "event_name": "stand-up meeting",
+              "interval_minutes": 30
+            },
+            "status": "ok",
+            "symbol": "G'"
+          },
+          {
+            "step": "step2",
+            "name": "get_event_time",
+            "arguments": {
+              "event_name": "stand-up meeting"
+            },
+            "status": "ok",
+            "symbol": "E'"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\event_scheduler_6\\2026-09-18_230959_070635Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "event_scheduler_6",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "A",
+          "F"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "schedule_event",
+            "arguments": {
+              "event_name": "Project Review",
+              "event_time": "2025-02-11T15:00:00"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "list_events",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step3",
+            "name": "time_until_event",
+            "arguments": {
+              "event_name": "Project Review"
+            },
+            "status": "ok",
+            "symbol": "F"
+          },
+          {
+            "step": "step4",
+            "name": "cancel_event",
+            "arguments": {
+              "event_name": "Project Review"
+            },
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step2: legacy alphabet could not map list_events (zero-argument call)",
+          "step4: legacy alphabet could not map cancel_event (argument match)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\file_management_1\\2026-09-18_231002_709747Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "file_management_1",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "A",
+          "D"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "create_file",
+            "arguments": {
+              "filename": "new_meeting.txt"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "write_file",
+            "arguments": {
+              "filename": "new_meeting.txt",
+              "content": "Meeting at 10 AM"
+            },
+            "status": "ok",
+            "symbol": "D"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\file_management_2\\2026-09-18_231005_865248Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "file_management_2",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "J",
+          "C"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "file_exists",
+            "arguments": {
+              "filename": "notes.txt"
+            },
+            "status": "ok",
+            "symbol": "J"
+          },
+          {
+            "step": "step2",
+            "name": "read_file",
+            "arguments": {
+              "filename": "notes.txt"
+            },
+            "status": "ok",
+            "symbol": "C"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\file_management_3\\2026-09-18_231008_041432Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "file_management_3",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "G"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "rename_file",
+            "arguments": {
+              "old_name": "notes.txt",
+              "new_name": "new_notes.txt"
+            },
+            "status": "ok",
+            "symbol": "G"
+          },
+          {
+            "step": "step2",
+            "name": "list_files",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step2: legacy alphabet could not map list_files (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\file_management_4\\2026-09-18_231010_096678Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "file_management_4",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "E",
+          "M"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "append_to_file",
+            "arguments": {
+              "filename": "meeting_notes.txt",
+              "content": "New agenda added"
+            },
+            "status": "ok",
+            "symbol": "E"
+          },
+          {
+            "step": "step2",
+            "name": "count_words",
+            "arguments": {
+              "filename": "meeting_notes.txt"
+            },
+            "status": "ok",
+            "symbol": "M"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\file_management_5\\2026-09-18_231012_192864Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "file_management_5",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "H",
+          "K"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "copy_file",
+            "arguments": {
+              "source": "meeting_notes.txt",
+              "destination": "notes.txt"
+            },
+            "status": "ok",
+            "symbol": "H"
+          },
+          {
+            "step": "step2",
+            "name": "get_file_size",
+            "arguments": {
+              "filename": "notes.txt"
+            },
+            "status": "ok",
+            "symbol": "K"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\file_management_6\\2026-09-18_231014_523498Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "file_management_6",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 0.6,
+        "sequence": [
+          "N",
+          "E'"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "search_in_file",
+            "arguments": {
+              "filename": "meeting_notes.txt",
+              "keyword": "agenda"
+            },
+            "status": "ok",
+            "symbol": "N"
+          },
+          {
+            "step": "step2",
+            "name": "append_to_file",
+            "arguments": {
+              "filename": "meeting_notes.txt",
+              "content": "\nagenda"
+            },
+            "status": "ok",
+            "symbol": "E'"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\legal_compliance_1\\2026-09-18_231016_781499Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "legal_compliance_1",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "A",
+          "C"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "check_compliance",
+            "arguments": {
+              "doc_name": "privacy_policy",
+              "statement": "Users must be informed before data collection"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "approve_policy",
+            "arguments": {
+              "statement": "Users must be informed before data collection"
+            },
+            "status": "ok",
+            "symbol": "C"
+          },
+          {
+            "step": "step3",
+            "name": "flag_violation",
+            "arguments": {
+              "issue": "The statement 'Users must be informed before data collection' is not included in the privacy policy."
+            },
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step4",
+            "name": "enforce_compliance",
+            "arguments": {
+              "doc_name": "privacy_policy",
+              "issue": "The statement 'Users must be informed before data collection' is not included in the privacy policy."
+            },
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step3: legacy alphabet could not map flag_violation (argument match)",
+          "step4: legacy alphabet could not map enforce_compliance (argument match)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\legal_compliance_2\\2026-09-18_231020_597989Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "legal_compliance_2",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "B",
+          "D"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "flag_violation",
+            "arguments": {
+              "issue": "Unauthorized data sharing detected"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step2",
+            "name": "request_consent",
+            "arguments": {
+              "user_id": "U123",
+              "reason": "Data processing consent required"
+            },
+            "status": "ok",
+            "symbol": "D"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\legal_compliance_3\\2026-09-18_231022_926196Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "legal_compliance_3",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 0.33333333333333337,
+        "sequence": [
+          "B"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "flag_violation",
+            "arguments": {
+              "issue": "Data breaches not reported within 72 hours"
+            },
+            "status": "ok",
+            "symbol": "B"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\legal_compliance_4\\2026-09-18_231024_504934Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "legal_compliance_4",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "A",
+          "F"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "check_compliance",
+            "arguments": {
+              "doc_name": "terms_of_service",
+              "statement": "Users must not engage in fraudulent activities"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "enforce_compliance",
+            "arguments": {
+              "doc_name": "terms_of_service",
+              "issue": "Fraudulent activity detected"
+            },
+            "status": "ok",
+            "symbol": "F"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\legal_compliance_5\\2026-09-18_231026_823654Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "legal_compliance_5",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "A",
+          "B",
+          "F",
+          "E"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "check_compliance",
+            "arguments": {
+              "doc_name": "privacy_policy",
+              "statement": "Personal data shall not be shared with third parties"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "flag_violation",
+            "arguments": {
+              "issue": "Third-party data sharing detected"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step3",
+            "name": "enforce_compliance",
+            "arguments": {
+              "doc_name": "privacy_policy",
+              "issue": "Unauthorized data sharing mitigation"
+            },
+            "status": "ok",
+            "symbol": "F"
+          },
+          {
+            "step": "step4",
+            "name": "generate_audit_report",
+            "arguments": {
+              "doc_name": "privacy_policy"
+            },
+            "status": "ok",
+            "symbol": "E"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\computations_1\\2026-09-18_231030_445950Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "computations_1",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "A",
+          "C"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "add_numbers",
+            "arguments": {
+              "a": 15,
+              "b": 7
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "multiply_numbers",
+            "arguments": {
+              "a": 22,
+              "b": 3
+            },
+            "status": "ok",
+            "symbol": "C"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\computations_2\\2026-09-18_231032_562515Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "computations_2",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "D",
+          "E"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "divide_numbers",
+            "arguments": {
+              "a": 100,
+              "b": 4
+            },
+            "status": "ok",
+            "symbol": "D"
+          },
+          {
+            "step": "step2",
+            "name": "power",
+            "arguments": {
+              "base": 25,
+              "exponent": 2
+            },
+            "status": "ok",
+            "symbol": "E"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\computations_3\\2026-09-18_231034_682125Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "computations_3",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "F"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "calculate_average",
+            "arguments": {
+              "numbers": [
+                10,
+                20,
+                30
+              ]
+            },
+            "status": "ok",
+            "symbol": "F"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\computations_4\\2026-09-18_231036_164051Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "computations_4",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "B",
+          "D",
+          "C",
+          "F"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "subtract_numbers",
+            "arguments": {
+              "a": 25,
+              "b": 4
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step2",
+            "name": "divide_numbers",
+            "arguments": {
+              "a": 21,
+              "b": 3
+            },
+            "status": "ok",
+            "symbol": "D"
+          },
+          {
+            "step": "step3",
+            "name": "multiply_numbers",
+            "arguments": {
+              "a": 4,
+              "b": 5
+            },
+            "status": "ok",
+            "symbol": "C"
+          },
+          {
+            "step": "step4",
+            "name": "calculate_average",
+            "arguments": {
+              "numbers": [
+                7,
+                20
+              ]
+            },
+            "status": "ok",
+            "symbol": "F"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\computations_5\\2026-09-18_231039_822766Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "computations_5",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "C",
+          "A",
+          "E",
+          "D"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "multiply_numbers",
+            "arguments": {
+              "a": 6,
+              "b": 7
+            },
+            "status": "ok",
+            "symbol": "C"
+          },
+          {
+            "step": "step2",
+            "name": "add_numbers",
+            "arguments": {
+              "a": 42,
+              "b": 8
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step3",
+            "name": "power",
+            "arguments": {
+              "base": 4,
+              "exponent": 2
+            },
+            "status": "ok",
+            "symbol": "E"
+          },
+          {
+            "step": "step4",
+            "name": "divide_numbers",
+            "arguments": {
+              "a": 50,
+              "b": 16
+            },
+            "status": "ok",
+            "symbol": "D"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\navigation_1\\2026-09-18_231043_463508Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "navigation_1",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "move_right",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step2",
+            "name": "move_right",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step3",
+            "name": "move_right",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step4",
+            "name": "move_right",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step5",
+            "name": "get_player_position",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step6",
+            "name": "move_right",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step7",
+            "name": "move_right",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step1: call did not execute successfully; error-scoring policy is unresolved",
+          "step2: call did not execute successfully; error-scoring policy is unresolved",
+          "step3: call did not execute successfully; error-scoring policy is unresolved",
+          "step4: call did not execute successfully; error-scoring policy is unresolved",
+          "step5: legacy alphabet could not map get_player_position (zero-argument call)",
+          "step6: call did not execute successfully; error-scoring policy is unresolved",
+          "step7: call did not execute successfully; error-scoring policy is unresolved"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\navigation_2\\2026-09-18_231049_949703Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "navigation_2",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "move_down",
+            "arguments": {
+              "steps": 3
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step2",
+            "name": "get_player_position",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step3",
+            "name": "move_down",
+            "arguments": {
+              "steps": 3
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step4",
+            "name": "move_down",
+            "arguments": {
+              "steps": 3
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step5",
+            "name": "move_down",
+            "arguments": {
+              "steps": 3
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step6",
+            "name": "reset_position",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step7",
+            "name": "move_down",
+            "arguments": {
+              "steps": 3
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step8",
+            "name": "move_up",
+            "arguments": {
+              "steps": 1
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step9",
+            "name": "reset_position",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step1: call did not execute successfully; error-scoring policy is unresolved",
+          "step2: legacy alphabet could not map get_player_position (zero-argument call)",
+          "step3: call did not execute successfully; error-scoring policy is unresolved",
+          "step4: call did not execute successfully; error-scoring policy is unresolved",
+          "step5: call did not execute successfully; error-scoring policy is unresolved",
+          "step6: legacy alphabet could not map reset_position (zero-argument call)",
+          "step7: call did not execute successfully; error-scoring policy is unresolved",
+          "step8: call did not execute successfully; error-scoring policy is unresolved",
+          "step9: legacy alphabet could not map reset_position (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\navigation_3\\2026-09-18_231058_426593Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "navigation_3",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "move_right",
+            "arguments": {
+              "steps": 1
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step2",
+            "name": "move_down",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step3",
+            "name": "move_right",
+            "arguments": {
+              "steps": 1
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step4",
+            "name": "move_down",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step5",
+            "name": "reset_position",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step6",
+            "name": "move_right",
+            "arguments": {
+              "steps": 1
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step7",
+            "name": "move_down",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step8",
+            "name": "reset_position",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step1: call did not execute successfully; error-scoring policy is unresolved",
+          "step2: call did not execute successfully; error-scoring policy is unresolved",
+          "step3: call did not execute successfully; error-scoring policy is unresolved",
+          "step4: call did not execute successfully; error-scoring policy is unresolved",
+          "step5: legacy alphabet could not map reset_position (zero-argument call)",
+          "step6: call did not execute successfully; error-scoring policy is unresolved",
+          "step7: call did not execute successfully; error-scoring policy is unresolved",
+          "step8: legacy alphabet could not map reset_position (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\navigation_4\\2026-09-18_231105_517415Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "navigation_4",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "get_player_position",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step2",
+            "name": "move_right",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step3",
+            "name": "move_down",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step4",
+            "name": "move_left",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step5",
+            "name": "move_up",
+            "arguments": {
+              "steps": 2
+            },
+            "status": "error",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step1: legacy alphabet could not map get_player_position (zero-argument call)",
+          "step2: call did not execute successfully; error-scoring policy is unresolved",
+          "step3: call did not execute successfully; error-scoring policy is unresolved",
+          "step4: call did not execute successfully; error-scoring policy is unresolved",
+          "step5: call did not execute successfully; error-scoring policy is unresolved"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\navigation_5\\2026-09-18_231109_639112Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "navigation_5",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "get_player_position",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step2",
+            "name": "move_right",
+            "arguments": {
+              "steps": 4
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step3",
+            "name": "move_right",
+            "arguments": {
+              "steps": 4
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step4",
+            "name": "move_down",
+            "arguments": {
+              "steps": 4
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step5",
+            "name": "move_right",
+            "arguments": {
+              "steps": 4
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step6",
+            "name": "move_down",
+            "arguments": {
+              "steps": 4
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step7",
+            "name": "move_right",
+            "arguments": {
+              "steps": 4
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step8",
+            "name": "move_down",
+            "arguments": {
+              "steps": 4
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step9",
+            "name": "reset_position",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step10",
+            "name": "move_right",
+            "arguments": {
+              "steps": 4
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step11",
+            "name": "move_down",
+            "arguments": {
+              "steps": 4
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step12",
+            "name": "move_right",
+            "arguments": {
+              "steps": 4
+            },
+            "status": "error",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step1: legacy alphabet could not map get_player_position (zero-argument call)",
+          "step2: call did not execute successfully; error-scoring policy is unresolved",
+          "step3: call did not execute successfully; error-scoring policy is unresolved",
+          "step4: call did not execute successfully; error-scoring policy is unresolved",
+          "step5: call did not execute successfully; error-scoring policy is unresolved",
+          "step6: call did not execute successfully; error-scoring policy is unresolved",
+          "step7: call did not execute successfully; error-scoring policy is unresolved",
+          "step8: call did not execute successfully; error-scoring policy is unresolved",
+          "step9: legacy alphabet could not map reset_position (zero-argument call)",
+          "step10: call did not execute successfully; error-scoring policy is unresolved",
+          "step11: call did not execute successfully; error-scoring policy is unresolved",
+          "step12: call did not execute successfully; error-scoring policy is unresolved"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\navigation_6\\2026-09-18_231118_720501Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "navigation_6",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "move_right",
+            "arguments": {
+              "steps": 3
+            },
+            "status": "error",
+            "symbol": null
+          },
+          {
+            "step": "step2",
+            "name": "reset_position",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step3",
+            "name": "get_player_position",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step1: call did not execute successfully; error-scoring policy is unresolved",
+          "step2: legacy alphabet could not map reset_position (zero-argument call)",
+          "step3: legacy alphabet could not map get_player_position (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\validation_1\\2026-09-18_231121_329671Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "validation_1",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "A"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "validate_email",
+            "arguments": {
+              "email": "user@example.com"
+            },
+            "status": "ok",
+            "symbol": "A"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\validation_2\\2026-09-18_231122_884609Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "validation_2",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "B",
+          "C"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "hash_password",
+            "arguments": {
+              "password": "Yharnam"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step2",
+            "name": "check_password_hash",
+            "arguments": {
+              "password": "Hunter",
+              "hashed_password": "0a099edf6266ef30bc1f157a1cb2a0c8cdec45be4e7fbbff6c765949076ead14"
+            },
+            "status": "ok",
+            "symbol": "C"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\validation_3\\2026-09-18_231125_039333Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "validation_3",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "D",
+          "B"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "validate_username",
+            "arguments": {
+              "username": "John_Doe"
+            },
+            "status": "ok",
+            "symbol": "D"
+          },
+          {
+            "step": "step2",
+            "name": "hash_password",
+            "arguments": {
+              "password": "MyStrongPass!"
+            },
+            "status": "ok",
+            "symbol": "B"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\validation_4\\2026-09-18_231127_187520Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "validation_4",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "E",
+          "F"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "generate_otp",
+            "arguments": {
+              "length": 7
+            },
+            "status": "ok",
+            "symbol": "E"
+          },
+          {
+            "step": "step2",
+            "name": "verify_otp",
+            "arguments": {
+              "input_otp": "1234567",
+              "correct_otp": "1234567"
+            },
+            "status": "ok",
+            "symbol": "F"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\validation_5\\2026-09-18_231129_216286Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "validation_5",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "A",
+          "B",
+          "E"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "validate_email",
+            "arguments": {
+              "email": "invalid-email"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "hash_password",
+            "arguments": {
+              "password": "test123"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step3",
+            "name": "generate_otp",
+            "arguments": {
+              "length": 9
+            },
+            "status": "ok",
+            "symbol": "E"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\validation_6\\2026-09-18_231132_025147Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "validation_6",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 1.0,
+        "sequence": [
+          "D",
+          "B",
+          "E",
+          "F"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "validate_username",
+            "arguments": {
+              "username": "Alice_Wonder"
+            },
+            "status": "ok",
+            "symbol": "D"
+          },
+          {
+            "step": "step2",
+            "name": "hash_password",
+            "arguments": {
+              "password": "SuperSecure123"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step3",
+            "name": "generate_otp",
+            "arguments": {
+              "length": 8
+            },
+            "status": "ok",
+            "symbol": "E"
+          },
+          {
+            "step": "step4",
+            "name": "verify_otp",
+            "arguments": {
+              "input_otp": "99999999",
+              "correct_otp": "12345678"
+            },
+            "status": "ok",
+            "symbol": "F"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\writing_1\\2026-09-18_231135_607641Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "writing_1",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "A",
+          "D",
+          "B",
+          "C",
+          "A",
+          "D'",
+          "B'",
+          "C'",
+          "A",
+          "D'"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "add_article",
+            "arguments": {
+              "article": "the"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "add_adjective",
+            "arguments": {
+              "adjective": "big"
+            },
+            "status": "ok",
+            "symbol": "D"
+          },
+          {
+            "step": "step3",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "cat"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step4",
+            "name": "add_verb",
+            "arguments": {
+              "verb": "runs"
+            },
+            "status": "ok",
+            "symbol": "C"
+          },
+          {
+            "step": "step5",
+            "name": "complete_sentence",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step6",
+            "name": "add_article",
+            "arguments": {
+              "article": "the"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step7",
+            "name": "add_adjective",
+            "arguments": {
+              "adjective": "small"
+            },
+            "status": "ok",
+            "symbol": "D'"
+          },
+          {
+            "step": "step8",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "bird"
+            },
+            "status": "ok",
+            "symbol": "B'"
+          },
+          {
+            "step": "step9",
+            "name": "add_verb",
+            "arguments": {
+              "verb": "flies"
+            },
+            "status": "ok",
+            "symbol": "C'"
+          },
+          {
+            "step": "step10",
+            "name": "complete_sentence",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step11",
+            "name": "add_article",
+            "arguments": {
+              "article": "the"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step12",
+            "name": "add_adjective",
+            "arguments": {
+              "adjective": "happy"
+            },
+            "status": "ok",
+            "symbol": "D'"
+          }
+        ],
+        "issues": [
+          "step5: legacy alphabet could not map complete_sentence (zero-argument call)",
+          "step10: legacy alphabet could not map complete_sentence (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\writing_2\\2026-09-18_231143_894704Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "writing_2",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "A'",
+          "D",
+          "B",
+          "E",
+          "B'",
+          "A'",
+          "D",
+          "B",
+          "E",
+          "B'"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "add_article",
+            "arguments": {
+              "article": "A"
+            },
+            "status": "ok",
+            "symbol": "A'"
+          },
+          {
+            "step": "step2",
+            "name": "add_adjective",
+            "arguments": {
+              "adjective": "small"
+            },
+            "status": "ok",
+            "symbol": "D"
+          },
+          {
+            "step": "step3",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "dog"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step4",
+            "name": "add_preposition",
+            "arguments": {
+              "preposition": "under"
+            },
+            "status": "ok",
+            "symbol": "E"
+          },
+          {
+            "step": "step5",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "tree"
+            },
+            "status": "ok",
+            "symbol": "B'"
+          },
+          {
+            "step": "step6",
+            "name": "complete_sentence",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step7",
+            "name": "add_article",
+            "arguments": {
+              "article": null
+            },
+            "status": "ok",
+            "symbol": "A'"
+          },
+          {
+            "step": "step8",
+            "name": "add_adjective",
+            "arguments": {
+              "adjective": "small"
+            },
+            "status": "ok",
+            "symbol": "D"
+          },
+          {
+            "step": "step9",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "dog"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step10",
+            "name": "add_preposition",
+            "arguments": {
+              "preposition": "under"
+            },
+            "status": "ok",
+            "symbol": "E"
+          },
+          {
+            "step": "step11",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "tree"
+            },
+            "status": "ok",
+            "symbol": "B'"
+          },
+          {
+            "step": "step12",
+            "name": "complete_sentence",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step6: legacy alphabet could not map complete_sentence (zero-argument call)",
+          "step12: legacy alphabet could not map complete_sentence (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\writing_3\\2026-09-18_231151_848780Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "writing_3",
+      "evaluation": {
+        "status": "scored",
+        "metric": "legacy_core_path_correctness",
+        "score": 0,
+        "sequence": [
+          "A",
+          "D",
+          "B",
+          "E",
+          "A'",
+          "B'",
+          "C"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "add_article",
+            "arguments": {
+              "article": "a"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "add_adjective",
+            "arguments": {
+              "adjective": "fast"
+            },
+            "status": "ok",
+            "symbol": "D"
+          },
+          {
+            "step": "step3",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "bird"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step4",
+            "name": "add_preposition",
+            "arguments": {
+              "preposition": "beside"
+            },
+            "status": "ok",
+            "symbol": "E"
+          },
+          {
+            "step": "step5",
+            "name": "add_article",
+            "arguments": {
+              "article": "the"
+            },
+            "status": "ok",
+            "symbol": "A'"
+          },
+          {
+            "step": "step6",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "house"
+            },
+            "status": "ok",
+            "symbol": "B'"
+          },
+          {
+            "step": "step7",
+            "name": "add_verb",
+            "arguments": {
+              "verb": "flies"
+            },
+            "status": "ok",
+            "symbol": "C"
+          }
+        ],
+        "issues": [],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\writing_4\\2026-09-18_231157_431732Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "writing_4",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "A",
+          "B",
+          "C",
+          "A'",
+          "B'",
+          "C'",
+          "A'",
+          "B'",
+          "C'"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "add_article",
+            "arguments": {
+              "article": "the"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "dog"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step3",
+            "name": "add_verb",
+            "arguments": {
+              "verb": "runs"
+            },
+            "status": "ok",
+            "symbol": "C"
+          },
+          {
+            "step": "step4",
+            "name": "complete_sentence",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step5",
+            "name": "add_article",
+            "arguments": {
+              "article": null
+            },
+            "status": "ok",
+            "symbol": "A'"
+          },
+          {
+            "step": "step6",
+            "name": "add_noun",
+            "arguments": {
+              "noun": null
+            },
+            "status": "ok",
+            "symbol": "B'"
+          },
+          {
+            "step": "step7",
+            "name": "add_verb",
+            "arguments": {
+              "verb": null
+            },
+            "status": "ok",
+            "symbol": "C'"
+          },
+          {
+            "step": "step8",
+            "name": "complete_sentence",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step9",
+            "name": "add_article",
+            "arguments": {
+              "article": null
+            },
+            "status": "ok",
+            "symbol": "A'"
+          },
+          {
+            "step": "step10",
+            "name": "add_noun",
+            "arguments": {
+              "noun": null
+            },
+            "status": "ok",
+            "symbol": "B'"
+          },
+          {
+            "step": "step11",
+            "name": "add_verb",
+            "arguments": {
+              "verb": null
+            },
+            "status": "ok",
+            "symbol": "C'"
+          },
+          {
+            "step": "step12",
+            "name": "complete_sentence",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step4: legacy alphabet could not map complete_sentence (zero-argument call)",
+          "step8: legacy alphabet could not map complete_sentence (zero-argument call)",
+          "step12: legacy alphabet could not map complete_sentence (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\writing_5\\2026-09-18_231205_413504Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "writing_5",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "A'",
+          "D",
+          "B''",
+          "E",
+          "C",
+          "A",
+          "D''",
+          "B''",
+          "E'",
+          "A'",
+          "B''"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "add_article",
+            "arguments": {
+              "article": "the"
+            },
+            "status": "ok",
+            "symbol": "A'"
+          },
+          {
+            "step": "step2",
+            "name": "add_adjective",
+            "arguments": {
+              "adjective": "blue"
+            },
+            "status": "ok",
+            "symbol": "D"
+          },
+          {
+            "step": "step3",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "plant"
+            },
+            "status": "ok",
+            "symbol": "B''"
+          },
+          {
+            "step": "step4",
+            "name": "add_preposition",
+            "arguments": {
+              "preposition": "above"
+            },
+            "status": "ok",
+            "symbol": "E"
+          },
+          {
+            "step": "step5",
+            "name": "add_verb",
+            "arguments": {
+              "verb": "jumps"
+            },
+            "status": "ok",
+            "symbol": "C"
+          },
+          {
+            "step": "step6",
+            "name": "complete_sentence",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step7",
+            "name": "add_article",
+            "arguments": {
+              "article": "a"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step8",
+            "name": "add_adjective",
+            "arguments": {
+              "adjective": "large"
+            },
+            "status": "ok",
+            "symbol": "D''"
+          },
+          {
+            "step": "step9",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "plant"
+            },
+            "status": "ok",
+            "symbol": "B''"
+          },
+          {
+            "step": "step10",
+            "name": "add_preposition",
+            "arguments": {
+              "preposition": "in"
+            },
+            "status": "ok",
+            "symbol": "E'"
+          },
+          {
+            "step": "step11",
+            "name": "add_article",
+            "arguments": {
+              "article": "the"
+            },
+            "status": "ok",
+            "symbol": "A'"
+          },
+          {
+            "step": "step12",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "garden"
+            },
+            "status": "ok",
+            "symbol": "B''"
+          }
+        ],
+        "issues": [
+          "step6: legacy alphabet could not map complete_sentence (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    },
+    {
+      "source_run": "C:\\Users\\manos\\Documents\\manos\\Personal\\Professional\\Synkrasis\\CORE\\runs\\writing_6\\2026-09-18_231213_339281Z_gpt-4.1-nano\\run.json",
+      "prompt_id": "writing_6",
+      "evaluation": {
+        "status": "unscored",
+        "metric": "legacy_core_path_correctness",
+        "score": null,
+        "sequence": [
+          "A",
+          "B",
+          "C",
+          "A'",
+          "B'",
+          "C'",
+          "A'",
+          "B'",
+          "C'"
+        ],
+        "actions": [
+          {
+            "step": "step1",
+            "name": "add_article",
+            "arguments": {
+              "article": "the"
+            },
+            "status": "ok",
+            "symbol": "A"
+          },
+          {
+            "step": "step2",
+            "name": "add_noun",
+            "arguments": {
+              "noun": "bird"
+            },
+            "status": "ok",
+            "symbol": "B"
+          },
+          {
+            "step": "step3",
+            "name": "add_verb",
+            "arguments": {
+              "verb": "flies"
+            },
+            "status": "ok",
+            "symbol": "C"
+          },
+          {
+            "step": "step4",
+            "name": "complete_sentence",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step5",
+            "name": "add_article",
+            "arguments": {
+              "article": null
+            },
+            "status": "ok",
+            "symbol": "A'"
+          },
+          {
+            "step": "step6",
+            "name": "add_noun",
+            "arguments": {
+              "noun": null
+            },
+            "status": "ok",
+            "symbol": "B'"
+          },
+          {
+            "step": "step7",
+            "name": "add_verb",
+            "arguments": {
+              "verb": null
+            },
+            "status": "ok",
+            "symbol": "C'"
+          },
+          {
+            "step": "step8",
+            "name": "complete_sentence",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          },
+          {
+            "step": "step9",
+            "name": "add_article",
+            "arguments": {
+              "article": null
+            },
+            "status": "ok",
+            "symbol": "A'"
+          },
+          {
+            "step": "step10",
+            "name": "add_noun",
+            "arguments": {
+              "noun": null
+            },
+            "status": "ok",
+            "symbol": "B'"
+          },
+          {
+            "step": "step11",
+            "name": "add_verb",
+            "arguments": {
+              "verb": null
+            },
+            "status": "ok",
+            "symbol": "C'"
+          },
+          {
+            "step": "step12",
+            "name": "complete_sentence",
+            "arguments": {},
+            "status": "ok",
+            "symbol": null
+          }
+        ],
+        "issues": [
+          "step4: legacy alphabet could not map complete_sentence (zero-argument call)",
+          "step8: legacy alphabet could not map complete_sentence (zero-argument call)",
+          "step12: legacy alphabet could not map complete_sentence (zero-argument call)"
+        ],
+        "policy": "all recorded tool steps must have executed successfully and map to symbols",
+        "note": "Legacy core.evaluate score, not all paper metrics or final-state/task success.",
+        "limitations": [
+          "Legacy path search can miss longer accepting paths (A alone scores 0, not 0.5).",
+          "Legacy fc2symbol argument/exclusion matching is preserved, including its known limitations."
+        ]
+      }
+    }
+  ]
+}

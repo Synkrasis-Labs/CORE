@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "world": "Configurations",
+  "prompt_id": "configurations_5",
+  "prompt": "Set configurations for 'max-connections' to '100' in 'network', 'log-level' to 'debug' in 'system' with whatever order you like. Then, print both in whatever order you choose.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {},
+  "final_state": {
+    "max-connections": {
+      "value": "100",
+      "category": "network",
+      "timestamp": "2026-09-18T23:06:42.828066"
+    },
+    "log-level": {
+      "value": "debug",
+      "category": "system",
+      "timestamp": "2026-09-18T23:06:42.829067"
+    }
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 5,
+    "tool_calls": 4,
+    "final_answer": "Reference probe complete",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "scripted",
+      "model": "reference_execution_probe",
+      "temperature": null,
+      "request_timeout_seconds": null,
+      "max_output_tokens": null,
+      "token_limit_parameter": null
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 0.0,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Set configurations for 'max-connections' to '100' in 'network', 'log-level' to 'debug' in 'system' with whatever order you like. Then, print both in whatever order you choose.\n\nCurrent world state:\nDatabase: {}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772802.8280663,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": "Configuration 'max-connections' set to '100' in category 'network'.",
+      "op_type": "TOOL",
+      "tool_name": "Configurations__set_config",
+      "canonical_name": "set_config",
+      "tool_args": {
+        "key": "max-connections",
+        "value": "100",
+        "category": "network"
+      },
+      "raw_arguments": "{\"key\": \"max-connections\", \"value\": \"100\", \"category\": \"network\"}",
+      "requested_args": {
+        "key": "max-connections",
+        "value": "100",
+        "category": "network"
+      },
+      "tool_call_id": "ref_1",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772802.8280663,
+      "time_before": 1789772802.8280663,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": "Configuration 'log-level' set to 'debug' in category 'system'.",
+      "op_type": "TOOL",
+      "tool_name": "Configurations__set_config",
+      "canonical_name": "set_config",
+      "tool_args": {
+        "key": "log-level",
+        "value": "debug",
+        "category": "system"
+      },
+      "raw_arguments": "{\"key\": \"log-level\", \"value\": \"debug\", \"category\": \"system\"}",
+      "requested_args": {
+        "key": "log-level",
+        "value": "debug",
+        "category": "system"
+      },
+      "tool_call_id": "ref_2",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772802.8290675,
+      "time_before": 1789772802.8290675,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": {
+        "value": "100",
+        "category": "network",
+        "timestamp": "2026-09-18T23:06:42.828066"
+      },
+      "op_type": "TOOL",
+      "tool_name": "Configurations__print_config",
+      "canonical_name": "print_config",
+      "tool_args": {
+        "key": "max-connections"
+      },
+      "raw_arguments": "{\"key\": \"max-connections\"}",
+      "requested_args": {
+        "key": "max-connections"
+      },
+      "tool_call_id": "ref_3",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772802.8290675,
+      "time_before": 1789772802.8290675,
+      "elapsed_seconds": 0.0
+    },
+    "step4": {
+      "name": "step4",
+      "content": {
+        "value": "debug",
+        "category": "system",
+        "timestamp": "2026-09-18T23:06:42.829067"
+      },
+      "op_type": "TOOL",
+      "tool_name": "Configurations__print_config",
+      "canonical_name": "print_config",
+      "tool_args": {
+        "key": "log-level"
+      },
+      "raw_arguments": "{\"key\": \"log-level\"}",
+      "requested_args": {
+        "key": "log-level"
+      },
+      "tool_call_id": "ref_4",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772802.8300674,
+      "time_before": 1789772802.8300674,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for handling state and configuration management by interacting with a structured database. The database is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Set configurations for 'max-connections' to '100' in 'network', 'log-level' to 'debug' in 'system' with whatever order you like. Then, print both in whatever order you choose.\n\nCurrent world state:\nDatabase: {}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_1",
+          "type": "function",
+          "function": {
+            "name": "Configurations__set_config",
+            "arguments": "{\"key\": \"max-connections\", \"value\": \"100\", \"category\": \"network\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "content": "Configuration 'max-connections' set to '100' in category 'network'."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_1: {\"max-connections\": {\"value\": \"100\", \"category\": \"network\", \"timestamp\": \"2026-09-18T23:06:42.828066\"}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_2",
+          "type": "function",
+          "function": {
+            "name": "Configurations__set_config",
+            "arguments": "{\"key\": \"log-level\", \"value\": \"debug\", \"category\": \"system\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "content": "Configuration 'log-level' set to 'debug' in category 'system'."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_2: {\"max-connections\": {\"value\": \"100\", \"category\": \"network\", \"timestamp\": \"2026-09-18T23:06:42.828066\"}, \"log-level\": {\"value\": \"debug\", \"category\": \"system\", \"timestamp\": \"2026-09-18T23:06:42.829067\"}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_3",
+          "type": "function",
+          "function": {
+            "name": "Configurations__print_config",
+            "arguments": "{\"key\": \"max-connections\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "content": "{\"value\": \"100\", \"category\": \"network\", \"timestamp\": \"2026-09-18T23:06:42.828066\"}"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_3: {\"max-connections\": {\"value\": \"100\", \"category\": \"network\", \"timestamp\": \"2026-09-18T23:06:42.828066\"}, \"log-level\": {\"value\": \"debug\", \"category\": \"system\", \"timestamp\": \"2026-09-18T23:06:42.829067\"}}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_4",
+          "type": "function",
+          "function": {
+            "name": "Configurations__print_config",
+            "arguments": "{\"key\": \"log-level\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "content": "{\"value\": \"debug\", \"category\": \"system\", \"timestamp\": \"2026-09-18T23:06:42.829067\"}"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_4: {\"max-connections\": {\"value\": \"100\", \"category\": \"network\", \"timestamp\": \"2026-09-18T23:06:42.828066\"}, \"log-level\": {\"value\": \"debug\", \"category\": \"system\", \"timestamp\": \"2026-09-18T23:06:42.829067\"}}"
+    },
+    {
+      "role": "assistant",
+      "content": "Reference probe complete"
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "ref_1",
+      "state": {
+        "max-connections": {
+          "value": "100",
+          "category": "network",
+          "timestamp": "2026-09-18T23:06:42.828066"
+        }
+      },
+      "time": 1789772802.8280663
+    },
+    {
+      "tool_call_id": "ref_2",
+      "state": {
+        "max-connections": {
+          "value": "100",
+          "category": "network",
+          "timestamp": "2026-09-18T23:06:42.828066"
+        },
+        "log-level": {
+          "value": "debug",
+          "category": "system",
+          "timestamp": "2026-09-18T23:06:42.829067"
+        }
+      },
+      "time": 1789772802.8290675
+    },
+    {
+      "tool_call_id": "ref_3",
+      "state": {
+        "max-connections": {
+          "value": "100",
+          "category": "network",
+          "timestamp": "2026-09-18T23:06:42.828066"
+        },
+        "log-level": {
+          "value": "debug",
+          "category": "system",
+          "timestamp": "2026-09-18T23:06:42.829067"
+        }
+      },
+      "time": 1789772802.8290675
+    },
+    {
+      "tool_call_id": "ref_4",
+      "state": {
+        "max-connections": {
+          "value": "100",
+          "category": "network",
+          "timestamp": "2026-09-18T23:06:42.828066"
+        },
+        "log-level": {
+          "value": "debug",
+          "category": "system",
+          "timestamp": "2026-09-18T23:06:42.829067"
+        }
+      },
+      "time": 1789772802.8300674
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_4",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  },
+  "client_configuration": {
+    "provider": "scripted"
+  }
+}

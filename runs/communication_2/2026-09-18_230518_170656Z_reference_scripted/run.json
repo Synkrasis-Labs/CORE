@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "world": "Communication",
+  "prompt_id": "communication_2",
+  "prompt": "Print all messages for 'Bob', filtering only high-priority ones.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "messages": []
+  },
+  "final_state": {
+    "messages": []
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 2,
+    "tool_calls": 1,
+    "final_answer": "Reference probe complete",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "scripted",
+      "model": "reference_execution_probe",
+      "temperature": null,
+      "request_timeout_seconds": null,
+      "max_output_tokens": null,
+      "token_limit_parameter": null
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 0.0,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Print all messages for 'Bob', filtering only high-priority ones.\n\nCurrent world state:\nDatabase: {'messages': []}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772718.190389,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": [],
+      "op_type": "TOOL",
+      "tool_name": "Communication__print_messages",
+      "canonical_name": "print_messages",
+      "tool_args": {
+        "recipient": "Bob",
+        "priority": "high"
+      },
+      "raw_arguments": "{\"recipient\": \"Bob\", \"priority\": \"high\"}",
+      "requested_args": {
+        "recipient": "Bob",
+        "priority": "high"
+      },
+      "tool_call_id": "ref_1",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772718.1913886,
+      "time_before": 1789772718.1913886,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for handling communication and messaging tasks. The database of messages is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Print all messages for 'Bob', filtering only high-priority ones.\n\nCurrent world state:\nDatabase: {'messages': []}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_1",
+          "type": "function",
+          "function": {
+            "name": "Communication__print_messages",
+            "arguments": "{\"recipient\": \"Bob\", \"priority\": \"high\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "content": "[]"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_1: {\"messages\": []}"
+    },
+    {
+      "role": "assistant",
+      "content": "Reference probe complete"
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "ref_1",
+      "state": {
+        "messages": []
+      },
+      "time": 1789772718.1913886
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  },
+  "client_configuration": {
+    "provider": "scripted"
+  }
+}

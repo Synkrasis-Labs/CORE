@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "world": "EventsScheduler",
+  "prompt_id": "event_scheduler_6",
+  "prompt": "Schedule 'Project Review' at '2025-02-11T15:00:00', list all events, then check the time until that event.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {},
+  "final_state": {
+    "Project Review": "2025-02-11T15:00:00"
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 4,
+    "tool_calls": 3,
+    "final_answer": "Reference probe complete",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "scripted",
+      "model": "reference_execution_probe",
+      "temperature": null,
+      "request_timeout_seconds": null,
+      "max_output_tokens": null,
+      "token_limit_parameter": null
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 0.0,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Schedule 'Project Review' at '2025-02-11T15:00:00', list all events, then check the time until that event.\n\nCurrent world state:\nState: {}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772718.9951751,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": "Event 'Project Review' scheduled at 2025-02-11T15:00:00.",
+      "op_type": "TOOL",
+      "tool_name": "EventsScheduler__schedule_event",
+      "canonical_name": "schedule_event",
+      "tool_args": {
+        "event_name": "Project Review",
+        "event_time": "2025-02-11T15:00:00"
+      },
+      "raw_arguments": "{\"event_name\": \"Project Review\", \"event_time\": \"2025-02-11T15:00:00\"}",
+      "requested_args": {
+        "event_name": "Project Review",
+        "event_time": "2025-02-11T15:00:00"
+      },
+      "tool_call_id": "ref_1",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772718.9962082,
+      "time_before": 1789772718.9962082,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": {
+        "Project Review": "2025-02-11T15:00:00"
+      },
+      "op_type": "TOOL",
+      "tool_name": "EventsScheduler__list_events",
+      "canonical_name": "list_events",
+      "tool_args": {},
+      "raw_arguments": "{}",
+      "requested_args": {},
+      "tool_call_id": "ref_2",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772718.99677,
+      "time_before": 1789772718.99677,
+      "elapsed_seconds": 0.0
+    },
+    "step3": {
+      "name": "step3",
+      "content": "Event time has passed.",
+      "op_type": "TOOL",
+      "tool_name": "EventsScheduler__time_until_event",
+      "canonical_name": "time_until_event",
+      "tool_args": {
+        "event_name": "Project Review"
+      },
+      "raw_arguments": "{\"event_name\": \"Project Review\"}",
+      "requested_args": {
+        "event_name": "Project Review"
+      },
+      "tool_call_id": "ref_3",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772718.9972901,
+      "time_before": 1789772718.9972901,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for for managing event scheduling and time-related tasks. The state is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Schedule 'Project Review' at '2025-02-11T15:00:00', list all events, then check the time until that event.\n\nCurrent world state:\nState: {}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_1",
+          "type": "function",
+          "function": {
+            "name": "EventsScheduler__schedule_event",
+            "arguments": "{\"event_name\": \"Project Review\", \"event_time\": \"2025-02-11T15:00:00\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "content": "Event 'Project Review' scheduled at 2025-02-11T15:00:00."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_1: {\"Project Review\": \"2025-02-11T15:00:00\"}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_2",
+          "type": "function",
+          "function": {
+            "name": "EventsScheduler__list_events",
+            "arguments": "{}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "content": "{\"Project Review\": \"2025-02-11T15:00:00\"}"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_2: {\"Project Review\": \"2025-02-11T15:00:00\"}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_3",
+          "type": "function",
+          "function": {
+            "name": "EventsScheduler__time_until_event",
+            "arguments": "{\"event_name\": \"Project Review\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "content": "Event time has passed."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_3: {\"Project Review\": \"2025-02-11T15:00:00\"}"
+    },
+    {
+      "role": "assistant",
+      "content": "Reference probe complete"
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "ref_1",
+      "state": {
+        "Project Review": "2025-02-11T15:00:00"
+      },
+      "time": 1789772718.9962082
+    },
+    {
+      "tool_call_id": "ref_2",
+      "state": {
+        "Project Review": "2025-02-11T15:00:00"
+      },
+      "time": 1789772718.9972901
+    },
+    {
+      "tool_call_id": "ref_3",
+      "state": {
+        "Project Review": "2025-02-11T15:00:00"
+      },
+      "time": 1789772718.9972901
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_3",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  },
+  "client_configuration": {
+    "provider": "scripted"
+  }
+}

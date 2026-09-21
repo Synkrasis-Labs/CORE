@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "world": "Automation",
+  "prompt_id": "automation_4",
+  "prompt": "Print the system status, then turn on the lights only if they are off.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {
+    "lights_on": false,
+    "thermostat": 22,
+    "door_locked": true,
+    "alarm_on": false
+  },
+  "final_state": {
+    "lights_on": true,
+    "thermostat": 22,
+    "door_locked": true,
+    "alarm_on": false
+  },
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 3,
+    "tool_calls": 2,
+    "final_answer": "Reference probe complete",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "scripted",
+      "model": "reference_execution_probe",
+      "temperature": null,
+      "request_timeout_seconds": null,
+      "max_output_tokens": null,
+      "token_limit_parameter": null
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 0.0,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Print the system status, then turn on the lights only if they are off.\n\nCurrent world state:\nSmart House state: {'lights_on': False, 'thermostat': 22, 'door_locked': True, 'alarm_on': False}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789772802.598193,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": {
+        "lights_on": false,
+        "thermostat": 22,
+        "door_locked": true,
+        "alarm_on": false
+      },
+      "op_type": "TOOL",
+      "tool_name": "Automation__print_system_status",
+      "canonical_name": "print_system_status",
+      "tool_args": {},
+      "raw_arguments": "{}",
+      "requested_args": {},
+      "tool_call_id": "ref_1",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772802.5991979,
+      "time_before": 1789772802.5991979,
+      "elapsed_seconds": 0.0
+    },
+    "step2": {
+      "name": "step2",
+      "content": "Lights turned on.",
+      "op_type": "TOOL",
+      "tool_name": "Automation__turn_on_lights",
+      "canonical_name": "turn_on_lights",
+      "tool_args": {},
+      "raw_arguments": "{}",
+      "requested_args": {},
+      "tool_call_id": "ref_2",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789772802.5991979,
+      "time_before": 1789772802.5991979,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant that is responsible for managing a smart house. The state of the smart house functionalities is provided. Always check the state and use the functions to make changes based on the user prompt."
+    },
+    {
+      "role": "user",
+      "content": "Print the system status, then turn on the lights only if they are off.\n\nCurrent world state:\nSmart House state: {'lights_on': False, 'thermostat': 22, 'door_locked': True, 'alarm_on': False}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_1",
+          "type": "function",
+          "function": {
+            "name": "Automation__print_system_status",
+            "arguments": "{}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "content": "{\"lights_on\": false, \"thermostat\": 22, \"door_locked\": true, \"alarm_on\": false}"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_1: {\"lights_on\": false, \"thermostat\": 22, \"door_locked\": true, \"alarm_on\": false}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "ref_2",
+          "type": "function",
+          "function": {
+            "name": "Automation__turn_on_lights",
+            "arguments": "{}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "content": "Lights turned on."
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call ref_2: {\"lights_on\": true, \"thermostat\": 22, \"door_locked\": true, \"alarm_on\": false}"
+    },
+    {
+      "role": "assistant",
+      "content": "Reference probe complete"
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "ref_1",
+      "state": {
+        "lights_on": false,
+        "thermostat": 22,
+        "door_locked": true,
+        "alarm_on": false
+      },
+      "time": 1789772802.5991979
+    },
+    {
+      "tool_call_id": "ref_2",
+      "state": {
+        "lights_on": true,
+        "thermostat": 22,
+        "door_locked": true,
+        "alarm_on": false
+      },
+      "time": 1789772802.5991979
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_1",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "ref_2",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.0,
+      "tokens": {
+        "prompt_tokens": null,
+        "completion_tokens": null,
+        "total_tokens": null,
+        "cached_tokens": null
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": null,
+    "completion_tokens": null,
+    "total_tokens": null
+  },
+  "client_configuration": {
+    "provider": "scripted"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "world": "Validation",
+  "prompt_id": "validation_1",
+  "prompt": "Validate the email 'user@example.com'.",
+  "dataset": "all_worlds_dataset.json",
+  "initial_state": {},
+  "final_state": {},
+  "evaluation": null,
+  "task_success": null,
+  "report": {
+    "schema_version": 1,
+    "status": "completed",
+    "stop_reason": "final_response",
+    "llm_calls": 2,
+    "tool_calls": 1,
+    "final_answer": "The email 'user@example.com' has a valid format.",
+    "error": null,
+    "limits": {
+      "max_iterations": 12,
+      "max_tool_calls": 12,
+      "timeout_seconds": 120
+    },
+    "normalize_arguments": true,
+    "state_observations_enabled": true,
+    "model": {
+      "provider": "openai",
+      "model": "gpt-4.1-nano",
+      "temperature": 0,
+      "request_timeout_seconds": 30,
+      "max_output_tokens": 512,
+      "token_limit_parameter": "max_completion_tokens"
+    },
+    "tool_policy": "sequential_all_requested",
+    "wall_time_seconds": 1.5159999999996217,
+    "tool_errors": 0
+  },
+  "workflow": {
+    "step0": {
+      "name": "step0",
+      "content": "Validate the email 'user@example.com'.\n\nCurrent world state:\nValidation Context (unused database): {}",
+      "op_type": "USER",
+      "tool_name": null,
+      "canonical_name": null,
+      "tool_args": null,
+      "raw_arguments": null,
+      "requested_args": null,
+      "tool_call_id": null,
+      "status": "ok",
+      "error": null,
+      "execution_started": false,
+      "depends_on": [],
+      "time": 1789773081.3406727,
+      "time_before": null,
+      "elapsed_seconds": 0.0
+    },
+    "step1": {
+      "name": "step1",
+      "content": true,
+      "op_type": "TOOL",
+      "tool_name": "Validation__validate_email",
+      "canonical_name": "validate_email",
+      "tool_args": {
+        "email": "user@example.com"
+      },
+      "raw_arguments": "{\"email\":\"user@example.com\"}",
+      "requested_args": {
+        "email": "user@example.com"
+      },
+      "tool_call_id": "call_H4FjmMFgsONycORAcIFsYSLy",
+      "status": "ok",
+      "error": null,
+      "execution_started": true,
+      "depends_on": [],
+      "time": 1789773082.0493891,
+      "time_before": 1789773082.048389,
+      "elapsed_seconds": 0.0
+    }
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant responsible for validating user inputs and enforcing security rules.\nYou have access to a database, but your primary task is to apply validation logic using the provided functions.\nAlways rely on function calls to make decisions \u2014 never make assumptions without validation."
+    },
+    {
+      "role": "user",
+      "content": "Validate the email 'user@example.com'.\n\nCurrent world state:\nValidation Context (unused database): {}"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_H4FjmMFgsONycORAcIFsYSLy",
+          "type": "function",
+          "function": {
+            "name": "Validation__validate_email",
+            "arguments": "{\"email\":\"user@example.com\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_H4FjmMFgsONycORAcIFsYSLy",
+      "content": "true"
+    },
+    {
+      "role": "user",
+      "content": "Current world state after tool call call_H4FjmMFgsONycORAcIFsYSLy: {}"
+    },
+    {
+      "role": "assistant",
+      "content": "The email 'user@example.com' has a valid format."
+    }
+  ],
+  "state_observations": [
+    {
+      "tool_call_id": "call_H4FjmMFgsONycORAcIFsYSLy",
+      "state": {},
+      "time": 1789773082.0493891
+    }
+  ],
+  "runtime_metrics": [
+    {
+      "role": "assistant",
+      "time": 0.7190000000009604,
+      "tokens": {
+        "prompt_tokens": 486,
+        "completion_tokens": 18,
+        "total_tokens": 504,
+        "cached_tokens": 0
+      }
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_H4FjmMFgsONycORAcIFsYSLy",
+      "time": 0.0
+    },
+    {
+      "role": "assistant",
+      "time": 0.7969999999986612,
+      "tokens": {
+        "prompt_tokens": 543,
+        "completion_tokens": 13,
+        "total_tokens": 556,
+        "cached_tokens": 0
+      }
+    }
+  ],
+  "usage_totals": {
+    "prompt_tokens": 1029,
+    "completion_tokens": 31,
+    "total_tokens": 1060
+  },
+  "client_configuration": {
+    "provider": "openai",
+    "model": "gpt-4.1-nano",
+    "temperature": 0,
+    "base_url": "https://api.openai.com/v1",
+    "request_timeout_seconds": 30,
+    "max_output_tokens": 512,
+    "token_limit_parameter": "max_completion_tokens",
+    "parallel_tool_calls": false
+  }
+}
