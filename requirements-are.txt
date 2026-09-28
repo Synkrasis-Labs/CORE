@@ -1,0 +1,2 @@
+# Pinned framework version for the first CORE-to-ARE vertical slice.
+meta-agents-research-environments==1.2.0
