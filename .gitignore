@@ -4,6 +4,7 @@ env
 # Local publishing notes and development configuration.
 /PUSH_BRANCH_INSTRUCTIONS.txt
 .venv/
+*.egg-info/
 .env
 .env.*
 !.env.example

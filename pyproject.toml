@@ -10,7 +10,7 @@ requires-python = ">=3.10"
 dependencies = ["meta-agents-research-environments==1.2.0"]
 
 [tool.setuptools]
-packages = ["are_integration"]
+packages = ["are_integration", "function_calling", "worlds"]
 
 [project.entry-points."are.simulation.scenarios"]
 core_are = "are_integration.registration:register_scenarios"
