@@ -5,6 +5,7 @@ env
 /PUSH_BRANCH_INSTRUCTIONS.txt
 .venv/
 *.egg-info/
+/runs/are/
 .env
 .env.*
 !.env.example
