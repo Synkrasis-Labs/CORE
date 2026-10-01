@@ -3,6 +3,8 @@
 For the ARE integration and revised full-path evaluation, see
 [verified repairs and offline commands](docs/ARE_REPAIRS.md). This version keeps
 historical legacy scores alongside the revised paper metrics.
+The [Week 1 live validation](docs/ARE_WEEK1_VALIDATION.md) records the repaired
+71-scenario ARE run and the matched GPT-5 nano comparison on 51 tasks.
 
 Start with the [session handoff](SESSION_HANDOFF.md) for Week 1 status and next
 steps, and [coverage report](docs/PAPER_WORLD_COVERAGE.md) for results. Run artifacts are included under `runs/`.

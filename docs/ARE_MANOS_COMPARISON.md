@@ -1,5 +1,8 @@
 # ARE versus Manos's saved function-calling batch
 
+For the fresh GPT-5 nano run through both implementations with matched request
+and output budgets, see [Week 1 live validation](ARE_WEEK1_VALIDATION.md).
+
 This report preserves the historical scoring checkpoint. Subsequent code and
 dataset repairs now score all saved traces under a separate revised policy;
 see [verified repairs and revised comparison](ARE_REPAIRS.md). Historical

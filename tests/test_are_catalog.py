@@ -22,6 +22,22 @@ from function_calling.experiments import make_world, PAPER_WORLDS
 
 
 class ARECatalogTests(unittest.TestCase):
+    def test_coordinate_schema_survives_are_text_adapter(self):
+        spec = task_catalog()['core_navigation_4']
+        scenario = spec.scenario_class()
+        scenario.initialize()
+        app = scenario.get_typed_app(spec.app_class)
+        tool = next(t for t in app.get_tools() if t.func_name == 'is_within_bounds')
+        description = AppToolAdapter(tool).description
+        encoded = description.split('JSON argument schema: ', 1)[1]
+        schema, _ = json.JSONDecoder().raw_decode(encoded)
+        coordinate = schema['properties']['position']
+        self.assertEqual(coordinate['type'], 'array')
+        self.assertEqual(coordinate['items']['type'], 'integer')
+        self.assertEqual((coordinate['minItems'], coordinate['maxItems']), (2, 2))
+        self.assertTrue(app.world.is_within_bounds([2, 0]))
+        self.assertFalse(app.world.is_within_bounds([5, 0]))
+
     def test_every_source_task_is_registered_without_dataset_id_guessing(self):
         source = {'core_' + t['prompt_id'] for key in PAPER_WORLDS
                   for t in make_world(key)[0].prompts}

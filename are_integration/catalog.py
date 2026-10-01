@@ -16,6 +16,7 @@ from are.simulation.types import event_registered
 from function_calling.core_computations import DATASET_PATH
 from function_calling.experiments import PAPER_WORLDS, REGISTRY, make_world
 from function_calling.dataset_identity import resolve_record
+from function_calling.toolset_builder import build_tool_schema
 
 
 READ_TOOLS = {
@@ -99,6 +100,12 @@ def app_class_for(key):
                 # Freeze returns at the event boundary; CORE often returns
                 # references to mutable state which later writes would alter.
                 return deepcopy(getattr(self.world, method_name)(*args, **kwargs))
+            # ARE 1.2's text adapter collapses tuple/container annotations to
+            # "any". Retain the source JSON contract in the visible description
+            # without changing the tool signature or accepting invented shapes.
+            schema = build_tool_schema(prototype)['function']['parameters']
+            proxy.__doc__ = ('JSON argument schema: ' + json.dumps(schema, sort_keys=True)
+                             + '\n\n' + (proxy.__doc__ or ''))
             operation = OperationType.READ if method_name in READ_TOOLS[key] else OperationType.WRITE
             return app_tool()(event_registered(operation_type=operation)(proxy))
 

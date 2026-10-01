@@ -322,6 +322,19 @@ class SchemaAndArtifactTests(unittest.TestCase):
         self.assertNotIn("temperature", captured)
         self.assertEqual(captured["tools"][0]["function"]["name"], "add")
 
+    def test_uncapped_transport_omits_token_limit(self):
+        captured = {}
+        def create(**options):
+            captured.update(options)
+            return reply(content="done")
+        client = SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=create)))
+        llm = OpenAILLM("gpt-5-nano", temperature=None, client=client, max_output_tokens=None)
+        llm.chat_completion([])
+        self.assertNotIn("max_completion_tokens", captured)
+        self.assertNotIn("max_tokens", captured)
+        self.assertNotIn("temperature", captured)
+        self.assertIsNone(llm.client_info()["max_output_tokens"])
+
 
 if __name__ == "__main__":
     unittest.main()

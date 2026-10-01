@@ -1,5 +1,9 @@
 # Verified repairs and revised CORE evaluation
 
+The subsequent [Week 1 live validation](ARE_WEEK1_VALIDATION.md) includes the
+v3 argument-schema repair and fresh matched-model results. The saved-run
+numbers below describe the earlier offline repair checkpoint.
+
 1 October 2026. The authoritative paper specified by the user is
 `2509.20998v1 (2).pdf` in Downloads (14 pages; SHA256
 `e13731b15ed55b8fa6b7f48c9d21c1be83d5d04d856bd400368e01d11e8c6482`),

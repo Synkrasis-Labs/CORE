@@ -20,8 +20,8 @@ class OpenAILLM(BaseLLM):
         super().__init__(model, temperature)
         if token_limit_parameter not in ("max_tokens", "max_completion_tokens"):
             raise ValueError("Unsupported token limit parameter")
-        if isinstance(max_output_tokens, bool) or not isinstance(max_output_tokens, int) or max_output_tokens < 1:
-            raise ValueError("max_output_tokens must be a positive integer")
+        if max_output_tokens is not None and (isinstance(max_output_tokens, bool) or not isinstance(max_output_tokens, int) or max_output_tokens < 1):
+            raise ValueError("max_output_tokens must be a positive integer or None")
         if isinstance(request_timeout_seconds, bool) or not math.isfinite(request_timeout_seconds) or request_timeout_seconds <= 0:
             raise ValueError("request_timeout_seconds must be positive and finite")
         self.request_timeout_seconds = request_timeout_seconds
@@ -40,8 +40,9 @@ class OpenAILLM(BaseLLM):
 
     def chat_completion(self, messages, tools=None):
         options = {"model": self.model, "messages": messages,
-                   "timeout": self.request_timeout_seconds,
-                   self.token_limit_parameter: self.max_output_tokens}
+                   "timeout": self.request_timeout_seconds}
+        if self.max_output_tokens is not None:
+            options[self.token_limit_parameter] = self.max_output_tokens
         if tools:
             options["tools"] = tools
             if self.parallel_tool_calls is not None:
