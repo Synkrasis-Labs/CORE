@@ -1,6 +1,8 @@
 """Keep attempted actions and actual user replies separate from world scoring."""
 
 from copy import deepcopy
+import json
+import re
 from are.simulation.types import EventType
 
 
@@ -44,12 +46,29 @@ def tool_attempts(logs, events):
     return attempts
 
 
-def reply_delivery(messages, attempts):
+def reply_delivery(messages, attempts, logs=None):
     replies = [deepcopy(m) for m in messages if m['sender'] == 'Agent']
+    reply_attempts = [deepcopy(a) for a in attempts
+                      if a['tool_name'] == 'AgentUserInterface__send_message_to_user']
+    generated = []
+    for log in logs or []:
+        if log['log_type'] != 'llm_output':
+            continue
+        match = re.search(r'Action:\s*', log['content'])
+        if match:
+            try:
+                action, _ = json.JSONDecoder().raw_decode(log['content'][match.end():])
+            except (ValueError, TypeError):
+                continue
+            if isinstance(action, dict) and action.get('action') == 'AgentUserInterface__send_message_to_user':
+                generated.append(action.get('action_input'))
     return {
         'delivered': bool(replies),
+        'model_reply_delivered': (any(a['status'] == 'ok' and a['requested_args'] in generated
+                                     for a in reply_attempts) if logs is not None else None),
+        'automatic_stop_delivered': any(re.fullmatch(r'Max iterations \(\d+\) reached\. Stopping\.',
+                                                    str(m['content'])) for m in replies),
         'messages': replies,
-        'attempts': [deepcopy(a) for a in attempts
-                     if a['tool_name'] == 'AgentUserInterface__send_message_to_user'],
+        'attempts': reply_attempts,
         'note': 'Delivery is observed in ARE user-interface state; reply correctness is not evaluated.',
     }

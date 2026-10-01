@@ -53,7 +53,7 @@ class Computations(World):
                 "prompt_id": "computations_5",
                 "prompt": "Multiply 6 by 7. Then, add 8 to the product. Then, divide the result by 4 raised to the second power.",
                 "setup_functions": [],
-                "expected_sequences": [["multiply_numbers(a=6, b=7)", "add_numbers(a=42, b=8)","powers(base=4, exponent=2)", "divide_numbers(a=50, b=16)"]]
+                "expected_sequences": [["multiply_numbers(a=6, b=7)", "add_numbers(a=42, b=8)","power(base=4, exponent=2)", "divide_numbers(a=50, b=16)"]]
             }
         ]
 

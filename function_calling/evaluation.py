@@ -38,7 +38,12 @@ def score_sequence(sequence, record):
             core.paths, core.path_sequences = old_paths, old_sequences
 
 
-def evaluate_artifact(artifact, dataset=None):
+def evaluate_artifact(artifact, dataset=None, *, policy="legacy"):
+    if policy == "paper":
+        from .paper_evaluation import evaluate_paper
+        return evaluate_paper(artifact, dataset)
+    if policy != "legacy":
+        raise ValueError("Unknown evaluation policy")
     result = {"status": "unscored", "metric": "legacy_core_path_correctness",
               "score": None, "sequence": [], "actions": [], "issues": [],
               "policy": "all recorded tool steps must have executed successfully and map to symbols",
@@ -112,6 +117,7 @@ def main():
     parser.add_argument("input", type=Path)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--batch", action="store_true", help="Input is a shared-runner summary; include reused runs")
+    parser.add_argument("--policy", choices=("legacy", "paper"), default="legacy")
     args = parser.parse_args()
     args.output = args.output or args.input.with_name("evaluation.json")
     if args.output.exists():
@@ -122,7 +128,7 @@ def main():
         results = []
         seen = set()
         for entry in artifact.get("reused_runs", []) + artifact["runs"]:
-            source = Path(entry["artifact"])
+            source = Path(entry["artifact"].replace("\\", "/"))
             if not source.is_absolute():
                 source = DATASET_PATH.parent / source
             source = source.resolve()
@@ -131,13 +137,17 @@ def main():
             seen.add(source)
             saved = json.loads(source.read_text(encoding="utf-8"))
             results.append({"source_run": str(source), "prompt_id": saved.get("prompt_id"),
-                            "evaluation": evaluate_artifact(saved, dataset)})
+                            "evaluation": evaluate_artifact(saved, dataset, policy=args.policy)})
         result = {"schema_version": 1, "source_summary": str(args.input.resolve()),
-                  "note": "Legacy path scores, not task-success counts or all paper metrics.",
+                  "policy": args.policy,
+                  "note": ("Legacy path scores, not task-success counts or all paper metrics."
+                           if args.policy == "legacy" else
+                           "Versioned paper metrics with documented adapter policies; not task-success counts."),
                   "counts": dict(Counter(r["evaluation"]["status"] for r in results)),
                   "runs": results}
     else:
-        evaluation = evaluate_artifact(artifact)
+        artifact = artifact.get("artifact", artifact)
+        evaluation = evaluate_artifact(artifact, policy=args.policy)
         result = {"schema_version": 1, "source_run": str(args.input.resolve()),
                   "prompt_id": artifact.get("prompt_id"), "evaluation": evaluation}
     args.output.parent.mkdir(parents=True, exist_ok=True)

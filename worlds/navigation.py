@@ -72,7 +72,7 @@ class Navigation(World):
         :param position: The (x, y) position to check.
         :return: True if within bounds, False otherwise.
         """
-        grid_width, grid_height = self.world_state["grid_size"]
+        grid_width, grid_height = self.grid_size
         x, y = position
         return 0 <= x < grid_width and 0 <= y < grid_height
 

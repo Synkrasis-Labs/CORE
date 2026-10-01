@@ -44,10 +44,10 @@ class CRUD(World):
                     'add_user(name="Jane", age=25, email=None)',
                 ],
                 "expected_sequences": [
-                    ["list_users()", "update_user_email(user_id='John_id', email='defaul@example.com')", "update_user_email(user_id='Jane_id', email='defaul@example.com')", "verify_user_field(user_id='John_id', field='email', expected_value='defaul@example.com')"],
-                    ["list_users()", "update_user_email(user_id='Jane_id', email='defaul@example.com')", "update_user_email(user_id='John_id', email='defaul@example.com')", "verify_user_field(user_id='John_id', field='email', expected_value='defaul@example.com')"],
-                    ["list_users()", "update_user_email(user_id='John_id', email='defaul@example.com')", "update_user_email(user_id='Jane_id', email='defaul@example.com')", "verify_user_field(user_id='Jane_id', field='email', expected_value='defaul@example.com')"],
-                    ["list_users()", "update_user_email(user_id='Jane_id', email='defaul@example.com')", "update_user_email(user_id='Jane_id', email='defaul@example.com')", "verify_user_field(user_id='Jane_id', field='email', expected_value='defaul@example.com')"],      
+                    ["list_users()", "update_user_email(user_id='John_id', email='default@example.com')", "update_user_email(user_id='Jane_id', email='default@example.com')", "verify_user_field(user_id='John_id', field='email', expected_value='default@example.com')"],
+                    ["list_users()", "update_user_email(user_id='Jane_id', email='default@example.com')", "update_user_email(user_id='John_id', email='default@example.com')", "verify_user_field(user_id='John_id', field='email', expected_value='default@example.com')"],
+                    ["list_users()", "update_user_email(user_id='John_id', email='default@example.com')", "update_user_email(user_id='Jane_id', email='default@example.com')", "verify_user_field(user_id='Jane_id', field='email', expected_value='default@example.com')"],
+                    ["list_users()", "update_user_email(user_id='Jane_id', email='default@example.com')", "update_user_email(user_id='John_id', email='default@example.com')", "verify_user_field(user_id='Jane_id', field='email', expected_value='default@example.com')"],
                     ],
             },
             {

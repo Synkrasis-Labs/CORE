@@ -9,7 +9,8 @@ import json
 import unittest
 from unittest.mock import Mock, patch
 
-from are_integration.live import BoundedOpenAIEngine, RequestBudgetExceeded, run_live, main
+from are_integration.live import BoundedOpenAIEngine, BoundedAgentConfigBuilder, RequestBudgetExceeded, run_live, main
+from are_integration.reporting import reply_delivery
 
 
 def model_response(content):
@@ -70,6 +71,7 @@ class ARELiveRunnerTests(unittest.TestCase):
     def test_valid_reply_is_delivered(self):
         summary = self.run_script()
         self.assertTrue(summary["reply_delivery"]["delivered"])
+        self.assertTrue(summary["reply_delivery"]["model_reply_delivered"])
         self.assertEqual(summary["reply_delivery"]["messages"][0]["content"], "66")
         self.assertEqual(summary["reply_delivery"]["attempts"][0]["status"], "ok")
 
@@ -166,6 +168,30 @@ class ARELiveRunnerTests(unittest.TestCase):
             engine.chat_completion([{"role": "user", "content": "again"}])
         self.assertEqual(fake_create.call_count, 1)
         self.assertTrue(engine.budget_exhausted)
+
+    def test_automatic_stop_is_not_a_model_reply(self):
+        content = 'Max iterations (6) reached. Stopping.'
+        attempt = {'tool_name':'AgentUserInterface__send_message_to_user',
+                   'requested_args':{'content':content},'status':'ok'}
+        result = reply_delivery([{'sender':'Agent','content':content}], [attempt],
+                                [{'log_type':'error','error':'MaxIterationsAgentError'}])
+        self.assertTrue(result['delivered'])
+        self.assertTrue(result['automatic_stop_delivered'])
+        self.assertFalse(result['model_reply_delivered'])
+
+    def test_json_instructions_and_literal_string_values_are_preserved(self):
+        config = BoundedAgentConfigBuilder(6).build('default').get_base_agent_config()
+        self.assertIn('content must be a JSON string', config.system_prompt)
+        self.assertNotIn('expected_sequences', config.system_prompt)
+        text = 'Thought: Reply.\nAction:\n' + json.dumps({
+            'action':'AgentUserInterface__send_message_to_user',
+            'action_input':{'content':'TrueName and FalsePassword'}}) + '<end_action>'
+        client = SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(
+            create=lambda **kwargs:model_response(text))))
+        engine = BoundedOpenAIEngine('offline','offline-test-key',max_requests=1,
+                    max_output_tokens=None,request_timeout=3,client=client)
+        content, _ = engine.chat_completion([{'role':'user','content':'reply'}])
+        self.assertEqual(content, text)
 
 
 if __name__ == "__main__":

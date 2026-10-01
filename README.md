@@ -1,5 +1,9 @@
 # Running experiments (WiP)
 
+For the ARE integration and revised full-path evaluation, see
+[verified repairs and offline commands](docs/ARE_REPAIRS.md). This version keeps
+historical legacy scores alongside the revised paper metrics.
+
 Start with the [session handoff](SESSION_HANDOFF.md) for Week 1 status and next
 steps, and [coverage report](docs/PAPER_WORLD_COVERAGE.md) for results. Run artifacts are included under `runs/`.
 
@@ -65,4 +69,3 @@ python3 run_experiments.py
 This will produce 2 `json` files for each model.
 1. `bfcl_results_<model_name>.json`: contains all the results (output sequences) from the BFCL-produced dataset.
 2. `results_<model_name>.json`: contains all the results (output sequences) from our own dataset.
-

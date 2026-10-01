@@ -17,6 +17,7 @@ from .agent import Agent
 from .core_computations import DATASET_PATH
 from .run_files import new_run_path
 from .toolset_builder import build_tool_schema
+from .dataset_identity import resolve_record
 
 ROOT = DATASET_PATH.parent
 REGISTRY = {module: name for name, module in _MODULES.items()}
@@ -68,7 +69,11 @@ def inventory():
         for task in world.prompts:
             pid = task["prompt_id"]
             known.add(pid)
-            matches = [r for r in dataset if r["prompt_id"] == pid]
+            try:
+                matches = [resolve_record(dataset, key, pid, task['prompt'] if key == 'transactions' else None)]
+                known.add(matches[0]['prompt_id'])
+            except ValueError:
+                matches = []
             reasons = []
             if len(matches) != 1 or matches[0]["world"] != key:
                 reasons.append("Missing, duplicate, or mismatched dataset record")
@@ -95,11 +100,9 @@ def prepare(key, pid):
         raise ValueError("Unknown or setup-dependent task")
     if key == "web_browsing":
         raise ValueError("Filesystem-backed world deferred")
-    records = [r for r in json.loads(DATASET_PATH.read_text(encoding="utf-8"))
-               if r["prompt_id"] == pid and r["world"] == key]
-    if len(records) != 1:
-        raise ValueError("Task must have one dataset record")
-    return world, tools, tasks[0], records[0]
+    record = resolve_record(json.loads(DATASET_PATH.read_text(encoding="utf-8")), key, pid,
+                            tasks[0]['prompt'] if key == 'transactions' else None)
+    return world, tools, tasks[0], record
 
 
 def run_task(llm, key, pid, *, max_requests=12):

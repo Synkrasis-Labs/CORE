@@ -41,7 +41,7 @@ class Validation(World):
                 "prompt_id": "validation_2",
                 "prompt": "Hash the password 'Yharnam' and validate that 'Hunter' does not match its hash.",
                 "setup_functions": [],
-                "expected_sequences": [["hash_password(password='Yharnam')", "check_password_hash(password='Hunter', '0a099edf6266ef30bc1f157a1cb2a0c8cdec45be4e7fbbff6c765949076ead14')"]]
+                "expected_sequences": [["hash_password(password='Yharnam')", "check_password_hash(password='Hunter', hashed_password='0a099edf6266ef30bc1f157a1cb2a0c8cdec45be4e7fbbff6c765949076ead14')"]]
             },
             {
                 "prompt_id": "validation_3",

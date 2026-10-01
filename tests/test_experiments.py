@@ -18,7 +18,8 @@ class SharedRunnerTests(unittest.TestCase):
         rows = inventory()
         self.assertEqual(set(REGISTRY), {r["world"] for r in rows})
         self.assertFalse([r for r in rows if r["status"] == "blocked_world"])
-        self.assertTrue(any(r["status"] == "dataset_only" for r in rows))
+        self.assertFalse(any(r["status"] == "dataset_only" for r in rows))
+        self.assertEqual(sum(r['world']=='transactions' and r['status']=='ready' for r in rows),12)
 
     def test_all_worlds_reset_and_have_independent_instances(self):
         for key in REGISTRY:
@@ -58,8 +59,10 @@ class SharedRunnerTests(unittest.TestCase):
         self.assertEqual(tools["Navigation__get_player_position"](), (0, 0))
         script = ReferenceScript("navigation", "navigation_1")
         result = run_task(script, "navigation", "navigation_1")
-        # Original Navigation reads grid_size from the wrong state location.
-        self.assertEqual(result["report"]["tool_errors"], 1)
+        self.assertEqual(result["report"]["tool_errors"], 0)
+        self.assertEqual(result['final_state']['player_position'], (2, 0))
+        self.assertEqual(tools['Navigation__move_right'](6), 'Move out of bounds.')
+        self.assertEqual(tools['Navigation__get_player_position'](), (0, 0))
 
     def test_reference_executes_real_methods(self):
         result = run_task(ReferenceScript("computations", "computations_1"), "computations", "computations_1")

@@ -1,2 +1,5 @@
-# Pinned framework version for the first CORE-to-ARE vertical slice.
+# Pinned framework version for the CORE-to-ARE scenario catalog.
 meta-agents-research-environments==1.2.0
+
+# Original Navigation decorators (same pin as Manos's shared runner).
+llm-tool==1.0.7

@@ -1,5 +1,15 @@
 # CORE → ARE smoke test
 
+For the latest code repairs, full-path metrics, and offline rescoring, see
+[verified repairs](ARE_REPAIRS.md). Historical smoke scores below use the
+unchanged legacy policy; future live artifacts also include revised evaluation.
+
+The current adapter registers all 77 of Manos's source tasks across 13 worlds;
+71 can initialize and six Web Browsing tasks require missing fixtures. See
+[ARE world coverage](ARE_WORLD_COVERAGE.md) for the complete inventory, offline
+commands, and validation limits. The sections below document the original two
+vertical slices and their live checkpoints.
+
 The first opt-in migration slice runs the original `computations_1`
 task in ARE, using CORE's existing arithmetic implementation. ARE owns the app,
 scenario, event ordering, and tool log. CORE's unchanged saved-trace evaluator
@@ -150,15 +160,15 @@ snapshot/load isolation, app reset, and fresh scenario instances. ARE's
 
 The bounded runner accepts `--scenario core_crud_2`. Live checks for this task
 are summarized below; final answer delivery remains unresolved.
-Do not treat this as migration of all CRUD tasks. Source `crud_3` reference email
+At that checkpoint only `crud_2` was migrated. The catalog expansion now adds
+all five CRUD tasks. Source `crud_3` reference email
 typos and duplicated updates remain untouched, along with other documented
 scenario defects. Original runner, worlds, mapper, and scorer are unchanged.
 
-The ARE-only virtual environment does not install the separate shared-runner
-`llm-tool` dependency from `requirements-experiments.txt`; full test discovery
-therefore has three Navigation-related failures. All 22 focused migration/evaluator checks and both ARE oracle scenarios pass.
-Full discovery ran 65 tests: 62 passed, with one failure and two errors caused
-by the missing Navigation dependency.
+The catalog expansion adds the shared runner's pinned `llm-tool==1.0.7`
+dependency to the ARE requirements for Navigation. Full discovery now passes
+all 73 tests, including the catalog checks; the earlier missing-dependency
+failures are resolved.
 
 ## CRUD live checkpoint (1 October 2026, Berlin time)
 

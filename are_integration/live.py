@@ -23,18 +23,15 @@ from openai import OpenAI
 
 from function_calling.evaluation import evaluate_artifact
 
-from .computations import CoreComputationsApp, CoreComputationsOne
-from .crud import CoreCRUDApp, CoreCRUDTwo
+from .computations import CoreComputationsApp
+from .catalog import scenario_bindings, task_catalog, ScenarioBlocked
 from .trace import core_artifact
 from .reporting import tool_attempts, reply_delivery
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-SCENARIOS = {
-    "core_computations_1": (CoreComputationsOne, CoreComputationsApp, "Computations", "computations_1",
-                            "Add 15 and 7, then multiply the result by 3."),
-    "core_crud_2": (CoreCRUDTwo, CoreCRUDApp, "CRUD", "crud_2", None),
-}
+
+SCENARIOS = scenario_bindings()
 
 
 class RequestBudgetExceeded(RuntimeError):
@@ -87,7 +84,6 @@ class BoundedOpenAIEngine(LiteLLMEngine):
         content = response.choices[0].message.content
         if content is None:
             raise ValueError("Model returned no text action")
-        content = content.replace("False", "false").replace("True", "true")
         for stop in stop_sequences or []:
             content = content.split(stop, 1)[0]
         return content, None
@@ -100,6 +96,18 @@ class BoundedAgentConfigBuilder(AgentConfigBuilder):
     def build(self, agent_name: str):
         config = super().build(agent_name)
         config.get_base_agent_config().max_iterations = self.max_iterations
+        config.get_base_agent_config().system_prompt += '''
+
+CORE tool protocol:
+Tool descriptions show argument schemas, not argument values to copy. Supply
+actual values in action_input. For a user reply, content must be a JSON string:
+Action:
+{"action":"AgentUserInterface__send_message_to_user","action_input":{"content":"The task is complete."}}<end_action>
+Never put a schema object with type/description/default inside content.
+Perform the operations requested by the user using the world tools, including
+intermediate operations. Send the final reply only after the task operations.
+If a call fails, retain that failure and report the limitation honestly.
+'''
         return config
 
 
@@ -164,6 +172,8 @@ def run_live(*, model: str, api_key: str, output_dir: Path,
     if scenario_id not in SCENARIOS:
         raise ValueError(f"Unsupported scenario: {scenario_id}")
     scenario_class, app_class, world, prompt_id, prompt = SCENARIOS[scenario_id]
+    if task_catalog()[scenario_id].blocked_reason:
+        raise ScenarioBlocked(task_catalog()[scenario_id].blocked_reason)
     if output_dir.exists() and any(output_dir.iterdir()):
         raise FileExistsError(f"Output directory is not empty: {output_dir}")
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -211,7 +221,9 @@ def run_live(*, model: str, api_key: str, output_dir: Path,
             "exception": str(result.exception) if result.exception else None,
             "duration_seconds": result.duration,
         },
-        "reply_delivery": reply_delivery(runner.messages, attempts),
+        "reply_delivery": reply_delivery(runner.messages, attempts, logs),
+        "paper_evaluation": evaluate_artifact(artifact, policy="paper"),
+        "agent_protocol_version": "core-are-json-v2",
         "tool_attempts": attempts,
         "agent_logs": logs,
         "are_trace": result.export_path,
@@ -260,6 +272,7 @@ def main() -> int:
     print(json.dumps({
         "are_state_success": summary["are_validation"]["success"],
         "reply_delivered": summary["reply_delivery"]["delivered"],
+        "model_reply_delivered": summary["reply_delivery"].get("model_reply_delivered"),
         "requests_made": summary["requests_made"],
         "request_budget_exhausted": summary["request_budget_exhausted"],
         "core_score": summary["evaluation"]["score"],
@@ -267,7 +280,7 @@ def main() -> int:
         "output": str(output_dir / "run.json"),
     }, indent=2))
     return 0 if (summary["are_validation"]["success"] is True
-                 and summary["reply_delivery"]["delivered"]
+                 and summary["reply_delivery"].get("model_reply_delivered", summary["reply_delivery"]["delivered"])
                  and not summary["are_validation"]["exception"]) else 1
 
 
