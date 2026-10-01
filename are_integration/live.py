@@ -1,4 +1,4 @@
-"""Run one bounded ARE agent on CORE computations_1 and score its tool path.
+"""Run one bounded ARE agent on a migrated CORE task and score its tool path.
 
 No model request is made by importing this module or using --help.
 """
@@ -15,6 +15,7 @@ from are.simulation.agents.llm.litellm.litellm_engine import (
     LiteLLMEngine,
     LiteLLMModelConfig,
 )
+from are.simulation.apps.agent_user_interface import AgentUserInterface
 from are.simulation.scenario_runner import ScenarioRunner
 from are.simulation.scenarios.config import ScenarioRunnerConfig
 from dotenv import dotenv_values
@@ -23,10 +24,17 @@ from openai import OpenAI
 from function_calling.evaluation import evaluate_artifact
 
 from .computations import CoreComputationsApp, CoreComputationsOne
+from .crud import CoreCRUDApp, CoreCRUDTwo
 from .trace import core_artifact
+from .reporting import tool_attempts, reply_delivery
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
+SCENARIOS = {
+    "core_computations_1": (CoreComputationsOne, CoreComputationsApp, "Computations", "computations_1",
+                            "Add 15 and 7, then multiply the result by 3."),
+    "core_crud_2": (CoreCRUDTwo, CoreCRUDApp, "CRUD", "crud_2", None),
+}
 
 
 class RequestBudgetExceeded(RuntimeError):
@@ -34,10 +42,10 @@ class RequestBudgetExceeded(RuntimeError):
 
 
 class BoundedOpenAIEngine(LiteLLMEngine):
-    """ARE's text-action model interface with a hard request and output cap."""
+    """ARE text-action interface with a hard request cap and optional output cap."""
 
     def __init__(self, model: str, api_key: str, *, max_requests: int,
-                 max_output_tokens: int, request_timeout: float, client=None):
+                 max_output_tokens: int | None, request_timeout: float, client=None):
         super().__init__(LiteLLMModelConfig(
             model_name=model, provider="openai",
             endpoint="https://api.openai.com/v1", api_key=api_key,
@@ -58,18 +66,23 @@ class BoundedOpenAIEngine(LiteLLMEngine):
             self.budget_exhausted = True
             raise RequestBudgetExceeded(f"Model request limit reached ({self.max_requests})")
         self.requests_made += 1  # Count attempts, including provider errors.
-        response = self.client.chat.completions.create(
-            model=self.model_config.model_name,
-            messages=[self._convert_message_to_litellm_format(m) for m in messages],
-            max_completion_tokens=self.max_output_tokens,
-            timeout=self.request_timeout,
-        )
+        request = {
+            "model": self.model_config.model_name,
+            "messages": [self._convert_message_to_litellm_format(m) for m in messages],
+            "timeout": self.request_timeout,
+        }
+        if self.max_output_tokens is not None:
+            request["max_completion_tokens"] = self.max_output_tokens
+        response = self.client.chat.completions.create(**request)
         if getattr(response, "usage", None) is not None:
             usage = response.usage
             self.usage.append({
                 "prompt_tokens": getattr(usage, "prompt_tokens", None),
                 "completion_tokens": getattr(usage, "completion_tokens", None),
                 "total_tokens": getattr(usage, "total_tokens", None),
+                "reasoning_tokens": getattr(
+                    getattr(usage, "completion_tokens_details", None), "reasoning_tokens", None),
+                "finish_reason": getattr(response.choices[0], "finish_reason", None),
             })
         content = response.choices[0].message.content
         if content is None:
@@ -106,25 +119,33 @@ class BoundedAgentBuilder(AgentBuilder):
     def __init__(self, engine: BoundedOpenAIEngine, max_iterations: int):
         super().__init__(llm_engine_builder=OpenAIEngineBuilder(engine))
         self.max_iterations = max_iterations
+        self.agent = None
 
     def build(self, agent_config, env=None, mock_responses=None):
         agent = super().build(agent_config, env=env, mock_responses=mock_responses)
         agent.max_iterations = self.max_iterations
         agent.react_agent.max_iterations = self.max_iterations
+        self.agent = agent
         return agent
 
 
 class TraceCapturingScenarioRunner(ScenarioRunner):
     """Capture the in-memory ARE events before its runner stops the environment."""
 
-    def __init__(self, **kwargs):
+    def __init__(self, *, app_class=CoreComputationsApp, **kwargs):
         super().__init__(**kwargs)
+        self.app_class = app_class
         self.events = []
         self.final_state = None
+        self.messages = []
 
     def _export_trace(self, env, scenario, *args, **kwargs):
         self.events = env.event_log.list_view()
-        self.final_state = scenario.get_typed_app(CoreComputationsApp).get_state()
+        self.final_state = scenario.get_typed_app(self.app_class).get_state()
+        self.messages = [
+            {"sender": m.sender.value, "content": m.content, "id": m.id}
+            for m in scenario.get_typed_app(AgentUserInterface).messages
+        ]
         return super()._export_trace(env, scenario, *args, **kwargs)
 
 
@@ -136,9 +157,13 @@ def load_api_key() -> str:
 
 
 def run_live(*, model: str, api_key: str, output_dir: Path,
-             max_requests: int = 6, max_output_tokens: int = 256,
-             request_timeout: float = 30.0, engine: BoundedOpenAIEngine | None = None):
+             max_requests: int = 6, max_output_tokens: int | None = 256,
+             request_timeout: float = 30.0, engine: BoundedOpenAIEngine | None = None,
+             scenario_id: str = "core_computations_1"):
     """Execute one agent turn; save ARE's raw export plus CORE's evaluation."""
+    if scenario_id not in SCENARIOS:
+        raise ValueError(f"Unsupported scenario: {scenario_id}")
+    scenario_class, app_class, world, prompt_id, prompt = SCENARIOS[scenario_id]
     if output_dir.exists() and any(output_dir.iterdir()):
         raise FileExistsError(f"Output directory is not empty: {output_dir}")
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -146,20 +171,28 @@ def run_live(*, model: str, api_key: str, output_dir: Path,
         model, api_key, max_requests=max_requests,
         max_output_tokens=max_output_tokens, request_timeout=request_timeout,
     )
+    agent_builder = BoundedAgentBuilder(engine, max_requests)
     runner = TraceCapturingScenarioRunner(
+        app_class=app_class,
         agent_config_builder=BoundedAgentConfigBuilder(max_requests),
-        agent_builder=BoundedAgentBuilder(engine, max_requests),
+        agent_builder=agent_builder,
     )
-    scenario = CoreComputationsOne()
+    scenario = scenario_class()
     scenario.initialize()
+    if prompt is None:
+        prompt = scenario.core_task["prompt"]
     result = runner.run(ScenarioRunnerConfig(
         model=model, model_provider="openai", agent="default",
         oracle=False, export=True, output_dir=str(output_dir), max_turns=1,
         wait_for_user_input_timeout=request_timeout,
     ), scenario)
+    logs = ([log.to_dict() for log in agent_builder.agent.react_agent.get_agent_logs()]
+            if agent_builder.agent is not None else [])
+    attempts = tool_attempts(logs, runner.events)
     artifact = core_artifact(
         runner.events, runner.final_state,
-        driver=f"ARE default agent; OpenAI {model}",
+        driver=f"ARE default agent; OpenAI {model}", attempts=attempts,
+        world=world, app_class=app_class.__name__, prompt_id=prompt_id, prompt=prompt,
     )
     evaluation = evaluate_artifact(artifact)
     summary = {
@@ -178,6 +211,9 @@ def run_live(*, model: str, api_key: str, output_dir: Path,
             "exception": str(result.exception) if result.exception else None,
             "duration_seconds": result.duration,
         },
+        "reply_delivery": reply_delivery(runner.messages, attempts),
+        "tool_attempts": attempts,
+        "agent_logs": logs,
         "are_trace": result.export_path,
         "artifact": artifact,
         "evaluation": evaluation,
@@ -202,6 +238,7 @@ def positive_int(value: str) -> int:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--scenario", choices=SCENARIOS, default="core_computations_1")
     parser.add_argument("--model", default="gpt-4.1-nano")
     parser.add_argument("--max-requests", type=positive_int, default=6)
     parser.add_argument("--max-output-tokens", type=positive_int, default=256)
@@ -210,25 +247,28 @@ def main() -> int:
     args = parser.parse_args()
     if args.request_timeout <= 0:
         parser.error("--request-timeout must be positive")
-    output_dir = args.output_dir or (REPO_ROOT / "runs" / "are" / "computations_1" /
+    output_dir = args.output_dir or (REPO_ROOT / "runs" / "are" / SCENARIOS[args.scenario][3] /
                                      datetime.now(timezone.utc).strftime("%Y-%m-%d_%H%M%S_%fZ"))
     try:
         summary = run_live(
-            model=args.model, api_key=load_api_key(), output_dir=output_dir,
+            model=args.model, api_key=load_api_key(), output_dir=output_dir, scenario_id=args.scenario,
             max_requests=args.max_requests, max_output_tokens=args.max_output_tokens,
             request_timeout=args.request_timeout,
         )
     except (ValueError, FileExistsError) as error:
         parser.error(str(error))
     print(json.dumps({
-        "are_success": summary["are_validation"]["success"],
+        "are_state_success": summary["are_validation"]["success"],
+        "reply_delivered": summary["reply_delivery"]["delivered"],
         "requests_made": summary["requests_made"],
         "request_budget_exhausted": summary["request_budget_exhausted"],
         "core_score": summary["evaluation"]["score"],
         "core_status": summary["evaluation"]["status"],
         "output": str(output_dir / "run.json"),
     }, indent=2))
-    return 1 if summary["are_validation"]["exception"] else 0
+    return 0 if (summary["are_validation"]["success"] is True
+                 and summary["reply_delivery"]["delivered"]
+                 and not summary["are_validation"]["exception"]) else 1
 
 
 if __name__ == "__main__":
